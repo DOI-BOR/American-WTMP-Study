@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Folsom_FWA_FullNet7">
+  <Description>
+    <desc cnt="0" value="Copy of Folsom_FWA_Example" />
+  </Description>
+  <ScriptFile>scripts/Folsom_ResSim_FWA.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+  <DataLocations>
+    <DataLocation Name="Fol_Pen_1_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_1_Flow/Flow//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Model="ResSim-WQFol7" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Flow//1HOUR/C:000000|altName:apName:ResSim-WQFol7/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="WQFol7" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_1_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_1_Temp/Temp//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Model="ResSim-WQFol7" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-WQFol7/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="WQFol7" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_2_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_2_Flow/Flow//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Model="ResSim-WQFol7" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Flow//1HOUR/C:000000|altName:apName:ResSim-WQFol7/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="WQFol7" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_2_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_2_Temp/Temp//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Model="ResSim-WQFol7" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-WQFol7/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="WQFol7" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_3_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_3_Flow/Flow//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Model="ResSim-WQFol7" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3/Flow//1HOUR/C:000000|altName:apName:ResSim-WQFol7/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="WQFol7" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_3_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_3_Temp/Temp//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Model="ResSim-WQFol7" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-WQFol7/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="WQFol7" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+  </DataLocations>
+  <OutputDataLocations>
+    <DataLocation Name="Folsom_FWA_Outlet" Class="hec2.model.DataLocation" DssPath="//Folsom_FWA_Outlet/Water Temperature//1HOUR/alt:ap:Scripting-Folsom_FWA_FullNet7/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Folsom_FWA_FullNet7" Program="Scripting" />
+    </DataLocation>
+  </OutputDataLocations>
+</ScriptingAlt>
+

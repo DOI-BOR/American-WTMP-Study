@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="2001-2022">
+  <Description />
+  <AnalysisPeriod>2001-2020</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>Fullperiod-2001-2022</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <isIterative>false</isIterative>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+    </Simulation>
+  </Simulations>
+</SimulationGroup>
+

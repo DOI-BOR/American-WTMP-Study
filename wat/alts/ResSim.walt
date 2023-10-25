@@ -1,0 +1,6 @@
+WatAlternative
+Name=ResSim
+Description=ResSim simulations with predictive/forecast operations at Folsom Dam
+AlignmentName=Stream Alignment
+ConditionId=4
+NextNodeIndex=0

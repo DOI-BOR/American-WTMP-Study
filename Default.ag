@@ -1,0 +1,26 @@
+AsciiSerializer=5
+{=hec2.wat.model.WatAnalysisGroup
+ID=0
+FLD=_index
+I=-2147483648
+FLD=_name
+STR=Default
+FLD=_description
+STR=Default AnalysisGroup
+FLD=_lastModifiedTime
+J=1655412810525
+FLD=_createdBy
+STR=tom
+FLD=_createdDate
+J=1655412810525
+FLD=_startTime
+hec.heclib.util.HecTime=-2147483647,1
+FLD=_endTime
+hec.heclib.util.HecTime=-2147483647,1
+FLD=_analysisItems
+{=java.util.ArrayList
+ID=1
+}
+FLD=_hasbase
+Z=false
+}

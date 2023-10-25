@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="2001-2020">
+  <Description />
+  <AnalysisPeriod>2001-2020</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>FullNet7-2001-2020</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+  </Simulations>
+</SimulationGroup>
+

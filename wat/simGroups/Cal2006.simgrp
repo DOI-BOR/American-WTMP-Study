@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="Cal2006">
+  <Description />
+  <AnalysisPeriod>2006</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>06-Cal2006</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <isIterative>false</isIterative>
+        <maxMember>10</maxMember>
+        <MembersToCompute>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="1,2" />
+          </intArray>
+        </MembersToCompute>
+        <ModelAlternativeSettings>
+          <IterationSetting>
+            <ModelAlternative>ResSim-WQFol7</ModelAlternative>
+            <DataLocations>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Folsom Point (Dyke 8)-Cloudiness" Class="hec2.model.DataLocation" Description="MetStation:Folsom Point (Dyke 8), MetData:MDS1_Net7" DssPath="/AMERICAN/MATHER AFB/CLOUD//1Hour/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Cloudiness" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="MATHER AFB" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/MATHER AFB/CLOUD//1Hour/NWS-CARDNO/" ComputeType="Computed" Parameter="CLOUD" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Mormon Ravine and Newcastle PH" Class="hec2.model.DataLocation" DssPath="/11425416/NEWCASTLE PP + MORMON RAVINE/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="NEWCASTLE PP + MORMON RAVINE" Class="hec2.model.DssDataLocation" DssPath="/11425416/NEWCASTLE PP + MORMON RAVINE/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflows_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Auxiliary Spillway" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Sum Auxiliary Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Sum Auxiliary Spillway" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Sum Auxiliary Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-EID Supply Intake" Class="hec2.model.DataLocation" DssPath="//EID/FLOW//1HOUR/USGS-CARDNO-MERGED/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="EID" Class="hec2.model.DssDataLocation" DssPath="//EID/FLOW//1HOUR/USGS-CARDNO-MERGED/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflows_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Lake Natoma-Gated Spillway" Class="hec2.model.DataLocation" DssPath="/NATOMA/SPILL RELEASE/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="SPILL RELEASE" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/SPILL RELEASE/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 6 Gen Release U3/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Flow 6 Gen Release U3" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 6 Gen Release U3/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Emergency Spillway" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Sum Emergency Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Sum Emergency Spillway" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Sum Emergency Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Pool" Class="hec2.model.DataLocation" DssPath="/FOLSOM RESERVOIR/Evaporation/EVAP//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Evap" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Evaporation" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM RESERVOIR/Evaporation/EVAP//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="EVAP" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_data_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Balance Flows" Class="hec2.model.DataLocation" DssPath="/FOLSOM RESERVOIR/BALANCE FLOW MINRR-3DAYAVE/FLOW//1DAY/DERIVED-CONIC INTERP/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="BALANCE FLOW MINRR-3DAYAVE" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM RESERVOIR/BALANCE FLOW MINRR-3DAYAVE/FLOW//1DAY/DERIVED-CONIC INTERP/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_balance_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Natoma balance flows" Class="hec2.model.DataLocation" DssPath="/NATOMA/BALANCE FLOW MINRR 3HRAVE/FLOW//1HOUR/DERIVED-CONIC INTERP/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="BALANCE FLOW MINRR 3HRAVE" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/BALANCE FLOW MINRR 3HRAVE/FLOW//1HOUR/DERIVED-CONIC INTERP/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_balance_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Fair Oaks CIMIS-Shortwave Radiation" Class="hec2.model.DataLocation" Description="MetStation:Fair Oaks CIMIS, MetData:MDS1_Net7" DssPath="/AMERICAN/MATHER AFB CC THEORETICAL/SOLRAD//1HOUR/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Shortwave Radiation" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="MATHER AFB CC THEORETICAL" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/MATHER AFB CC THEORETICAL/SOLRAD//1HOUR/NWS-CARDNO/" ComputeType="Computed" Parameter="SOLRAD" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Folsom Point (Dyke 8)-Humidity" Class="hec2.model.DataLocation" Description="MetStation:Folsom Point (Dyke 8), MetData:MDS1_Net7" DssPath="/AMERICAN/FAIR OAKS/TEMP-DEWPT//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Humidity" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/FAIR OAKS/TEMP-DEWPT//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Parameter="TEMP-DEWPT" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(BC)-Mormon Ravine In - Mormon Ravine and Newcastle PH" Class="hec2.model.DataLocation" Description="SubDomainBoundary:Mormon Ravine In - Mormon Ravine and Newcastle PH, BoundaryConditionSetManager:BCS1_Net7" DssPath="/11433790/NF AMERICAN TEMP/TEMP-WATER//1HOUR/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="NF AMERICAN TEMP" Class="hec2.model.DssDataLocation" DssPath="/11433790/NF AMERICAN TEMP/TEMP-WATER//1HOUR/USGS-CARDNO/" ComputeType="Computed" Parameter="TEMP-WATER" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflow_temps_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Lower River Gates" Class="hec2.model.DataLocation" DssPath="/FOLSOM/SUM LOWER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN8/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="SUM LOWER RIVER OUTLETS" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/SUM LOWER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN8/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Lake Natoma-Controlled Outlet" Class="hec2.model.DataLocation" DssPath="/NATOMA/GEN RELEASE TOTAL/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="GEN RELEASE TOTAL" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/GEN RELEASE TOTAL/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Fair Oaks CIMIS-Air Temperature" Class="hec2.model.DataLocation" Description="MetStation:Fair Oaks CIMIS, MetData:MDS1_Net7" DssPath="/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Air Temperature" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/CIMIS-CARDNO/" ComputeType="Computed" Parameter="TEMP-AIR" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Sacramento Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="EA FAIRBAIRN WTP (SACRAMENTO)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_withdrawals_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Service Spillway" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Sum Service Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Sum Service Spillway" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Sum Service Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Pool" Class="hec2.model.DataLocation" DssPath="/FOLSOM RESERVOIR/Level/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Elevation" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Level" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM RESERVOIR/Level/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_data_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Lake Natoma-Hatchery Withdrawal" Class="hec2.model.DataLocation" DssPath="/NATOMA/FISH HATCHERY FLOW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FISH HATCHERY FLOW" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/FISH HATCHERY FLOW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Upper River Gates" Class="hec2.model.DataLocation" DssPath="/FOLSOM/SUM UPPER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN4/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="SUM UPPER RIVER OUTLETS" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/SUM UPPER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN4/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Lake Natoma-Pool" Class="hec2.model.DataLocation" DssPath="/NATOMA/NATOMA POOL/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Elevation" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="NATOMA POOL" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/NATOMA POOL/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Natoma_data_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="CBR Flow" Class="hec2.model.DataLocation" DssPath="/11444500/SF AMERICAN/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="SF AMERICAN" Class="hec2.model.DssDataLocation" DssPath="/11444500/SF AMERICAN/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflows_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Fair Oaks CIMIS-Humidity" Class="hec2.model.DataLocation" Description="MetStation:Fair Oaks CIMIS, MetData:MDS1_Net7" DssPath="/AMERICAN/FAIR OAKS/TEMP-DEWPT//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Humidity" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/FAIR OAKS/TEMP-DEWPT//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Parameter="TEMP-DEWPT" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Fair Oaks CIMIS-Cloudiness" Class="hec2.model.DataLocation" Description="MetStation:Fair Oaks CIMIS, MetData:MDS1_Net7" DssPath="/AMERICAN/MATHER AFB/CLOUD//1Hour/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Cloudiness" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="MATHER AFB" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/MATHER AFB/CLOUD//1Hour/NWS-CARDNO/" ComputeType="Computed" Parameter="CLOUD" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Fair Oaks CIMIS-Wind Speed" Class="hec2.model.DataLocation" Description="MetStation:Fair Oaks CIMIS, MetData:MDS1_Net7" DssPath="/AMERICAN/FAIR OAKS/SPEED-WIND//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Wind Speed" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/FAIR OAKS/SPEED-WIND//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Parameter="SPEED-WIND" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="NF+MF-ARPP Flows" Class="hec2.model.DataLocation" DssPath="/11427000/NF + MF - ARPP/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="NF + MF - ARPP" Class="hec2.model.DssDataLocation" DssPath="/11427000/NF + MF - ARPP/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflows_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Folsom Point (Dyke 8)-Air Temperature" Class="hec2.model.DataLocation" Description="MetStation:Folsom Point (Dyke 8), MetData:MDS1_Net7" DssPath="/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Air Temperature" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/CIMIS-CARDNO/" ComputeType="Computed" Parameter="TEMP-AIR" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile>shared/American_met_6.dss</DssFile>
+                <DssPath>/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/C:000001|CIMIS-CARDNO/</DssPath>
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(BC)-NFA - NF+MF-ARPP Flows" Class="hec2.model.DataLocation" Description="SubDomainBoundary:NFA - NF+MF-ARPP Flows, BoundaryConditionSetManager:BCS1_Net7" DssPath="/11433790/NF American temp/TEMP-WATER//1Hour/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="NF American temp" Class="hec2.model.DssDataLocation" DssPath="/11433790/NF American temp/TEMP-WATER//1Hour/USGS-CARDNO/" ComputeType="Computed" Parameter="TEMP-WATER" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflow_temps_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Carmichael Water Intake-Cntrl" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Diversion" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="BAJAMONT WTP (CARMICHAEL)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_withdrawals_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 5 Gen Release U2/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Flow 5 Gen Release U2" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 5 Gen Release U2/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(BC)-SF AMR NR Pilot Hill - CBR Flow" Class="hec2.model.DataLocation" Description="SubDomainBoundary:SF AMR NR Pilot Hill - CBR Flow, BoundaryConditionSetManager:BCS1_Net7" DssPath="/11446030/SF American temp/TEMP-WATER//1Hour/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="SF American temp" Class="hec2.model.DssDataLocation" DssPath="/11446030/SF American temp/TEMP-WATER//1Hour/USGS-CARDNO/" ComputeType="Computed" Parameter="TEMP-WATER" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflow_temps_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Lake Natoma-Folsom South Outlet" Class="hec2.model.DataLocation" DssPath="/NATOMA/FLOW 1 SOUTH CANAL DIVERSION FLW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FLOW 1 SOUTH CANAL DIVERSION FLW" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/FLOW 1 SOUTH CANAL DIVERSION FLW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Ungaged Inflows" Class="hec2.model.DataLocation" DssPath="/ZEROS/ZEROS/FLOW//1DAY/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="/ZEROS/ZEROS/FLOW//1DAY/ZEROS/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflows_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Sacramento Water Intake-Cntrl" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1Day/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Diversion" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="EA FAIRBAIRN WTP (SACRAMENTO)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1Day/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_withdrawals_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(BC)-NFA - Folsom Ungaged Inflows" Class="hec2.model.DataLocation" Description="SubDomainBoundary:NFA - Folsom Ungaged Inflows, BoundaryConditionSetManager:BCS1_Net7" DssPath="/11433790/NF American temp/TEMP-WATER//1Hour/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="NF American temp" Class="hec2.model.DssDataLocation" DssPath="/11433790/NF American temp/TEMP-WATER//1Hour/USGS-CARDNO/" ComputeType="Computed" Parameter="TEMP-WATER" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_inflow_temps_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Folsom Point (Dyke 8)-Shortwave Radiation" Class="hec2.model.DataLocation" Description="MetStation:Folsom Point (Dyke 8), MetData:MDS1_Net7" DssPath="/AMERICAN/MATHER AFB CC THEORETICAL/SOLRAD//1HOUR/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Shortwave Radiation" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="MATHER AFB CC THEORETICAL" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/MATHER AFB CC THEORETICAL/SOLRAD//1HOUR/NWS-CARDNO/" ComputeType="Computed" Parameter="SOLRAD" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Muni Supply Intake" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 3 Pumping Plant Release/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Flow 3 Pumping Plant Release" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 3 Pumping Plant Release/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Carmichael Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="BAJAMONT WTP (CARMICHAEL)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_withdrawals_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 4 Gen Release U1/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="Flow 4 Gen Release U1" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 4 Gen Release U1/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/Folsom_releases_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+              <DataLocationSetting>
+                <DataLocation Name="WQ(Met)-Folsom Point (Dyke 8)-Wind Speed" Class="hec2.model.DataLocation" Description="MetStation:Folsom Point (Dyke 8), MetData:MDS1_Net7" DssPath="/AMERICAN/FOLSOM DYKE 8/SPEED-WIND//1Hour/NWS-CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Wind Speed" OutOfDate="false" PrevModelIndex="0">
+                  <ModelAlternative Name="WQFol7" Program="ResSim" />
+                  <DownStreamLocation>
+                    <DataLocation Name="FOLSOM DYKE 8" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN/FOLSOM DYKE 8/SPEED-WIND//1Hour/NWS-CDEC-CARDNO/" ComputeType="Computed" Parameter="SPEED-WIND" OutOfDate="false" PrevModelIndex="0">
+                      <DssFile>shared/American_met_6.dss</DssFile>
+                    </DataLocation>
+                  </DownStreamLocation>
+                </DataLocation>
+                <DssFile />
+                <DssPath />
+              </DataLocationSetting>
+            </DataLocations>
+          </IterationSetting>
+        </ModelAlternativeSettings>
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+    </Simulation>
+  </Simulations>
+</SimulationGroup>
+

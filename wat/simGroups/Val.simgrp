@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="Val">
+  <Description />
+  <Simulations>
+    <Simulation>
+      <Name>18-20-Val</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+  </Simulations>
+  <ComputeTypes />
+</SimulationGroup>
+

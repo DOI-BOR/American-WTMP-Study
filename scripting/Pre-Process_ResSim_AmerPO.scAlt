@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Pre-Process_ResSim_AmerPO">
+  <Description>
+    <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
+  </Description>
+  <ScriptFile>scripts/Pre-Process_ResSim_AmerPO.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+</ScriptingAlt>
+
