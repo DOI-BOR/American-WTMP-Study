@@ -1,0 +1,6 @@
+WatAlternative
+Name=ResSim Prescribed
+Description=ResSim American simulations with prescribed Folsom operations
+AlignmentName=Stream Alignment
+ConditionId=3
+NextNodeIndex=0

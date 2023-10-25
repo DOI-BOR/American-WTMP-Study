@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="cal-12-14">
+  <Description />
+  <AnalysisPeriod>2012-2014</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>Fullnet7-2014-12-cal-12-14</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+  </Simulations>
+</SimulationGroup>
+

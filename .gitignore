@@ -1,0 +1,11 @@
+runs/
+layouts/
+**/*.bak
+**/*.bak.*
+**/*.log
+**/*.wqEngineLog
+**/*.h5
+hms/*.out
+*.access
+*.sty.access
+*/.access

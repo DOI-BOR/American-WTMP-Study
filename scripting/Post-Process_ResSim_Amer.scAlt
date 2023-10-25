@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Post-Process_ResSim_Amer">
+  <Description>
+    <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
+  </Description>
+  <ScriptFile>scripts/Post-Process_ResSim_Amer.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+  <DataLocations>
+    <DataLocation Name="Fol_Pen_1_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_1_Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_1_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_1_Temp/Temp//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_2_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_2_Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_2_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_2_Temp/Temp//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_3_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_3_Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="Fol_Pen_3_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_3_Temp/Temp//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+  </DataLocations>
+  <OutputDataLocations>
+    <DataLocation Name="Folsom_FWA_Outlet" Class="hec2.model.DataLocation" DssPath="//Folsom_FWA_Outlet/Water Temperature//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+    </DataLocation>
+  </OutputDataLocations>
+</ScriptingAlt>
+

@@ -1,0 +1,74 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [ {
+    "type" : "Feature",
+    "properties" : {
+      "elevation" : 0.0,
+      "latitude" : 38.5,
+      "description" : "Not the real Mather Field met station",
+      "streamStation" : 96701.27968289118,
+      "streamName" : "American River",
+      "nearestMeridian" : -120,
+      "isObservedStation" : false,
+      "labelposition" : "EAST",
+      "snapToStreamElement" : false,
+      "locationId" : "",
+      "name" : "Mather",
+      "isMetStation" : true,
+      "longitude" : -121.33
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 6774708.455378069, 1980234.0060254696 ]
+    },
+    "latitude" : 38.5,
+    "longitude" : -121.33,
+    "labelPosition" : "EAST"
+  }, {
+    "type" : "Feature",
+    "properties" : {
+      "elevation" : 270.0,
+      "latitude" : 38.649964,
+      "description" : "",
+      "streamStation" : 0.0,
+      "streamName" : "",
+      "nearestMeridian" : -120,
+      "isObservedStation" : false,
+      "labelposition" : "EAST",
+      "snapToStreamElement" : false,
+      "locationId" : "",
+      "name" : "Fair Oaks CIMIS",
+      "isMetStation" : true,
+      "longitude" : -121.21887
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 6784250.121519861, 1999942.2811065593 ]
+    },
+    "latitude" : 38.649964,
+    "longitude" : -121.21887,
+    "labelPosition" : "EAST"
+  }, {
+    "type" : "Feature",
+    "properties" : {
+      "labelposition" : "EAST",
+      "name" : "Folsom Point (Dyke 8)",
+      "description" : "",
+      "streamStation" : 0.0,
+      "streamName" : "",
+      "isMetStation" : true,
+      "longitude" : 0.0,
+      "latitude" : 0.0
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 6810156.053437341, 2015607.0502349692 ]
+    },
+    "latitude" : 0.0,
+    "longitude" : 0.0,
+    "labelPosition" : "EAST"
+  } ],
+  "name" : "StationSet",
+  "id" : 0,
+  "description" : ""
+}
