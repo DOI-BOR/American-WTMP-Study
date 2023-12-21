@@ -5,219 +5,11 @@
     <ModelAlternative Program="ResSim" Name="RSAmerPO" File="rss/RSAmerPO.ralt">
       <Description />
       <DataLocations>
-        <DataLocation Name="CBR Flow" Class="hec2.model.DataLocation" DssPath="/11444500/SF AMERICAN/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="SF AMERICAN" Class="hec2.model.DssDataLocation" DssPath="/11444500/SF AMERICAN/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_inflows_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="NF+MF-ARPP Flows" Class="hec2.model.DataLocation" DssPath="/11427000/NF + MF - ARPP/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="NF + MF - ARPP" Class="hec2.model.DssDataLocation" DssPath="/11427000/NF + MF - ARPP/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_inflows_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Balance Flows" Class="hec2.model.DataLocation" DssPath="/FOLSOM RESERVOIR/BALANCE FLOW MINRR-3DAYAVE/FLOW//1DAY/DERIVED-CONIC INTERP/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="BALANCE FLOW MINRR-3DAYAVE" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM RESERVOIR/BALANCE FLOW MINRR-3DAYAVE/FLOW//1DAY/DERIVED-CONIC INTERP/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_balance_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Ungaged Inflows" Class="hec2.model.DataLocation" DssPath="/ZEROS/ZEROS/FLOW//1DAY/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="/ZEROS/ZEROS/FLOW//1DAY/ZEROS/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_inflows_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Mormon Ravine and Newcastle PH" Class="hec2.model.DataLocation" DssPath="/11425416/NEWCASTLE PP + MORMON RAVINE/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="NEWCASTLE PP + MORMON RAVINE" Class="hec2.model.DssDataLocation" DssPath="/11425416/NEWCASTLE PP + MORMON RAVINE/FLOW//1DAY/USGS-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_inflows_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Natoma balance flows" Class="hec2.model.DataLocation" DssPath="/NATOMA/BALANCE FLOW MINRR 3HRAVE/FLOW//1HOUR/DERIVED-CONIC INTERP/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="BALANCE FLOW MINRR 3HRAVE" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/BALANCE FLOW MINRR 3HRAVE/FLOW//1HOUR/DERIVED-CONIC INTERP/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_balance_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Pool" Class="hec2.model.DataLocation" DssPath="/FOLSOM RESERVOIR/Level/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Elevation" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Level" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM RESERVOIR/Level/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_data_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Pool" Class="hec2.model.DataLocation" DssPath="/FOLSOM RESERVOIR/Evaporation/EVAP//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Evap" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Evaporation" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM RESERVOIR/Evaporation/EVAP//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="EVAP" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_data_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Service Spillway" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Sum Service Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Sum Service Spillway" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Sum Service Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 4 Gen Release U1/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Flow 4 Gen Release U1" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 4 Gen Release U1/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 5 Gen Release U2/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Flow 5 Gen Release U2" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 5 Gen Release U2/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 6 Gen Release U3/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Flow 6 Gen Release U3" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 6 Gen Release U3/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Upper River Gates" Class="hec2.model.DataLocation" DssPath="/FOLSOM/SUM UPPER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN4/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="SUM UPPER RIVER OUTLETS" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/SUM UPPER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN4/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Lower River Gates" Class="hec2.model.DataLocation" DssPath="/FOLSOM/SUM LOWER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN8/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="SUM LOWER RIVER OUTLETS" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/SUM LOWER RIVER OUTLETS/FLOW//1HOUR/CDEC-CARDNO-MIN8/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Auxiliary Spillway" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Sum Auxiliary Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Sum Auxiliary Spillway" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Sum Auxiliary Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Emergency Spillway" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Sum Emergency Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Sum Emergency Spillway" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Sum Emergency Spillway/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Lake-Muni Supply Intake" Class="hec2.model.DataLocation" DssPath="/FOLSOM/Flow 3 Pumping Plant Release/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="Flow 3 Pumping Plant Release" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM/Flow 3 Pumping Plant Release/FLOW//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Folsom_releases_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
         <DataLocation Name="Folsom Lake-EID Supply Intake" Class="hec2.model.DataLocation" DssPath="//EID/FLOW//1HOUR/USGS-CARDNO-MERGED/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="RSAmerPO" Program="ResSim" />
           <DownStreamLocation>
             <DataLocation Name="EID" Class="hec2.model.DssDataLocation" DssPath="//EID/FLOW//1HOUR/USGS-CARDNO-MERGED/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/American_inflows_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Lake Natoma-Pool" Class="hec2.model.DataLocation" DssPath="/NATOMA/NATOMA POOL/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Elevation" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="NATOMA POOL" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/NATOMA POOL/ELEV//1Hour/CDEC-CARDNO/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Natoma_data_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Lake Natoma-Gated Spillway" Class="hec2.model.DataLocation" DssPath="/NATOMA/SPILL RELEASE/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="SPILL RELEASE" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/SPILL RELEASE/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Lake Natoma-Controlled Outlet" Class="hec2.model.DataLocation" DssPath="/NATOMA/GEN RELEASE TOTAL/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="GEN RELEASE TOTAL" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/GEN RELEASE TOTAL/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Lake Natoma-Hatchery Withdrawal" Class="hec2.model.DataLocation" DssPath="/NATOMA/FISH HATCHERY FLOW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="FISH HATCHERY FLOW" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/FISH HATCHERY FLOW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Lake Natoma-Folsom South Outlet" Class="hec2.model.DataLocation" DssPath="/NATOMA/FLOW 1 SOUTH CANAL DIVERSION FLW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="FLOW 1 SOUTH CANAL DIVERSION FLW" Class="hec2.model.DssDataLocation" DssPath="/NATOMA/FLOW 1 SOUTH CANAL DIVERSION FLW/FLOW//1HOUR/CDEC-CARDNO/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/Natoma_releases_clean_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Sacramento Water Intake-Cntrl" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1Day/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Diversion" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="EA FAIRBAIRN WTP (SACRAMENTO)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1Day/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_withdrawals_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Sacramento Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="EA FAIRBAIRN WTP (SACRAMENTO)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_withdrawals_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Carmichael Water Intake-Cntrl" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Diversion" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="BAJAMONT WTP (CARMICHAEL)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_withdrawals_6.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Carmichael Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="BAJAMONT WTP (CARMICHAEL)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_withdrawals_6.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
@@ -333,6 +125,214 @@
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
+        <DataLocation Name="Mormon Ravine and Newcastle PH" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/MormonR_NewcastlePP_Sum/Flow//1Day/ResSim_PreProcess/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="MormonR_NewcastlePP_Sum" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/MormonR_NewcastlePP_Sum/Flow//1Day/ResSim_PreProcess/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Auxiliary Spillway" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Lake Natoma-Gated Spillway" Class="hec2.model.DataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Spill Release/Flow//1Hour/251.4.125.6.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="NAT-Spill Release" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Spill Release/Flow//1Hour/251.4.125.6.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Generation Release U3/Flow//1Hour/250.3.125.6.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="FOL-Generation Release U3" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Generation Release U3/Flow//1Hour/250.3.125.6.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Emergency Spillway" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Pool" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Hour/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Input Evap" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Hour/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Balance Flows" Class="hec2.model.DataLocation" DssPath="/FOLSOM LAKE/BALANCE FLOW/FLOW//1Day/DERIVED-CONIC INTERP NO EVAP/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="BALANCE FLOW" Class="hec2.model.DssDataLocation" DssPath="/FOLSOM LAKE/BALANCE FLOW/FLOW//1Day/DERIVED-CONIC INTERP NO EVAP/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Natoma balance flows" Class="hec2.model.DataLocation" DssPath="/LAKE NATOMA/BALANCE FLOW/FLOW//3Hour/DERIVED-CONIC INTERP NO EVAP/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="BALANCE FLOW" Class="hec2.model.DssDataLocation" DssPath="/LAKE NATOMA/BALANCE FLOW/FLOW//3Hour/DERIVED-CONIC INTERP NO EVAP/" ComputeType="Computed" Parameter="FLOW" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Lower River Gates" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/Lower_River_Outlets_Sum_min4/Flow//1Hour/ResSim_PreProcess/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Lower_River_Outlets_Sum_min4" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Lower_River_Outlets_Sum_min4/Flow//1Hour/ResSim_PreProcess/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Lake Natoma-Controlled Outlet" Class="hec2.model.DataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Gen Release Sum/Flow//1Hour/ResSim_PreProcess/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="NAT-Gen Release Sum" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Gen Release Sum/Flow//1Hour/ResSim_PreProcess/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Sacramento Water Intake" Class="hec2.model.DataLocation" DssPath="/MR Am.-Lower American R./City of Sacramento-Flow/Flow//1Day/252.503.125.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="City of Sacramento-Flow" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Lower American R./City of Sacramento-Flow/Flow//1Day/252.503.125.1.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Service Spillway" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Spill Release/Flow//1Hour/250.3.125.7.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="FOL-Spill Release" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Spill Release/Flow//1Hour/250.3.125.7.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Pool" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Elevation/Elev//1Hour/250.3.145.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Elevation" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="FOL-Elevation" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Elevation/Elev//1Hour/250.3.145.1.1/" ComputeType="Computed" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Lake Natoma-Hatchery Withdrawal" Class="hec2.model.DataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Fish Hatchery Flow/Flow//1Hour/251.4.125.26.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="NAT-Fish Hatchery Flow" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Fish Hatchery Flow/Flow//1Hour/251.4.125.26.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Upper River Gates" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/Upper_River_Outlets_Sum_min4/Flow//1Hour/ResSim_PreProcess/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Upper_River_Outlets_Sum_min4" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Upper_River_Outlets_Sum_min4/Flow//1Hour/ResSim_PreProcess/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Lake Natoma-Pool" Class="hec2.model.DataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Elevation/Elev//1Hour/251.4.145.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Elevation" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="NAT-Elevation" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/NAT-Elevation/Elev//1Hour/251.4.145.1.1/" ComputeType="Computed" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="CBR Flow" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/11444500 Placerville-Daily Flow/Flow//1Day/250.201.125.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="11444500 Placerville-Daily Flow" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/11444500 Placerville-Daily Flow/Flow//1Day/250.201.125.1.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="NF+MF-ARPP Flows" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/North Arm/Flow//1Day/ResSim_PreProcess/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="North Arm" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/North Arm/Flow//1Day/ResSim_PreProcess/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Carmichael Water Intake-Cntrl" Class="hec2.model.DataLocation" DssPath="/MR Am.-Lower American R./Carmichael WD-Flow/Flow//1Day/252.502.125.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Diversion" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Carmichael WD-Flow" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Lower American R./Carmichael WD-Flow/Flow//1Day/252.502.125.1.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Generation Release U2/Flow//1Hour/250.3.125.5.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="FOL-Generation Release U2" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Generation Release U2/Flow//1Hour/250.3.125.5.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Lake Natoma-Folsom South Outlet" Class="hec2.model.DataLocation" DssPath="/MR Am.-Natoma Lake/NAT-South Canal Diversion Flw/Flow//1Hour/251.4.125.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="NAT-South Canal Diversion Flw" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/NAT-South Canal Diversion Flw/Flow//1Hour/251.4.125.1.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Ungaged Inflows" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_American_Pre-Process.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Sacramento Water Intake-Cntrl" Class="hec2.model.DataLocation" DssPath="/MR Am.-Lower American R./City of Sacramento-Flow/Flow//1Day/252.503.125.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Diversion" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="City of Sacramento-Flow" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Lower American R./City of Sacramento-Flow/Flow//1Day/252.503.125.1.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Muni Supply Intake" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Pumping Plant Release/Flow//1Hour/250.3.125.3.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="FOL-Pumping Plant Release" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Pumping Plant Release/Flow//1Hour/250.3.125.3.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Carmichael Water Intake" Class="hec2.model.DataLocation" DssPath="/MR Am.-Lower American R./Carmichael WD-Flow/Flow//1Day/252.502.125.1.1/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Carmichael WD-Flow" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Lower American R./Carmichael WD-Flow/Flow//1Day/252.502.125.1.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Generation Release U1/Flow//1Hour/250.3.125.4.1/" ComputeType="Computed" Model="DSS File" Parameter="Lookback Release" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="FOL-Generation Release U1" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/FOL-Generation Release U1/Flow//1Hour/250.3.125.4.1/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/DMS_AmericanHydroTS.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
       </DataLocations>
     </ModelAlternative>
     <ModelAlternative Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
@@ -340,6 +340,61 @@
         <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
       </Description>
       <DataLocations />
+    </ModelAlternative>
+    <ModelAlternative Program="Scripting" Name="Post-Process_ResSim_Amer" File="scripting/Post-Process_ResSim_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
+      </Description>
+      <DataLocations>
+        <DataLocation Name="Fol_Pen_1_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_1_Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Fol_Pen_1_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_1_Temp/Temp//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Fol_Pen_2_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_2_Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Fol_Pen_2_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_2_Temp/Temp//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Fol_Pen_3_Flow" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_3_Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Fol_Pen_3_Temp" Class="hec2.model.DataLocation" DssPath="//Fol_Pen_3_Temp/Temp//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+      </DataLocations>
     </ModelAlternative>
   </Name>
 </ModelLinking>

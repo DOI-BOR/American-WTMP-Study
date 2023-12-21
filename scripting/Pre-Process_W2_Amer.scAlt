@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Pre-Process_W2_Amer">
+  <Description>
+    <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
+  </Description>
+  <ScriptFile>scripts/Pre-Process_W2_Amer.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+</ScriptingAlt>
+

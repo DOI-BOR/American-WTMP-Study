@@ -1,0 +1,9 @@
+location,parameter,dss file,dss path
+Folsom Dyke 8,Wind Speed,forecast/simGroups/T2018/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Speed/Speed-Wind//1Hour/APR50-2018-Historic-2014/
+Folsom Dyke 8,Wind Direction,forecast/simGroups/T2018/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Direction/Dir-Wind//1Hour/APR50-2018-Historic-2014/
+Fair Oaks,Air Temperature,forecast/simGroups/T2018/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Air Temp/Temp-Air//1Hour/APR50-2018-Historic-2014/
+Fair Oaks,DewPoint Temperature,forecast/simGroups/T2018/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Dew Point Temp/Temp-DewPoint//1Hour/APR50-2018-Historic-2014/
+Fair Oaks,Wind Speed,forecast/simGroups/T2018/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Speed/Speed-Wind//1Hour/APR50-2018-Historic-2014/
+Fair Oaks,Wind Direction,forecast/simGroups/T2018/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Direction/Dir-Wind//1Hour/APR50-2018-Historic-2014/
+Mather AFB,Cloudiness,forecast/simGroups/T2018/bc.dss,/AMERICAN/MATHER AFB/CLOUD//1HOUR/APR50-2018-Historic-2014/
+Fair Oaks,Shortwave Radiation,forecast/simGroups/T2018/bc.dss,/AMERICAN/FAIR OAKS/SHORTWAVE RADIATION//1HOUR/APR50-2018-Historic-2014/
