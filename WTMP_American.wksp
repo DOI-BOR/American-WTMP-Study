@@ -1,8 +1,8 @@
 WorkspaceName=American_River_WQ
 WorkspaceDescription=
 Version=1001
-AppVersion=4.0.0.33-Beta
-ModifiedTime=1698215859781
+AppVersion=4.0.1.25-Beta
+ModifiedTime=1703120468443
 UnitSystemID=1
 GmtOffset=-8
 StreamAlignmentUnits=Feet
@@ -16,17 +16,17 @@ spheroid=null
 CoordinateInfoEnd
 
 Grow Extents=true
-ManagerIndex=3481
+ManagerIndex=5277
 
 MapBegin
 Name=AMR_NHD_flow.shp
 Description=
 Path=maps/AMR_NHD_flow.shp
-Shown=true
+Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1698215859781
+ModifiedTime=1703120468443
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/AMR_NHD_flow.gdr
 MapEnd
 
@@ -38,7 +38,7 @@ Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1698215859781
+ModifiedTime=1703120468443
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/PCWA_River_Miles.gdr
 MapEnd
 
@@ -50,7 +50,7 @@ Shown=true
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1698215859781
+ModifiedTime=1703120468443
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/AMR_NHD_waterbody.gdr
 MapEnd
 
@@ -58,11 +58,11 @@ MapBegin
 Name=AMR_RS_align.shp
 Description=
 Path=maps/AMR_RS_align.shp
-Shown=true
+Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1698215859781
+ModifiedTime=1703120468443
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/AMR_RS_align.gdr
 MapEnd
 
@@ -70,11 +70,11 @@ MapBegin
 Name=XS_01.shp
 Description=
 Path=maps/XS_01.shp
-Shown=true
+Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1698215859781
+ModifiedTime=1703120468443
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/XS_01.gdr
 MapEnd
 
