@@ -8,7 +8,7 @@
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>W2 Folsom Forecast Test-T2018-F4</Name>
+      <Name>W2 Folsom-T2018-F4</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
   </Simulations>
@@ -151,6 +151,18 @@
   <EnsembleSets>
     <Simulation>W2 Folsom Forecast Test-T2018-F4</Simulation>
     <Simulation>
+      W2 Folsom-T2018-F4
+      <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2016</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute>1</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>
       ResSim-T2018-F4
       <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
         <Description />
@@ -176,6 +188,12 @@
       <EnsembleSet Name="APR90-2018-HH-2014-testTT2">
         <CollectionStart>500</CollectionStart>
         <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Folsom-T2018-F4">
+      <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
       </EnsembleSet>
     </Simulation>
     <Simulation Name="ResSim-T2018-F4">
