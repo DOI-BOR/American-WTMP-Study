@@ -4,11 +4,11 @@
   <AnalysisPeriod>F2018-03</AnalysisPeriod>
   <Simulations>
     <Simulation>
-      <Name>W2 Folsom Forecast Test-T2018</Name>
+      <Name>ResSim-T2018</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>ResSim-T2018</Name>
+      <Name>W2 Folsom-T2018</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
   </Simulations>
