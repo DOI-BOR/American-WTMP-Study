@@ -233,7 +233,7 @@
         <DataLocation Name="WB 1 Bathymetry" Class="hec2.model.DataLocation" DssPath="/W2:bth_smoothed.csv/WB 1 Bathymetry/Elev-ELWS//1HOUR/alt:ap:CeQualW2-WB 1 Bathymetry/" ComputeType="Computed" Model="DSS File" Parameter="Elev-ELWS" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="Folsom" Class="hec2.model.DssDataLocation" DssPath="//Folsom/ELEV//1Month/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Folsom Lake" Class="hec2.model.DssDataLocation" DssPath="//Folsom Lake/ELEV-FORECAST//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV-FORECAST" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
@@ -255,6 +255,12 @@
           </DownStreamLocation>
         </DataLocation>
       </DataLocations>
+    </ModelAlternative>
+    <ModelAlternative Program="Scripting" Name="Pre-Process_W2_Amer" File="scripting/Pre-Process_W2_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
+      </Description>
+      <DataLocations />
     </ModelAlternative>
   </Name>
 </ModelLinking>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="2021">
+  <Description />
+  <AnalysisPeriod>2021</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>ResSim Prescribed-2021</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+  </Simulations>
+  <ComputeTypes />
+</SimulationGroup>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatSimulation SimulationName="W2 Fol-Nat Prescribed" Description="" FPart="W2 Fol-Nat:2009" HasComputed="true" ComputeError="false" Parent="W2 Fol-Nat Prescribed" LastComputedBy="benjamin" LastComputedDate="1706836204973" IsFrmSimulation="false">
+  <ModelAlternatives ModelAlternativeCount="6">
+    <ModelAlternative0 Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
+      <Description>
+        <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
+      </Description>
+      <LastComputeTime Date="2 February 2024, 01:10:04" />
+    </ModelAlternative0>
+    <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom Prescribed" File="CeQual-W2/Folsom/W2 Folsom Prescribed/W2_Folsom_Prescribed.w2Alt">
+      <Description />
+      <LastComputeTime Date="31 December 1899, 24:00" />
+    </ModelAlternative1>
+    <ModelAlternative2 Program="CeQualW2" Name="W2 Natoma Prescribed" File="CeQual-W2/Natoma/W2 Natoma Prescribed/W2_Natoma_Prescribed.w2Alt">
+      <Description />
+      <LastComputeTime Date="31 December 1899, 24:00" />
+    </ModelAlternative2>
+    <ModelAlternative3 Program="Scripting" Name="Scripting_Pass" File="scripting/Scripting_Pass.scAlt">
+      <Description>
+        <desc cnt="0" value="don't do anything" />
+      </Description>
+      <LastComputeTime Date="31 December 1899, 24:00" />
+    </ModelAlternative3>
+    <ModelAlternative4 Program="ResSim" Name="RsAmerRiv" File="rss/RsAmerRiv.ralt">
+      <Description />
+      <LastComputeTime Date="31 December 1899, 24:00" />
+    </ModelAlternative4>
+    <ModelAlternative5 Program="Scripting" Name="Scripting_Pass" File="scripting/Scripting_Pass.scAlt">
+      <Description>
+        <desc cnt="0" value="don't do anything" />
+      </Description>
+      <LastComputeTime Date="31 December 1899, 24:00" />
+    </ModelAlternative5>
+  </ModelAlternatives>
+  <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
+</WatSimulation>
+

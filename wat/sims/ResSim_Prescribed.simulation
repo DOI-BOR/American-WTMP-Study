@@ -5,17 +5,17 @@
       <Description>
         <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
       </Description>
-      <LastComputeTime Date="2 November 2023, 05:15:15" />
+      <LastComputeTime Date="2 November 2023, 05:15" />
     </ModelAlternative0>
     <ModelAlternative1 Program="ResSim" Name="RSAmerPO" File="rss/RSAmerPO.ralt">
       <Description />
-      <LastComputeTime Date="2 November 2023, 05:17:11" />
+      <LastComputeTime Date="2 November 2023, 05:17" />
     </ModelAlternative1>
-    <ModelAlternative2 Program="Scripting" Name="Post-Process_ResSim_Amer" File="scripting/Post-Process_ResSim_Amer.scAlt">
+    <ModelAlternative2 Program="Scripting" Name="Post-Process_ResSim_AmerPO" File="scripting/Post-Process_ResSim_AmerPO.scAlt">
       <Description>
-        <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
+        <desc cnt="0" value="Copy of Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
       </Description>
-      <LastComputeTime Date="2 November 2023, 05:17:11" />
+      <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative2>
   </ModelAlternatives>
   <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
