@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="2014">
+  <Description />
+  <AnalysisPeriod>P2014</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>ResSim Prescribed-2014</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+      <PositionAnalysisSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+      </PositionAnalysisSettings>
+    </Simulation>
+    <Simulation>
+      <Name>W2 Folsom Prescribed-2014</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+    <Simulation>
+      <Name>W2 Natoma Test-2014</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+      <PositionAnalysisSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+      </PositionAnalysisSettings>
+    </Simulation>
+    <Simulation>
+      <Name>W2 Fol-Nat Prescribed-2014</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+      <PositionAnalysisSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+      </PositionAnalysisSettings>
+    </Simulation>
+  </Simulations>
+  <ComputeTypes />
+</SimulationGroup>
+

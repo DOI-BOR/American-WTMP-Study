@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationGroup Name="2018">
+  <Description />
+  <AnalysisPeriod>2018</AnalysisPeriod>
+  <Simulations>
+    <Simulation>
+      <Name>ResSim Prescribed-2018</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+    <Simulation>
+      <Name>W2 Fol-Nat Prescribed-2018</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+  </Simulations>
+  <ComputeTypes />
+</SimulationGroup>
+

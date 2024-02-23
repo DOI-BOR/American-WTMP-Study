@@ -8,7 +8,15 @@
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>W2 Folsom-T2018-F4</Name>
+      <Name>W2 Fol-Nat-T2018-F4</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+    <Simulation>
+      <Name>W2 Fol-Nat FixedATSP NoBypass-T2018-F4</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+    <Simulation>
+      <Name>ResSim NoBypass-T2018-F4</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
   </Simulations>
@@ -21,84 +29,108 @@
         <Description />
       </River-Location>
       <dss-pathnames>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000001|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000002|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000003|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000004|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000005|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000006|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000007|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000008|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000009|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000010|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000011|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000012|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000013|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000014|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000015|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000016|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000017|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000018|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000019|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000020|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000021|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000022|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000023|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000024|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000025|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000026|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000027|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000028|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000029|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000030|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000031|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000032|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000033|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000034|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000035|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000036|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000037|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000038|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000039|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000040|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000041|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000042|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000043|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000044|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000045|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000046|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000047|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000048|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000049|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000050|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000051|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000052|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000053|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000054|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000055|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000056|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000057|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000058|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000059|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000060|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000061|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000062|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000063|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000064|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000065|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000066|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000067|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000068|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000069|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000070|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000071|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000072|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000073|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000074|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000075|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000076|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000077|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000078|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000001|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000002|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000003|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000004|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000005|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000006|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000007|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000008|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000009|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000010|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000011|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000012|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000013|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000014|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000015|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000016|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000017|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000018|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000019|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000020|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000021|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000022|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000023|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000024|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000025|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000026|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000027|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000028|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000029|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000030|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000031|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000032|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000033|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000034|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000035|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000036|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000037|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000038|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000039|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000040|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000041|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000042|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000043|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000044|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000045|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000046|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000047|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000048|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000049|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000050|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000051|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000052|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000053|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000054|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000055|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000056|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000057|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000058|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000059|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000060|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000061|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000062|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000063|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000064|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000065|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000066|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000067|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000068|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000069|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000070|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000071|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000072|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000073|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000074|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000075|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000076|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000077|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Week/C:000078|ScheduleA/</dss-pathname>
+      </dss-pathnames>
+    </TemperatureTargetSet>
+    <TemperatureTargetSet Name="weekyuck" user-defined="true">
+      <Description />
+      <file-path>forecast\simGroups\T2018-F4\weekyuck.dss</file-path>
+      <Output-DSS-File>forecast\simGroups\T2018-F4\weekyuck.dss</Output-DSS-File>
+      <River-Location Name="Watt Ave" Index="1">
+        <Description />
+      </River-Location>
+      <dss-pathnames>
+        <dss-pathname>///TEMP-WATER-TARGET//1Week/C:000001|USER-DEFINED/</dss-pathname>
+        <dss-pathname>///TEMP-WATER-TARGET//1Week/C:000002|USER-DEFINED/</dss-pathname>
+      </dss-pathnames>
+    </TemperatureTargetSet>
+    <TemperatureTargetSet Name="yy" user-defined="true">
+      <Description />
+      <file-path>forecast\simGroups\T2018-F4\yy.dss</file-path>
+      <Output-DSS-File>forecast\simGroups\T2018-F4\yy.dss</Output-DSS-File>
+      <River-Location Name="Watt Ave" Index="1">
+        <Description />
+      </River-Location>
+      <dss-pathnames>
+        <dss-pathname>///TEMP-WATER-TARGET//1Week/C:000001|USER-DEFINED/</dss-pathname>
+        <dss-pathname>///TEMP-WATER-TARGET//1Week/C:000002|USER-DEFINED/</dss-pathname>
       </dss-pathnames>
     </TemperatureTargetSet>
   </TemperatureTargetSets>
@@ -121,13 +153,12 @@
       <Description />
       <OperationsFile>forecast/CVP-ops/APR90_WY2018v.xlsx</OperationsFile>
     </OperationsData>
+    <OperationsData Name="APR50-2018">
+      <Description />
+      <OperationsFile>forecast/CVP-ops/APR50_WY2018v.xlsx</OperationsFile>
+    </OperationsData>
   </Operations>
   <Meteorology>
-    <MeteorologyData Name="H-2013">
-      <Description />
-      <MetDataType>Historic</MetDataType>
-      <Year>2013</Year>
-    </MeteorologyData>
     <MeteorologyData Name="HH-2014">
       <Description />
       <MetDataType>Historic</MetDataType>
@@ -138,8 +169,35 @@
       <MetDataType>Historic</MetDataType>
       <Year>2016</Year>
     </MeteorologyData>
+    <MeteorologyData Name="HH-2010">
+      <Description />
+      <MetDataType>Historic</MetDataType>
+      <Year>2010</Year>
+    </MeteorologyData>
+    <MeteorologyData Name="HH-2017">
+      <Description />
+      <MetDataType>Historic</MetDataType>
+      <Year>2017</Year>
+    </MeteorologyData>
+    <MeteorologyData Name="HH-2018">
+      <Description />
+      <MetDataType>Historic</MetDataType>
+      <Year>2018</Year>
+    </MeteorologyData>
+    <MeteorologyData Name="HH-2020">
+      <Description />
+      <MetDataType>Historic</MetDataType>
+      <Year>2020</Year>
+    </MeteorologyData>
   </Meteorology>
   <BoundaryConditions>
+    <BcData Name="APR90-2018-HH-2014">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR90-2018-HH-2014</f-part>
+      <Operations>APR90-2018</Operations>
+      <Meteorology>HH-2014</Meteorology>
+    </BcData>
     <BcData Name="APR90-2018-HH-2016">
       <Description />
       <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
@@ -147,35 +205,343 @@
       <Operations>APR90-2018</Operations>
       <Meteorology>HH-2016</Meteorology>
     </BcData>
+    <BcData Name="APR90-2018-HH-2010">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR90-2018-HH-2010</f-part>
+      <Operations>APR90-2018</Operations>
+      <Meteorology>HH-2010</Meteorology>
+    </BcData>
+    <BcData Name="APR90-2018-HH-2017">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR90-2018-HH-2017</f-part>
+      <Operations>APR90-2018</Operations>
+      <Meteorology>HH-2017</Meteorology>
+    </BcData>
+    <BcData Name="APR90-2018-HH-2018">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR90-2018-HH-2018</f-part>
+      <Operations>APR90-2018</Operations>
+      <Meteorology>HH-2018</Meteorology>
+    </BcData>
+    <BcData Name="APR90-2018-HH-2020">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR90-2018-HH-2020</f-part>
+      <Operations>APR90-2018</Operations>
+      <Meteorology>HH-2020</Meteorology>
+    </BcData>
+    <BcData Name="APR50-2018-HH-2014">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR50-2018-HH-2014</f-part>
+      <Operations>APR50-2018</Operations>
+      <Meteorology>HH-2014</Meteorology>
+    </BcData>
+    <BcData Name="APR50-2018-HH-2010">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR50-2018-HH-2010</f-part>
+      <Operations>APR50-2018</Operations>
+      <Meteorology>HH-2010</Meteorology>
+    </BcData>
+    <BcData Name="APR50-2018-HH-2017">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR50-2018-HH-2017</f-part>
+      <Operations>APR50-2018</Operations>
+      <Meteorology>HH-2017</Meteorology>
+    </BcData>
+    <BcData Name="APR50-2018-HH-2018">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR50-2018-HH-2018</f-part>
+      <Operations>APR50-2018</Operations>
+      <Meteorology>HH-2018</Meteorology>
+    </BcData>
+    <BcData Name="APR50-2018-HH-2020">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-F4\bc.dss</Output-DSS-File>
+      <f-part>APR50-2018-HH-2020</f-part>
+      <Operations>APR50-2018</Operations>
+      <Meteorology>HH-2020</Meteorology>
+    </BcData>
   </BoundaryConditions>
   <EnsembleSets>
-    <Simulation>W2 Folsom Forecast Test-T2018-F4</Simulation>
     <Simulation>
-      W2 Folsom-T2018-F4
-      <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
+      ResSim NoBypass-T2018-F4
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>APR90-2018-HH-2016</BcData>
+        <BcData>APR90-2018-HH-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="21" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>21</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="30" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>30</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>W2 Fol-Nat FixedATSP NoBypass-T2018-F4</Simulation>
+    <Simulation>W2 Folsom Forecast Test-T2018-F4</Simulation>
+    <Simulation>W2 Fol-Nat FixedATSP-T2018-F4</Simulation>
+    <Simulation>
+      W2 Fol-Nat-T2018-F4
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2010</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="0" Step="10" />
         </ComputedMembers>
         <MembersToCompute>1</MembersToCompute>
       </EnsembleSet>
-    </Simulation>
-    <Simulation>
-      ResSim-T2018-F4
-      <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
+      <EnsembleSet Name="APR90-2018-HH-2017-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>APR90-2018-HH-2016</BcData>
+        <BcData>APR90-2018-HH-2017</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="0" Step="10" />
         </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="1" />
+          </intArray>
+        </ComputedMembers>
         <MembersToCompute>1</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2010</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="1" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>1</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="1" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>1</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="1" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>1</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="1" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>1</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>W2 Folsom FixedATSP NoBypass-T2018-F4</Simulation>
+    <Simulation>W2 Folsom-T2018-F4</Simulation>
+    <Simulation>
+      ResSim-T2018-F4
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="23" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>23</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2010</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="39" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>39</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="19" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>19</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="23" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>23</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR90-2018-HH-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="21" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>21</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="23,19" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>23,19</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2010</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="39,21" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>39,21</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="19,7" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>19,7</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="23,7" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>23,7</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>APR50-2018-HH-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="21,17" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>21,17</MembersToCompute>
       </EnsembleSet>
     </Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
+    <Simulation Name="ResSim NoBypass-T2018-F4">
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Fol-Nat FixedATSP NoBypass-T2018-F4">
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
     <Simulation Name="W2 Folsom Forecast Test-T2018-F4">
       <EnsembleSet Name="APR90-2018-H-2013-DymmyTT2">
         <CollectionStart>0</CollectionStart>
@@ -190,10 +556,88 @@
         <CollectionEnd>999</CollectionEnd>
       </EnsembleSet>
     </Simulation>
+    <Simulation Name="W2 Fol-Nat FixedATSP-T2018-F4">
+      <EnsembleSet Name="APR50-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Fol-Nat-T2018-F4">
+      <EnsembleSet Name="APR50-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>4500</CollectionStart>
+        <CollectionEnd>4999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3500</CollectionStart>
+        <CollectionEnd>3999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3000</CollectionStart>
+        <CollectionEnd>3499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2500</CollectionStart>
+        <CollectionEnd>2999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>4000</CollectionStart>
+        <CollectionEnd>4499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Folsom FixedATSP NoBypass-T2018-F4">
+      <EnsembleSet Name="APR50-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
     <Simulation Name="W2 Folsom-T2018-F4">
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2500</CollectionStart>
+        <CollectionEnd>2999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
       <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
         <CollectionStart>0</CollectionStart>
         <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
       </EnsembleSet>
     </Simulation>
     <Simulation Name="ResSim-T2018-F4">
@@ -201,17 +645,61 @@
         <CollectionStart>1000</CollectionStart>
         <CollectionEnd>1499</CollectionEnd>
       </EnsembleSet>
-      <EnsembleSet Name="APR90-2018-H-2013-SHASTA - TIER 1">
-        <CollectionStart>0</CollectionStart>
-        <CollectionEnd>499</CollectionEnd>
+      <EnsembleSet Name="APR50-2018-HH-2016-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3000</CollectionStart>
+        <CollectionEnd>3499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>5500</CollectionStart>
+        <CollectionEnd>5999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3500</CollectionStart>
+        <CollectionEnd>3999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>7000</CollectionStart>
+        <CollectionEnd>7499</CollectionEnd>
       </EnsembleSet>
       <EnsembleSet Name="APR90-2018-HH-2014-DymmyTT2">
         <CollectionStart>500</CollectionStart>
         <CollectionEnd>999</CollectionEnd>
       </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>4500</CollectionStart>
+        <CollectionEnd>4999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2500</CollectionStart>
+        <CollectionEnd>2999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2020-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>5000</CollectionStart>
+        <CollectionEnd>5499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-HH-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>4000</CollectionStart>
+        <CollectionEnd>4499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2010-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>6000</CollectionStart>
+        <CollectionEnd>6499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR90-2018-H-2013-SHASTA - TIER 1">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
       <EnsembleSet Name="APR90-2018-HH-2016-Folsom Iterative Target - ScheduleA">
         <CollectionStart>1500</CollectionStart>
         <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="APR50-2018-HH-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>6500</CollectionStart>
+        <CollectionEnd>6999</CollectionEnd>
       </EnsembleSet>
     </Simulation>
   </EnsembleSetIndexing>

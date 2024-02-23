@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SimulationContainer SimulationContainerName="W2 Folsom Forecast Test-T2018-F4" Description="" AnalysisPeriod="F2018-04" Alternative="W2 test" ProgramOrder="W2 Folsom Iterative" WarmupTimeSteps="0" SimulationCount="1">
-  <Simulation0 SimulationName="W2 Folsom Forecast Test-T2018-F4" />
-</SimulationContainer>
-

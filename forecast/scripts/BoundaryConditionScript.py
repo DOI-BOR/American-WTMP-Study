@@ -76,7 +76,7 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 		DSS_map_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), DSS_map_filename)
 
 	print "\n########"
-	print "\tGenerating Boundary Conditions for Anerican River models"
+	print "\tGenerating Boundary Conditions for American River models"
 	print "########\n"
 
 	print "CVP Ops Data file: %s"%ops_file_name
@@ -541,6 +541,30 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		tsm.setVersion(BC_F_part)
 		tsm_list.append(tsm)
 		names_flows[tsm.getContainer().location] = tsm
+
+	########################
+	# Get flows and temperatures for downstream tributaries, and other seasonal stuff
+	# from monthly average data sets
+	########################
+
+	tributary_config_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), r"forecast\config\tributary_averages.config")
+	trib_DSS_files = {}
+	for line in getConfigLines(tributary_config_filename):
+		token = line.split(',')
+		dss_file_name = token[-2].strip()
+		if not os.path.isabs(dss_file_name):
+			dss_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), dss_file_name)
+		if not trib_DSS_files.get(dss_file_name):
+			trib_DSS_files[dss_file_name] = hec.heclib.dss.HecDss.open(dss_file_name)
+		tsmath_avg = tsmath(trib_DSS_files[dss_file_name].get(token[-1].strip()))
+		tsmath_shift = shift_monthly_averages(tsmath_avg, start_time, end_time)
+		shift_path = token[-1].strip().split('/')
+		shift_path[6] = BC_F_part
+		tsmath_shift.getContainer().fullName = '/'.join(shift_path)
+		tsm_list.append(CVP.uniform_transform_monthly_to_daily(tsmath_shift))
+	for fname in trib_DSS_files:
+		trib_DSS_files[fname].done()
+
 
 	########################
 	# Estimate Folsom Tributary Temperatures

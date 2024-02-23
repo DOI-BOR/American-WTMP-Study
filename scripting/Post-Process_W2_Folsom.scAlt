@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Post-Process_W2_Folsom">
+  <Description />
+  <ScriptFile>scripts/Post-Process_W2_Folsom.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+  <OutputDataLocations>
+    <DataLocation Name="W2TargetTempUsed" Class="hec2.model.DataLocation" DssPath="//W2TargetTempUsed/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_W2_Folsom/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_W2_Folsom" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="W2ScheduleUsed" Class="hec2.model.DataLocation" DssPath="//W2ScheduleUsed/Count//1HOUR/alt:ap:Scripting-Post-Process_W2_Folsom/" ComputeType="Computed" Parameter="Count" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_W2_Folsom" Program="Scripting" />
+    </DataLocation>
+  </OutputDataLocations>
+</ScriptingAlt>
+
