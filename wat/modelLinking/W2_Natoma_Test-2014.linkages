@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModelLinking>
+  <Name>
+    W2 Natoma Test-2014
+    <ModelAlternative Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
+      <Description>
+        <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
+      </Description>
+      <DataLocations />
+    </ModelAlternative>
+    <ModelAlternative Program="CeQualW2" Name="W2 Natoma Prescribed" File="CeQual-W2/Natoma/W2 Natoma Prescribed/W2_Natoma_Prescribed.w2Alt">
+      <Description />
+      <DataLocations>
+        <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:qin_br1.npt/Branch 1 Inflow/Flow-QIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="" Parameter="Flow-QIN" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:tin_br1.npt/Branch 1 Inflow/Temp-TIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="" Parameter="Temp-TIN" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Distr Trib" Class="hec2.model.DataLocation" DssPath="/W2:qwb.csv/Branch 1 Distr Trib/Flow-QDT//1HOUR/alt:ap:CeQualW2-Branch 1 Distr Trib/" ComputeType="Computed" Model="" Parameter="Flow-QDT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Distr Trib" Class="hec2.model.DataLocation" DssPath="/W2:tdt_br1.npt/Branch 1 Distr Trib/Temp-TDT//1HOUR/alt:ap:CeQualW2-Branch 1 Distr Trib/" ComputeType="Computed" Model="" Parameter="Temp-TDT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Segment 33 Lat Withdrawal 1" Class="hec2.model.DataLocation" DssPath="/W2:qwd.npt/Segment 33 Lat Withdrawal 1/Flow-QWD//1HOUR/alt:ap:CeQualW2-Segment 33 Lat Withdrawal 1/" ComputeType="Computed" Model="" Parameter="Flow-QWD" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Struct Withdrawal 1" Class="hec2.model.DataLocation" DssPath="/W2:qot_br1_adj.csv/Branch 1 Struct Withdrawal 1/Flow-QOT//1HOUR/alt:ap:CeQualW2-Branch 1 Struct Withdrawal 1/" ComputeType="Computed" Model="" Parameter="Flow-QOT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Struct Withdrawal 2" Class="hec2.model.DataLocation" DssPath="/W2:qot_br1_adj.csv/Branch 1 Struct Withdrawal 2/Flow-QOT//1HOUR/alt:ap:CeQualW2-Branch 1 Struct Withdrawal 2/" ComputeType="Computed" Model="" Parameter="Flow-QOT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Struct Withdrawal 3" Class="hec2.model.DataLocation" DssPath="/W2:qot_br1_adj.csv/Branch 1 Struct Withdrawal 3/Flow-QOT//1HOUR/alt:ap:CeQualW2-Branch 1 Struct Withdrawal 3/" ComputeType="Computed" Model="" Parameter="Flow-QOT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:cin_br1.npt/Branch 1 Inflow/GEN1-CIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="" Parameter="GEN1-CIN" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/TAIR//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="" Parameter="TAIR" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/TDEW//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="" Parameter="TDEW" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/WS//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="" Parameter="WS" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/PHI//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="" Parameter="PHI" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/Cloud//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="" Parameter="Cloud" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+        <DataLocation Name="WB 1 Bathymetry" Class="hec2.model.DataLocation" DssPath="/W2:bth_adj.csv/WB 1 Bathymetry/Elev-ELWS//1HOUR/alt:ap:CeQualW2-WB 1 Bathymetry/" ComputeType="Computed" Model="" Parameter="Elev-ELWS" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+        </DataLocation>
+      </DataLocations>
+    </ModelAlternative>
+  </Name>
+</ModelLinking>
+

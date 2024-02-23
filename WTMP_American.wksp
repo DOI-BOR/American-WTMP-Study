@@ -1,8 +1,8 @@
 WorkspaceName=American_River_WQ
 WorkspaceDescription=
 Version=1001
-AppVersion=4.0.1.25-Beta
-ModifiedTime=1705081788562
+AppVersion=4.0.1.39-Beta
+ModifiedTime=1708560291452
 UnitSystemID=1
 GmtOffset=-8
 StreamAlignmentUnits=Feet
@@ -16,7 +16,7 @@ spheroid=null
 CoordinateInfoEnd
 
 Grow Extents=true
-ManagerIndex=5277
+ManagerIndex=21526
 
 MapBegin
 Name=AMR_NHD_flow.shp
@@ -26,7 +26,7 @@ Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1705081788562
+ModifiedTime=1708560291452
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/AMR_NHD_flow.gdr
 MapEnd
 
@@ -38,7 +38,7 @@ Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1705081788562
+ModifiedTime=1708560291452
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/PCWA_River_Miles.gdr
 MapEnd
 
@@ -50,7 +50,7 @@ Shown=true
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1705081788562
+ModifiedTime=1708560291452
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/AMR_NHD_waterbody.gdr
 MapEnd
 
@@ -62,7 +62,7 @@ Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1705081788562
+ModifiedTime=1708560291452
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/AMR_RS_align.gdr
 MapEnd
 
@@ -74,7 +74,7 @@ Shown=false
 Class=hec.map.aishape.AiShapeMap
 MaxScaleValue=2147483647
 MinScaleValue=-2147483648
-ModifiedTime=1705081788562
+ModifiedTime=1708560291452
 GlyphDataRecordSerialized=hec.map.aishape.AiShapeGlyphDataRecord,maps/XS_01.gdr
 MapEnd
 
@@ -87,10 +87,8 @@ Index=0
 ModifiedTime=9223372036854775807
 ManagerProxyEnd
 
-ManagerPosition=3:hec.map.streamAlignment.StreamAlignmentGlyph
-ManagerPosition=4:hec.rss.client.RssSystemGlyph
-ManagerPosition=7:hec.rss.wq.client.geometry.GeometryMapGlyph
-ManagerPosition=8:hec.rss.wq.client.geometry.WaterQualityCellsGlyph
-ManagerPosition=9:hec.rss.wq.map.MassInjectionManagerGlyph
-ManagerPosition=10:hec.rss.wq.map.CrossSectionManagerGlyph
+ManagerPosition=5:hec.map.streamAlignment.StreamAlignmentGlyph
+ManagerPosition=6:hec.rss.client.RssSystemGlyph
+ManagerPosition=9:hec.rss.wq.client.geometry.GeometryMapGlyph
+ManagerPosition=10:hec.rss.wq.map.MassInjectionManagerGlyph
 

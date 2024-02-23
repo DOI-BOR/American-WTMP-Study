@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatSimulation SimulationName="W2 Folsom Prescribed-2014" Description="" FPart="W2 Folsom :2009" HasComputed="true" ComputeError="false" Parent="W2 Folsom Prescribed-2014" LastComputedBy="benjamin" LastComputedDate="1707495410755" IsFrmSimulation="false">
+  <ModelAlternatives ModelAlternativeCount="2">
+    <ModelAlternative0 Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
+      <Description>
+        <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
+      </Description>
+      <LastComputeTime Date="9 February 2024, 16:00:18" />
+    </ModelAlternative0>
+    <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom Prescribed" File="CeQual-W2/Folsom/W2 Folsom Prescribed/W2_Folsom_Prescribed.w2Alt">
+      <Description />
+      <LastComputeTime Date="9 February 2024, 16:16:50" />
+    </ModelAlternative1>
+  </ModelAlternatives>
+  <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
+</WatSimulation>
+

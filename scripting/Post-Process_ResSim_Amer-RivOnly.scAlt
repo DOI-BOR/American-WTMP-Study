@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Post-Process_ResSim_Amer-RivOnly">
+  <Description />
+  <ScriptFile>scripts/Post-Process_ResSim_Amer-RivOnly.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+</ScriptingAlt>
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScriptingAlt Name="Post-Process_ResSim_AmerPO">
+  <Description>
+    <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
+  </Description>
+  <ScriptFile>scripts/Post-Process_ResSim_Amer.py</ScriptFile>
+  <TimeStep>1HOUR</TimeStep>
+  <DataLocations>
+    <DataLocation Name="P1 Flow" Class="hec2.model.DataLocation" DssPath="//P1 Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Flow//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="P1 Temp" Class="hec2.model.DataLocation" DssPath="//P1 Temp/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water Temperature//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="P2 Flow" Class="hec2.model.DataLocation" DssPath="//P2 Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Flow//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="P2 Temp" Class="hec2.model.DataLocation" DssPath="//P2 Temp/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Temp-Water Temperature//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="P3 Flow" Class="hec2.model.DataLocation" DssPath="//P3 Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3/Flow//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="P3 Temp" Class="hec2.model.DataLocation" DssPath="//P3 Temp/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Lake-Penstock 3" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3/Temp-Water Temperature//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Folsom Flow" Class="hec2.model.DataLocation" DssPath="//Folsom Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Dam" Class="hec2.model.DataLocation" DssPath="//Folsom Dam/Flow//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+    <DataLocation Name="Folsom Temp" Class="hec2.model.DataLocation" DssPath="//Folsom Temp/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmerPO" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+      <DownStreamLocation>
+        <DataLocation Name="Folsom Dam" Class="hec2.model.DataLocation" DssPath="//Folsom Dam/Temp-Water Temperature//1HOUR/ResSim Pre:2009:ResSim-RSAmerPO/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+        </DataLocation>
+      </DownStreamLocation>
+    </DataLocation>
+  </DataLocations>
+  <OutputDataLocations>
+    <DataLocation Name="Folsom_FWA_Outlet" Class="hec2.model.DataLocation" DssPath="//Folsom_FWA_Outlet/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+    </DataLocation>
+    <DataLocation Name="Folsom_FWA_Dam" Class="hec2.model.DataLocation" DssPath="//Folsom_FWA_Dam/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="Post-Process_ResSim_AmerPO" Program="Scripting" />
+    </DataLocation>
+  </OutputDataLocations>
+</ScriptingAlt>
+

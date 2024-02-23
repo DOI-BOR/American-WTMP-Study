@@ -1,0 +1,37 @@
+location,parameter,dss file,dss path
+Folsom Dyke 8,Wind Speed,forecast/simGroups/DemoTestB/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Speed/Speed-Wind//1Hour/Apr90-H-2010/
+Folsom Dyke 8,Wind Direction,forecast/simGroups/DemoTestB/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Direction/Dir-Wind//1Hour/Apr90-H-2010/
+Fair Oaks,Air Temperature,forecast/simGroups/DemoTestB/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Air Temp/Temp-Air//1Hour/Apr90-H-2010/
+Fair Oaks,DewPoint Temperature,forecast/simGroups/DemoTestB/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Dew Point Temp/Temp-DewPoint//1Hour/Apr90-H-2010/
+Fair Oaks,Wind Speed,forecast/simGroups/DemoTestB/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Speed/Speed-Wind//1Hour/Apr90-H-2010/
+Fair Oaks,Wind Direction,forecast/simGroups/DemoTestB/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Direction/Dir-Wind//1Hour/Apr90-H-2010/
+Mather AFB,Cloudiness,forecast/simGroups/DemoTestB/bc.dss,/AMERICAN/MATHER AFB/CLOUD//1HOUR/Apr90-H-2010/
+Fair Oaks,Shortwave Radiation,forecast/simGroups/DemoTestB/bc.dss,/AMERICAN/FAIR OAKS/SHORTWAVE RADIATION//1HOUR/Apr90-H-2010/
+FOLSOM,INFLOW,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/INFLOW//1MON/Apr90-H-2010/
+FOLSOM,FLOW-IN,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FLOW-IN//1DAY/Apr90-H-2010/
+FOLSOM,EST. EVAP.,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/EST. EVAP.//1MON/Apr90-H-2010/
+FOLSOM,TOTAL RELEASE,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/TOTAL RELEASE//1MON/Apr90-H-2010/
+FOLSOM,FLOW-RELEASE,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FLOW-RELEASE//1HOUR/Apr90-H-2010/
+FOLSOM,PUMPING (FP),forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/PUMPING (FP)//1MON/Apr90-H-2010/
+FOLSOM,FLOW-PUMPING,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/PUMPING (FP)//1DAY/Apr90-H-2010/
+FOLSOM,FS CANAL (FSC),forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FS CANAL (FSC)//1MON/Apr90-H-2010/
+FOLSOM,FLOW-FSC,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FS CANAL (FSC)//1DAY/Apr90-H-2010/
+FOLSOM,FLOW-NIMBUS MINIMUM (CFS),forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FLOW-NIMBUS MINIMUM (CFS)//1MON/Apr90-H-2010/
+FOLSOM,NIMBUS MINIMUM (TAF),forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/NIMBUS MINIMUM (TAF)//1MON/Apr90-H-2010/
+LAKE NATOMA,ACTUAL NIMBUS RELEASE (TAF),forecast/simGroups/DemoTestB/bc.dss,/AMERICAN RIVER/LAKE NATOMA/ACTUAL NIMBUS RELEASE (TAF)//1MON/Apr90-H-2010/
+LAKE NATOMA,FLOW-NIMBUS ACTUAL,forecast/simGroups/DemoTestB/bc.dss,/AMERICAN RIVER/LAKE NATOMA/FLOW-NIMBUS ACTUAL//1DAY/Apr90-H-2010/
+FOLSOM,STORAGE,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/STORAGE//1MON/Apr90-H-2010/
+FOLSOM,ELEVATION (FEET),forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/ELEVATION (FEET)//1MON/Apr90-H-2010/
+FOLSOM,AREA (ACRES),forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/AREA (ACRES)//1MON/Apr90-H-2010/
+FOLSOM,FLOW-AMER AFRP,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FLOW-AMER AFRP//1MON/Apr90-H-2010/
+FOLSOM,FLOW-AFRP,forecast/simGroups/DemoTestB/bc.dss,//FOLSOM/FLOW-AMER AFRP//1DAY/Apr90-H-2010/
+FOLSOM LAKE,FLOW-ACC-DEP,forecast/simGroups/DemoTestB/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/FLOW-ACC-DEP//1DAY/Apr90-H-2010/
+Folsom-NF-in,FLOW-IN,forecast/simGroups/DemoTestB/bc.dss,//Folsom-NF-in/FLOW-IN//1DAY/Apr90-H-2010/
+Folsom-SF-in,FLOW-IN,forecast/simGroups/DemoTestB/bc.dss,//Folsom-SF-in/FLOW-IN//1DAY/Apr90-H-2010/
+North Fork abv MF,FLOW-IN,forecast/simGroups/DemoTestB/bc.dss,//North Fork abv MF/FLOW-IN//1DAY/Apr90-H-2010/
+Middle Fork abv NF,FLOW-IN,forecast/simGroups/DemoTestB/bc.dss,//Middle Fork abv NF/FLOW-IN//1DAY/Apr90-H-2010/
+Folsom-SF-in,TEMP-WATER,forecast/simGroups/DemoTestB/bc.dss,//Folsom-SF-in/TEMP-WATER//1DAY/Apr90-H-2010/
+Folsom-NF-in,TEMP-WATER,forecast/simGroups/DemoTestB/bc.dss,//Folsom-NF-in/TEMP-WATER//1DAY/Apr90-H-2010/
+South Canal,TEMP-WATER,forecast/simGroups/DemoTestB/bc.dss,//South Canal/TEMP-WATER//1DAY/Apr90-H-2010/
+ZERO-BY-DAY,FLOW-ZERO,forecast/simGroups/DemoTestB/bc.dss,//ZERO-BY-DAY/FLOW-ZERO//1DAY/Apr90-H-2010/
+ZERO-BY-HOUR,FLOW-ZERO,forecast/simGroups/DemoTestB/bc.dss,//ZERO-BY-HOUR/FLOW-ZERO//1Hour/Apr90-H-2010/

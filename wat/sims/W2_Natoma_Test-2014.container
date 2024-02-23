@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationContainer SimulationContainerName="W2 Natoma Test-2014" Description="" AnalysisPeriod="P2014" Alternative="W2 Folsom Prescribed" ProgramOrder="W2 Folsom Iterative" WarmupTimeSteps="0" SimulationCount="1">
+  <Simulation0 SimulationName="W2 Natoma Test-2014" />
+</SimulationContainer>
+
