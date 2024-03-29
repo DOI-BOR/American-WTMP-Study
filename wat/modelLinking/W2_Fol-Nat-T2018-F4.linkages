@@ -246,7 +246,286 @@
     </ModelAlternative>
     <ModelAlternative Program="ResSim" Name="RSAmerRVO" File="rss/RSAmerRVO.ralt">
       <Description />
-      <DataLocations />
+      <DataLocations>
+        <DataLocation Name="AFO Balance" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Sacramento Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="EA FAIRBAIRN WTP (SACRAMENTO)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/American_withdrawals_6.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Carmichael Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="BAJAMONT WTP (CARMICHAEL)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/American_withdrawals_6.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Downstream_Control_Loc" Class="hec2.model.ScalarDataLocation" DssPath="//Downstream_Control_Loc///Integer/RSAmerRVO-WAT-W2 Fol-Nat-Amer-Deterministic/" ComputeType="Computed" Model="DSS File" Parameter="Code-Integer" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="DOWNSTREAM_CONTROL_LOC" Class="hec2.model.DssDataLocation" DssPath="//DOWNSTREAM_CONTROL_LOC///INTEGER/AMER_TARGET_TEMP/" ComputeType="Computed" Parameter="" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Muni_specified_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-EID_specified_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Aux_spill_specified_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Service_spill_specified_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Emergency_spill_specified_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Natoma_spill_spec_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Natoma_penstock_spec_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Natoma_hatchery_spec_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Folsom_S_Canal_spec_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Total_Penstock_specified_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Lower_Riv_out_flow" Class="hec2.model.DataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Nimbus Dam Outflow" Class="hec2.model.DataLocation" DssPath="/W2:qwo_34.csv/Seg 34 Withdrawal/Flow-QWD//1HOUR/W2 Fol-Nat:F2018-03:CeQualW2-W2 Natoma Prescribed/" ComputeType="Computed" Model="CeQualW2-W2 Natoma Prescribed" Parameter="Known Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 34 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_34.csv/Seg 34 Withdrawal/Flow-QWD//1HOUR/W2 Fol-Nat:F2018-03:CeQualW2-W2 Natoma Prescribed/" ComputeType="Computed" Parameter="Flow-QWD" OutOfDate="false" PrevModelIndex="0" />
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Fair Oaks CIMIS-Air Temperature" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Air Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Temp-Air//1Hour/251.40.53.1.1/" ComputeType="Computed" Parameter="Temp-Air" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Folsom Point (Dyke 8)-Wind Speed" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/FOLSOM DYKE 8/SPEED-WIND//1Hour/NWS-CDEC-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Wind Speed" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Dyke 8 (FLD)" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Dyke 8 (FLD)/Speed-Wind//1Hour/250.14.133.1.1/" ComputeType="Computed" Parameter="Speed-Wind" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Folsom Point (Dyke 8)-Shortwave Radiation" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/MATHER AFB CC THEORETICAL/SOLRAD//1HOUR/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Shortwave Radiation" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Theoretical Folsom Solar" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Theoretical Folsom Solar/Irrad-Solar//1Hour/250.15.135.1.1/" ComputeType="Computed" Parameter="Irrad-Solar" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Nimbus Dam - Nimbus Dam Outflow" Class="hec2.model.DataLocation" Description="" DssPath="/MR AM.-NATOMA LAKE/11446500 NIMBUS DAM-WATER TEMP/TEMP-WATER-C//15Minute/251.400.50.1.1/" ComputeType="Computed" Model="CeQualW2-W2 Natoma Prescribed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 34 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_34.csv/Seg 34 Withdrawal/Temp-TWO//1HOUR/C:000000|altName:apName:CeQualW2-W2 Natoma Prescribed/" ComputeType="Computed" Parameter="Temp-TWO" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Fair Oaks CIMIS-Shortwave Radiation" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/MATHER AFB CC THEORETICAL/SOLRAD//1HOUR/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Shortwave Radiation" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Theoretical Folsom Solar" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Theoretical Folsom Solar/Irrad-Solar//1Hour/250.15.135.1.1/" ComputeType="Computed" Parameter="Irrad-Solar" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-AFO - AFO Balance" Class="hec2.model.DataLocation" Description="" DssPath="//ZEROS/temp-water//1Day/ZEROS/" ComputeType="Computed" Model="DSS File" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="TENS" Class="hec2.model.DssDataLocation" DssPath="//TENS/temp-water//1Day/TENS/" ComputeType="Computed" Parameter="temp-water" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Folsom Point (Dyke 8)-Humidity" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/FAIR OAKS/TEMP-DEWPT//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Humidity" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Temp-DewPoint//1Hour/251.40.51.1.1/" ComputeType="Computed" Parameter="Temp-DewPoint" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Fair Oaks CIMIS-Wind Speed" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/FAIR OAKS/SPEED-WIND//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Wind Speed" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Speed-Wind//1Hour/251.40.133.1.1/" ComputeType="Computed" Parameter="Speed-Wind" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Fair Oaks CIMIS-Humidity" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/FAIR OAKS/TEMP-DEWPT//1Hour/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Humidity" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Temp-DewPoint//1Hour/251.40.51.1.1/" ComputeType="Computed" Parameter="Temp-DewPoint" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Folsom Point (Dyke 8)-Cloudiness" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/MATHER AFB/CLOUD//1Hour/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Cloudiness" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="MATHER AFB" Class="hec2.model.DssDataLocation" DssPath="/MR AM.-LOWER AMERICAN R./MATHER AFB/%-CLOUD COVER-FRAC//1Hour/252.50.129.1.1/" ComputeType="Computed" Parameter="%-CLOUD COVER-FRAC" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Fair Oaks CIMIS-Cloudiness" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/MATHER AFB/CLOUD//1Hour/NWS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Cloudiness" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="MATHER AFB" Class="hec2.model.DssDataLocation" DssPath="/MR AM.-LOWER AMERICAN R./MATHER AFB/%-CLOUD COVER-FRAC//1Hour/252.50.129.1.1/" ComputeType="Computed" Parameter="%-CLOUD COVER-FRAC" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ-Folsom Point (Dyke 8)-Air Temperature" Class="hec2.model.DataLocation" Description="" DssPath="/AMERICAN/FAIR OAKS/TEMP-AIR//1HOUR/CIMIS-CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Air Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Temp-Air//1Hour/251.40.53.1.1/" ComputeType="Computed" Parameter="Temp-Air" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-P1_shutter_elev" Class="hec2.model.DataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Folsom_Lower_River_Use" Class="hec2.model.DataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Muni_intake_elev" Class="hec2.model.DataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-P2_shutter_elev" Class="hec2.model.DataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-Temperature_Target" Class="hec2.model.DataLocation" DssPath="//TENS/temp-water//1Day/TENS/" ComputeType="Computed" Model="DSS File" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="TENS" Class="hec2.model.DssDataLocation" DssPath="//TENS/temp-water//1Day/TENS/" ComputeType="Computed" Parameter="temp-water" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-P3_shutter_elev" Class="hec2.model.DataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Global-FairOaks_Equilibrium_Temp" Class="hec2.model.DataLocation" DssPath="//TENS/temp-water//1Day/TENS/" ComputeType="Computed" Model="DSS File" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="TENS" Class="hec2.model.DssDataLocation" DssPath="//TENS/temp-water//1Day/TENS/" ComputeType="Computed" Parameter="temp-water" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+      </DataLocations>
     </ModelAlternative>
     <ModelAlternative Program="CeQualW2" Name="W2 Folsom" File="CeQual-W2/Folsom/W2 Folsom/W2_Folsom.w2Alt">
       <Description />

@@ -9,7 +9,7 @@
     <DataLocation Name="Qwo-105-str1" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str1/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_1//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_1" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_1//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_1" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -17,7 +17,7 @@
     <DataLocation Name="Two-105-str1" Class="hec2.model.DataLocation" DssPath="//Two-105-str1/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_2//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_2" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_1//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_1" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -25,7 +25,7 @@
     <DataLocation Name="Qwo-105-str2" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str2/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_2//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_2" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_2//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_2" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -33,7 +33,7 @@
     <DataLocation Name="Two-105-str2" Class="hec2.model.DataLocation" DssPath="//Two-105-str2/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_2//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_2" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_2//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_2" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -41,7 +41,7 @@
     <DataLocation Name="Qwo-105-str3" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str3/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_3//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_3" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_3//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_3" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -49,7 +49,7 @@
     <DataLocation Name="Two-105-str3" Class="hec2.model.DataLocation" DssPath="//Two-105-str3/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_3//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_3" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_3//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_3" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -57,7 +57,7 @@
     <DataLocation Name="Qwo-105-str4" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str4/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_4//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_4" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_4//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_4" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -65,7 +65,7 @@
     <DataLocation Name="Two-105-str4" Class="hec2.model.DataLocation" DssPath="//Two-105-str4/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_4//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_4" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_4//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_4" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -73,7 +73,7 @@
     <DataLocation Name="Qwo-105-str6" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str6/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_6//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_6" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_6//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_6" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -81,7 +81,7 @@
     <DataLocation Name="Two-105-str6" Class="hec2.model.DataLocation" DssPath="//Two-105-str6/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_6//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_6" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_6//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_6" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -89,7 +89,7 @@
     <DataLocation Name="Qwo-105-str7" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str7/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_7//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_7" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_7//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Flow-QWD_outlet_7" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
@@ -97,18 +97,18 @@
     <DataLocation Name="Two-105-str7" Class="hec2.model.DataLocation" DssPath="//Two-105-str7/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom FixedATSP" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_7//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_7" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_7//1HOUR/W2 Fol-Nat:2009:CeQualW2-W2 Folsom FixedATSP/" ComputeType="Computed" Parameter="Temp-TWO_outlet_7" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
         </DataLocation>
       </DownStreamLocation>
     </DataLocation>
   </DataLocations>
   <OutputDataLocations>
-    <DataLocation Name="W2_Natoma_InflowQ" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowQ/Flow//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
-      <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
+    <DataLocation Name="W2_Natoma_InflowQ" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowQ/Flow//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_FATSP-Do/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="OutputLink_W2_FATSP-DownstreamAmer" Program="Scripting" />
     </DataLocation>
-    <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
-      <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
+    <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_FATSP-Do/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+      <ModelAlternative Name="OutputLink_W2_FATSP-DownstreamAmer" Program="Scripting" />
     </DataLocation>
   </OutputDataLocations>
 </ScriptingAlt>
