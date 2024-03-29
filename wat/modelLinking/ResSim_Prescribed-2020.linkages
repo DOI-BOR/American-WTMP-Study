@@ -509,12 +509,6 @@
       </Description>
       <DataLocations />
     </ModelAlternative>
-    <ModelAlternative Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
-      <Description>
-        <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
-      </Description>
-      <DataLocations />
-    </ModelAlternative>
     <ModelAlternative Program="Scripting" Name="Post-Process_ResSim_AmerPO" File="scripting/Post-Process_ResSim_AmerPO.scAlt">
       <Description>
         <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
