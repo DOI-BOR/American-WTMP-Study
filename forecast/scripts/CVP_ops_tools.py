@@ -9,7 +9,7 @@ import hec.io.TimeSeriesContainer as tscont
 import hec.hecmath.TimeSeriesMath as tsmath
 import hec.lang.Const
 
-DEBUG = False
+DEBUG = True
 
 month_TLA = ["NM", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -48,11 +48,11 @@ Assumes:
 	Flows in CFS
 '''
 def make_ops_tsc(location_name, water_year, start_month, ts_line, data_type=None, data_units=None, ops_label=None, currentAlternative=None):
-	start_year = water_year
+	i_year = water_year
 	if start_month.upper() in ["OCT", "NOV", "DEC"]:
-		start_year -= 1
+		i_year -= 1
 	if currentAlternative:
-		currentAlternative.addComputeMessage("making a time series at %s starting at %s %d..."%(location_name, start_month, water_year))
+		currentAlternative.addComputeMessage("making a time series at %s starting at %s %d..."%(location_name, start_month, i_year))
 		currentAlternative.addComputeMessage("From data line: \"%s\""%(ts_line))
 
 	param = ""
@@ -86,15 +86,15 @@ def make_ops_tsc(location_name, water_year, start_month, ts_line, data_type=None
 		try:
 			ts_vals.append(float(token.strip()))
 			v_count += 1
-			if data_type == "PER-CUM" and data_units == "AC-FT":
+			if data_units == "AC-FT":
 				ts_vals[-1] = ts_vals[-1]*1000. # convert TAF to Acre-Feet
 			dateTime = HecTime()
-			dateTime.setYearMonthDay(start_year, i_month, get_days_in_month(i_month, water_year), 1440)
+			dateTime.setYearMonthDay(i_year, i_month, get_days_in_month(i_month, i_year), 1440)
 			ts_times.append(dateTime)
 			last_month = i_month
 			i_month = next_month(i_month)
 			if (i_month - last_month) < 0:
-				start_year += 1
+				i_year += 1
 		except ValueError:
 			# conversion to float failed, so the token is assumed to be the paramter (C Part)
 			# of the time series unless we've already got one
@@ -102,16 +102,18 @@ def make_ops_tsc(location_name, water_year, start_month, ts_line, data_type=None
 				param = token.strip().upper()
 				if currentAlternative:
 					currentAlternative.addComputeMessage("making a time series of %s at %s ..."%(param, location_name))
-				if param.upper().strip(')').endswith("CFS") or param.upper().endswith("AFRP"):
+				if param.strip(')').endswith("CFS") or param.endswith("AFRP"):
 					param = "FLOW-" + param
 					data_type = "PER-AVER"
 					data_units = "CFS"
-				if param.upper().strip(')').endswith("ACRES"):
+				if param.strip(')').endswith("ACRES"):
 					data_type = "INST-VAL"
 					data_units = "ACRES"
-				if param.upper().strip(')').endswith("FEET"):
+				if param.strip(')').endswith("FEET"):
 					data_type = "INST-VAL"
 					data_units = "FEET"
+				if param.strip(')').endswith("STORAGE"):
+					data_type = "INST-VAL"
 
 
 	# working_math = tsmath.generateRegularIntervalTimeSeries(time_start.date(8), time_end.date(8), "1MON", 1.0)
@@ -408,11 +410,12 @@ def weight_transform_monthly_to_daily(tsmath_months, tsmath_pattern, currentAlte
 	in_time = HecTime( HecTime.MINUTE_INCREMENT)
 	for time_int in tsc_months.times:
 		in_time.set(time_int)
+		print "Input date: %d %s %d (%d)"%(in_time.day(), month_TLA[in_time.month()], in_time.year(), time_int)
 		search_time.setYearMonthDay(start_time_pattern.year(), in_time.month(), days_in_month[in_time.month()], 1440)
 
 		key = in_time.year()*100+in_time.month()
-		if input_is_acrefeet:
 
+		if input_is_acrefeet:
 			scale_lookup[key] = getValueAt(tsc_months, time_int)*0.50417/days_in_month[in_time.month()]/getValueAt(tsc_pattern_ave, search_time.getMinutes())
 		else:
 			scale_lookup[key] = getValueAt(tsc_months, time_int)/getValueAt(tsc_pattern_ave, search_time.getMinutes())
