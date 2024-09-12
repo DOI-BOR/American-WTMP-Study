@@ -217,7 +217,7 @@
         <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/PHI//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="PHI" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="DYKE 8 (FLD)" Class="hec2.model.DssDataLocation" DssPath="/MR AM.-FOLSOM LAKE/DYKE 8 (FLD)/DIR-WIND-RADIANS//1Hour/250.14.133.1.2/" ComputeType="Computed" Parameter="DIR-WIND-RADIANS" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Dyke 8 (FLD)" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Dyke 8 (FLD)/Dir-Wind//1Hour/250.14.133.1.2/" ComputeType="Computed" Parameter="Dir-Wind" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
@@ -233,7 +233,7 @@
         <DataLocation Name="WB 1 Bathymetry" Class="hec2.model.DataLocation" DssPath="/W2:bth_smoothed.csv/WB 1 Bathymetry/Elev-ELWS//1HOUR/alt:ap:CeQualW2-WB 1 Bathymetry/" ComputeType="Computed" Model="DSS File" Parameter="Elev-ELWS" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom FixedATSP" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="Folsom Lake" Class="hec2.model.DssDataLocation" DssPath="//Folsom Lake/ELEV-FORECAST//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV-FORECAST" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Folsom" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/Folsom/ELEV//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>

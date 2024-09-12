@@ -21,15 +21,18 @@ FOLSOM,NIMBUS MINIMUM (TAF),forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM/NIMB
 LAKE NATOMA,ACTUAL NIMBUS RELEASE (TAF),forecast/simGroups/T2018-FMarch/bc.dss,/AMERICAN RIVER/LAKE NATOMA/ACTUAL NIMBUS RELEASE (TAF)//1MON/Mar90-H-2018/
 LAKE NATOMA,FLOW-NIMBUS ACTUAL,forecast/simGroups/T2018-FMarch/bc.dss,/AMERICAN RIVER/LAKE NATOMA/FLOW-NIMBUS ACTUAL//1DAY/Mar90-H-2018/
 FOLSOM,STORAGE,forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM/STORAGE//1MON/Mar90-H-2018/
+FOLSOM LAKE,STORAGE-CHANGE,forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM LAKE/STORAGE-CHANGE//1MON/Mar90-H-2018/
 FOLSOM,ELEVATION (FEET),forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM/ELEVATION (FEET)//1MON/Mar90-H-2018/
 FOLSOM,AREA (ACRES),forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM/AREA (ACRES)//1MON/Mar90-H-2018/
 FOLSOM,FLOW-AMER AFRP,forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM/FLOW-AMER AFRP//1MON/Mar90-H-2018/
 FOLSOM,FLOW-AFRP,forecast/simGroups/T2018-FMarch/bc.dss,//FOLSOM/FLOW-AMER AFRP//1DAY/Mar90-H-2018/
+FOLSOM LAKE,STORAGE-CVP,forecast/simGroups/T2018-FMarch/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/STORAGE-CVP//1DAY/Mar90-H-2018/
 FOLSOM LAKE,FLOW-ACC-DEP,forecast/simGroups/T2018-FMarch/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/FLOW-ACC-DEP//1DAY/Mar90-H-2018/
 Folsom-NF-in,FLOW-IN,forecast/simGroups/T2018-FMarch/bc.dss,//Folsom-NF-in/FLOW-IN//1DAY/Mar90-H-2018/
 Folsom-SF-in,FLOW-IN,forecast/simGroups/T2018-FMarch/bc.dss,//Folsom-SF-in/FLOW-IN//1DAY/Mar90-H-2018/
 North Fork abv MF,FLOW-IN,forecast/simGroups/T2018-FMarch/bc.dss,//North Fork abv MF/FLOW-IN//1DAY/Mar90-H-2018/
 Middle Fork abv NF,FLOW-IN,forecast/simGroups/T2018-FMarch/bc.dss,//Middle Fork abv NF/FLOW-IN//1DAY/Mar90-H-2018/
+LOWER RIVER OUTLET USEAGE,,forecast/simGroups/T2018-FMarch/bc.dss,/FOLSOM/LOWER RIVER OUTLET USEAGE/COUNT//1DAY/Mar90-H-2018/
 Folsom-SF-in,TEMP-WATER,forecast/simGroups/T2018-FMarch/bc.dss,//Folsom-SF-in/TEMP-WATER//1DAY/Mar90-H-2018/
 Folsom-NF-in,TEMP-WATER,forecast/simGroups/T2018-FMarch/bc.dss,//Folsom-NF-in/TEMP-WATER//1DAY/Mar90-H-2018/
 South Canal,TEMP-WATER,forecast/simGroups/T2018-FMarch/bc.dss,//South Canal/TEMP-WATER//1DAY/Mar90-H-2018/

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModelLinking>
+  <Name>
+    W2 Natoma Test
+    <ModelAlternative Program="CeQualW2" Name="W2 Natoma Prescribed" File="CeQual-W2/Natoma/W2 Natoma Prescribed/W2_Natoma_Prescribed.w2Alt">
+      <Description />
+      <DataLocations>
+        <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:qin_br1.npt/Branch 1 Inflow/Flow-QIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="Scripting-OutputLink_W2_Folsom-DownstreamAmer" Parameter="Flow-QIN" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="W2_Natoma_InflowQ" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowQ/Flow//1HOUR/W2 Fol-Nat:F2018-03:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:tin_br1.npt/Branch 1 Inflow/Temp-TIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="Scripting-OutputLink_W2_Folsom-DownstreamAmer" Parameter="Temp-TIN" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/W2 Fol-Nat:F2018-03:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Distr Trib" Class="hec2.model.DataLocation" DssPath="/W2:qwb.csv/Branch 1 Distr Trib/Flow-QDT//1HOUR/alt:ap:CeQualW2-Branch 1 Distr Trib/" ComputeType="Computed" Model="DSS File" Parameter="Flow-QDT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Distr Trib" Class="hec2.model.DataLocation" DssPath="/W2:tdt_br1.npt/Branch 1 Distr Trib/Temp-TDT//1HOUR/alt:ap:CeQualW2-Branch 1 Distr Trib/" ComputeType="Computed" Model="DSS File" Parameter="Temp-TDT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="TENS" Class="hec2.model.DssDataLocation" DssPath="//TENS/temp-water//1Day/TENS/" ComputeType="Computed" Parameter="temp-water" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Segment 33 Lat Withdrawal 1" Class="hec2.model.DataLocation" DssPath="/W2:qwd.npt/Segment 33 Lat Withdrawal 1/Flow-QWD//1HOUR/alt:ap:CeQualW2-Segment 33 Lat Withdrawal 1/" ComputeType="Computed" Model="DSS File" Parameter="Flow-QWD" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="FOLSOM" Class="hec2.model.DssDataLocation" DssPath="//FOLSOM/FS CANAL (FSC)//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="FS CANAL (FSC)" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Struct Withdrawal 1" Class="hec2.model.DataLocation" DssPath="/W2:qot_br1_adj.csv/Branch 1 Struct Withdrawal 1/Flow-QOT//1HOUR/alt:ap:CeQualW2-Branch 1 Struct Withdrawal 1/" ComputeType="Computed" Model="DSS File" Parameter="Flow-QOT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="LAKE NATOMA NIMBUS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/LAKE NATOMA NIMBUS/FLOW-GATEDSPILLWAY//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="FLOW-GATEDSPILLWAY" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Struct Withdrawal 2" Class="hec2.model.DataLocation" DssPath="/W2:qot_br1_adj.csv/Branch 1 Struct Withdrawal 2/Flow-QOT//1HOUR/alt:ap:CeQualW2-Branch 1 Struct Withdrawal 2/" ComputeType="Computed" Model="DSS File" Parameter="Flow-QOT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="LAKE NATOMA NIMBUS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/LAKE NATOMA NIMBUS/FLOW-SPILLWAY//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="FLOW-SPILLWAY" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Struct Withdrawal 3" Class="hec2.model.DataLocation" DssPath="/W2:qot_br1_adj.csv/Branch 1 Struct Withdrawal 3/Flow-QOT//1HOUR/alt:ap:CeQualW2-Branch 1 Struct Withdrawal 3/" ComputeType="Computed" Model="DSS File" Parameter="Flow-QOT" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="LAKE NATOMA NIMBUS" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/LAKE NATOMA NIMBUS/FLOW-FISHHATCHERY//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="FLOW-FISHHATCHERY" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:cin_br1.npt/Branch 1 Inflow/GEN1-CIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="DSS File" Parameter="GEN1-CIN" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/TAIR//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="TAIR" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Temp-Air//1Hour/251.40.53.1.1/" ComputeType="Computed" Parameter="Temp-Air" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/TDEW//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="TDEW" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Temp-DewPoint//1Hour/251.40.51.1.1/" ComputeType="Computed" Parameter="Temp-DewPoint" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/WS//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="WS" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Speed-Wind//1Hour/251.40.133.1.1/" ComputeType="Computed" Parameter="Speed-Wind" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/PHI//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="PHI" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/MR AM.-NATOMA LAKE/FAIR OAKS/DIR-WIND-RADIANS//1Hour/251.40.133.1.2/" ComputeType="Computed" Parameter="DIR-WIND-RADIANS" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/Cloud//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="Cloud" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="Mather AFB" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Lower American R./Mather AFB/%-Cloud Cover//1Hour/252.50.129.1.1/" ComputeType="Computed" Parameter="%-Cloud Cover" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WB 1 Bathymetry" Class="hec2.model.DataLocation" DssPath="/W2:bth_adj.csv/WB 1 Bathymetry/Elev-ELWS//1HOUR/alt:ap:CeQualW2-WB 1 Bathymetry/" ComputeType="Computed" Model="DSS File" Parameter="Elev-ELWS" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
+          <DownStreamLocation>
+            <DataLocation Name="Natoma" Class="hec2.model.DssDataLocation" DssPath="//Natoma/ELEV//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+      </DataLocations>
+    </ModelAlternative>
+  </Name>
+</ModelLinking>
+

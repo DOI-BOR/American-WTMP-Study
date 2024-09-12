@@ -125,6 +125,10 @@
       <Description />
       <OperationsFile>forecast/CVP-ops/MAR90_WY2018v.xlsx</OperationsFile>
     </OperationsData>
+    <OperationsData Name="Mar90_25th">
+      <Description />
+      <OperationsFile>forecast/CVP-ops/MAR50_WY2018v_alt_start.xlsx</OperationsFile>
+    </OperationsData>
   </Operations>
   <Meteorology>
     <MeteorologyData Name="H-2014">
@@ -139,13 +143,6 @@
     </MeteorologyData>
   </Meteorology>
   <BoundaryConditions>
-    <BcData Name="Mar90-H-2014">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\T2018-FMarch\bc.dss</Output-DSS-File>
-      <f-part>Mar90-H-2014</f-part>
-      <Operations>Mar90</Operations>
-      <Meteorology>H-2014</Meteorology>
-    </BcData>
     <BcData Name="Mar90-H-2018">
       <Description />
       <Output-DSS-File>forecast\simGroups\T2018-FMarch\bc.dss</Output-DSS-File>
@@ -153,102 +150,19 @@
       <Operations>Mar90</Operations>
       <Meteorology>H-2018</Meteorology>
     </BcData>
+    <BcData Name="Mar90_25th-H-2018">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018-FMarch\bc.dss</Output-DSS-File>
+      <f-part>Mar90_25th-H-2018</f-part>
+      <Operations>Mar90_25th</Operations>
+      <Meteorology>H-2018</Meteorology>
+    </BcData>
   </BoundaryConditions>
   <EnsembleSets>
-    <Simulation>
-      W2 Folsom-T2018-FMarch
-      <EnsembleSet Name="Mar90-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="1" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
-      </EnsembleSet>
-      <EnsembleSet Name="Mar90-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-    </Simulation>
-    <Simulation>
-      W2 Fol-Nat-T2018-FMarch
-      <EnsembleSet Name="Mar90-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="1" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
-      </EnsembleSet>
-      <EnsembleSet Name="Mar90-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="1" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
-      </EnsembleSet>
-    </Simulation>
-    <Simulation>
-      W2 Fol-Nat FixedATSP-T2018-FMarch
-      <EnsembleSet Name="Mar90-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-      <EnsembleSet Name="Mar90-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-    </Simulation>
-    <Simulation>
-      ResSim-T2018-FMarch
-      <EnsembleSet Name="Mar90-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="3" Step="10">
-            <I Range="0-3" Data="40,30,39" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>40</MembersToCompute>
-      </EnsembleSet>
-      <EnsembleSet Name="Mar90-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar90-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="40" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>30</MembersToCompute>
-      </EnsembleSet>
-    </Simulation>
+    <Simulation>W2 Folsom-T2018-FMarch</Simulation>
+    <Simulation>W2 Fol-Nat-T2018-FMarch</Simulation>
+    <Simulation>W2 Fol-Nat FixedATSP-T2018-FMarch</Simulation>
+    <Simulation>ResSim-T2018-FMarch</Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
     <Simulation Name="W2 Folsom-T2018-FMarch">
