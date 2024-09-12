@@ -5,11 +5,11 @@
       <Description>
         <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
       </Description>
-      <LastComputeTime Date="26 March 2024, 20:28" />
+      <LastComputeTime Date="26 March 2024, 20:28:36" />
     </ModelAlternative0>
     <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom FixedATSP" File="CeQual-W2/Folsom/W2 Folsom FixedATSP/W2_Folsom_FixedATSP.w2Alt">
       <Description />
-      <LastComputeTime Date="26 March 2024, 20:35" />
+      <LastComputeTime Date="26 March 2024, 20:35:58" />
     </ModelAlternative1>
   </ModelAlternatives>
   <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
