@@ -485,6 +485,22 @@
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
+        <DataLocation Name="WQ(IC)-Folsom Lake-Water_Temperature" Class="hec2.model.DataLocation" DssPath="//Folsom/DEPTH-TEMP//2020-01-02//" ComputeType="Computed" Model="DSS File" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom" Class="hec2.model.DssDataLocation" DssPath="//Folsom/DEPTH-TEMP//2020-01-02//" ComputeType="Computed" Parameter="DEPTH-TEMP" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/American_profiles_Site Dam.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="WQ(IC)-Folsom Lake-Sediment_Temperature" Class="hec2.model.DataLocation" DssPath="//Folsom/DEPTH-TEMP//2020-01-02//" ComputeType="Computed" Model="DSS File" Parameter="Sediment Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="RSAmerPO" Program="ResSim" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom" Class="hec2.model.DssDataLocation" DssPath="//Folsom/DEPTH-TEMP//2020-01-02//" ComputeType="Computed" Parameter="DEPTH-TEMP" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/American_profiles_Site Dam.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
       </DataLocations>
     </ModelAlternative>
     <ModelAlternative Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">

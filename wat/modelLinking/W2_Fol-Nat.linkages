@@ -234,6 +234,10 @@
       <Description />
       <DataLocations />
     </ModelAlternative>
+    <ModelAlternative Program="Scripting" Name="Post-Process_W2_Folsom" File="scripting/Post-Process_W2_Folsom.scAlt">
+      <Description />
+      <DataLocations />
+    </ModelAlternative>
     <ModelAlternative Program="Scripting" Name="Pre-Process_ResSim_Amer" File="scripting/Pre-Process_ResSim_Amer.scAlt">
       <Description>
         <desc cnt="0" value="Perform ResSim-specific transforms on forecast data produced by the WTMP forecast process." />
@@ -254,16 +258,16 @@
         <DataLocation Name="Sacramento Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
           <DownStreamLocation>
-            <DataLocation Name="EA FAIRBAIRN WTP (SACRAMENTO)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_withdrawals_6.dss</DssFile>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
         <DataLocation Name="Carmichael Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
           <DownStreamLocation>
-            <DataLocation Name="BAJAMONT WTP (CARMICHAEL)" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Parameter="FLOW-DIVERSION" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/American_withdrawals_6.dss</DssFile>
+            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
@@ -738,7 +742,7 @@
         <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/PHI//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="PHI" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="DYKE 8 (FLD)" Class="hec2.model.DssDataLocation" DssPath="/MR AM.-FOLSOM LAKE/DYKE 8 (FLD)/DIR-WIND-RADIANS//1Hour/250.14.133.1.2/" ComputeType="Computed" Parameter="DIR-WIND-RADIANS" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Dyke 8 (FLD)" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Folsom Lake/Dyke 8 (FLD)/Dir-Wind//1Hour/250.14.133.1.2/" ComputeType="Computed" Parameter="Dir-Wind" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
@@ -754,7 +758,7 @@
         <DataLocation Name="WB 1 Bathymetry" Class="hec2.model.DataLocation" DssPath="/W2:bth_smoothed.csv/WB 1 Bathymetry/Elev-ELWS//1HOUR/alt:ap:CeQualW2-WB 1 Bathymetry/" ComputeType="Computed" Model="DSS File" Parameter="Elev-ELWS" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Folsom" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="Folsom Lake" Class="hec2.model.DssDataLocation" DssPath="//Folsom Lake/ELEV-FORECAST//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV-FORECAST" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Folsom" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/Folsom/ELEV//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="ELEV" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatSimulation SimulationName="W2 Folsom-25Mar2018" Description="" FPart="W2 Folsom:2009" HasComputed="true" ComputeError="false" Parent="W2 Folsom-25Mar2018" LastComputedBy="benjamin" LastComputedDate="1726114875411" IsFrmSimulation="false">
+  <ModelAlternatives ModelAlternativeCount="2">
+    <ModelAlternative0 Program="Scripting" Name="Pre-Process_W2_Amer" File="scripting/Pre-Process_W2_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
+      </Description>
+      <LastComputeTime Date="12 September 2024, 04:20:28" />
+    </ModelAlternative0>
+    <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom" File="CeQual-W2/Folsom/W2 Folsom/W2_Folsom.w2Alt">
+      <Description />
+      <LastComputeTime Date="12 September 2024, 04:21:15" />
+    </ModelAlternative1>
+  </ModelAlternatives>
+  <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
+</WatSimulation>
+

@@ -22,8 +22,8 @@
       "coordinates" : [ 6774708.455378069, 1980234.0060254696 ]
     },
     "labelPosition" : "EAST",
-    "longitude" : -121.33,
-    "latitude" : 38.5
+    "latitude" : 38.5,
+    "longitude" : -121.33
   }, {
     "type" : "Feature",
     "properties" : {
@@ -46,8 +46,8 @@
       "coordinates" : [ 6784250.121519861, 1999942.2811065593 ]
     },
     "labelPosition" : "EAST",
-    "longitude" : -121.21887,
-    "latitude" : 38.649964
+    "latitude" : 38.649964,
+    "longitude" : -121.21887
   }, {
     "type" : "Feature",
     "properties" : {
@@ -65,8 +65,8 @@
       "coordinates" : [ 6810156.053437341, 2015607.0502349692 ]
     },
     "labelPosition" : "EAST",
-    "longitude" : 0.0,
-    "latitude" : 0.0
+    "latitude" : 0.0,
+    "longitude" : 0.0
   } ],
   "name" : "StationSet",
   "id" : 0,

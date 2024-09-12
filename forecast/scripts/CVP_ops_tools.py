@@ -9,6 +9,14 @@ import hec.io.TimeSeriesContainer as tscont
 import hec.hecmath.TimeSeriesMath as tsmath
 import hec.lang.Const
 
+import java.lang
+import java.io.File
+import java.io.FileInputStream
+
+from org.apache.poi.xssf.usermodel import XSSFWorkbook
+from org.apache.poi.hssf.usermodel import HSSFWorkbook
+from org.apache.poi.ss import usermodel as SSUsermodel
+
 DEBUG = True
 
 month_TLA = ["NM", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
@@ -35,10 +43,177 @@ def next_month(index):
 		return 1
 	else: return index + 1
 
-def last_month(index):
+def previous_month(index):
 	if index < 2:
 		return 12
 	else: return index - 1
+
+
+'''
+Imports a CVP ops spreadsheet saved as comma-separated values
+Returns a dictionary with keys that match the list of forecast locations in the second argrument
+Dictionary values are lists of CSV lines that "belong" to the location named in the key
+'''
+def import_CVP_Ops_csv(ops_fname, forecast_locations):
+	current_location = None
+	start_month = None
+	first_date_index = -1
+	location_count = 0
+	ts_count = 0
+	data_lines = []
+	rv_dictionary = {}
+	calendar = ""
+
+	with open(ops_fname) as infile:
+		num_lines = 0; num_data_lines = 0
+		for line in infile:
+			num_lines += 1
+			line_contains_months = False
+			token = line.strip().split(',')
+			# figure out what columns our data start in, what month we're looking at, and ignore blank lines
+			# the sample spreadsheet had an unused summary block starting in column AA, which I'm ignoring
+			num_t = 0; num_val = 0
+			for t in token[:26]:
+				if len(t.strip()) > 0:
+					num_val += 1
+					if not line_contains_months and t.strip().upper() in month_TLA:
+						line_contains_months = True
+						first_date_index = num_t
+						start_month = t.strip().upper()
+						if DEBUG: print "Calendar line %s: "%(line)
+						if DEBUG: print "Found \"%s\" in column %d"%(t.strip(), num_t + 1)
+						calendar = line
+				num_t += 1
+			if num_val == 0:
+				continue # don't include this line in the result
+
+			if token[0].strip() in forecast_locations and len(calendar) > 0:
+				if location_count > 0:
+					rv_dictionary[current_location] = data_lines
+				data_lines = []
+				current_location = token[0].strip()
+				print "setting current location to %s"%(current_location)
+				data_lines.append("%d,%s"%(first_date_index, calendar.strip()))
+				if len(token[1].strip()) > 1:
+					print("PROFILEDATE: %s"%(token[1]))
+					data_lines.append("PROFILEDATE: %s"%(token[1]))
+				location_count += 1
+				calendar = ""
+				continue
+
+			if not line_contains_months:
+				data_lines.append(line.strip())
+				ts_count += 1
+
+	rv_dictionary[current_location] = data_lines #
+	print "Found %d forecast locations and %d time series in ops file \n\t%s."%(
+		location_count, ts_count, ops_fname)
+	return rv_dictionary
+
+
+def monthFromDateStr(str):
+	month_TLA = ["NM", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+	for token in str.split():
+		if token.strip().upper() in month_TLA:
+			return token.strip().upper()
+	return None
+
+'''
+Imports a CVP ops spreadsheet saved as XLS or XLSX format
+Returns a dictionary with keys that match the list of forecast locations in the second argrument
+Dictionary values are lists of CSV lines that "belong" to the location named in the key
+
+Excel formats are decoded by the Apache POI library. See import block at the top of the
+file. The instructional web sites below helped with interpreting values from formula cells
+https://www.baeldung.com/java-apache-poi-cell-string-value
+https://www.baeldung.com/java-read-dates-excel
+
+This script expects to use version 3.8 of the POI library. Newer versions may have API changes.
+In particular, look out for SSUsermodel.Cell.CELL_TYPE_XXX, which is a constant in v 3.8, and part
+of an enumeration in v 4.X
+'''
+def import_CVP_Ops_xls(ops_fname, forecast_locations, sheet_number=0):
+	current_location = None
+	start_month = None
+	first_date_index = -1
+	location_count = 0
+	ts_count = 0
+	data_lines = []
+	rv_dictionary = {}
+	calendar = ""
+
+	try:
+		if ops_fname.endswith(".xlsx"):
+			workbook = XSSFWorkbook(
+				java.io.FileInputStream(java.io.File(ops_fname)))
+		if ops_fname.endswith(".xls"):
+			workbook = HSSFWorkbook(
+				java.io.FileInputStream(java.io.File(ops_fname)))
+	except Exception as e:
+		raise e
+
+	sheet = workbook.getSheetAt(sheet_number)
+	formatter = SSUsermodel.DataFormatter(True)
+	num_lines = 0; num_data_lines = 0
+	for row in sheet.iterator():
+		num_lines += 1
+		line_contains_months = False
+		token = []
+		for cell in row.cellIterator():
+			# This business -- Cell.CELL_TYPE_XXX -- has been revised a couple of times
+			# between POI version 3.8 and 4.x. Watch out it doesn't bite us
+			if cell.getCellType() == SSUsermodel.Cell.CELL_TYPE_FORMULA:
+				cachedType = cell.getCachedFormulaResultType()
+				# print str(cachedType) + " : " + formatter.formatCellValue(cell)
+				if cachedType == SSUsermodel.Cell.CELL_TYPE_NUMERIC:
+					if SSUsermodel.DateUtil.isCellDateFormatted(cell):
+						token.append(monthFromDateStr(str(cell.getDateCellValue())))
+					else:
+						token.append(str(cell.getNumericCellValue()))
+				if cachedType == SSUsermodel.Cell.CELL_TYPE_STRING:
+					token.append(str(cell.getStringCellValue()))
+			else:
+				token.append(formatter.formatCellValue(cell))
+		# figure out what columns our data start in, what month we're looking at, and ignore blank lines
+		num_t = 0; num_val = 0
+		for t in token:
+			if len(t.strip()) > 0:
+				num_val += 1
+				# if there's a month label in the first 6 cells of the row, the row is a calendar line
+				if ((not line_contains_months) and
+					num_t < 6 and
+					t.strip().upper() in month_TLA):
+					line_contains_months = True
+					first_date_index = num_t
+					start_month = t.strip().upper()
+					if DEBUG: print "Calendar line %d: "%(num_lines)
+					if DEBUG: print "Found \"%s\" in column %d"%(t.strip(), num_t + 1)
+					calendar = ','.join(token)
+			num_t += 1
+		if num_val == 0:
+			continue # don't include this row in the result
+
+		if token[0].strip() in forecast_locations and len(calendar) > 0:
+			if location_count > 0:
+				rv_dictionary[current_location] = data_lines
+				data_lines = []
+			current_location = token[0].strip()
+			if DEBUG: print "setting current location to %s"%(current_location)
+			data_lines.append("%d,%s"%(first_date_index, calendar))
+			if len(token[1].strip()) > 1:
+				data_lines.append("PROFILEDATE: %s"%(token[1]))
+			location_count += 1
+			calendar = ""
+			continue
+
+		if not line_contains_months and num_val > 10:
+			data_lines.append(','.join(token))
+			ts_count += 1
+
+	rv_dictionary[current_location] = data_lines #
+	print "Found %d forecast locations and %d time series in ops file \n\t%s."%(
+		location_count, ts_count, ops_fname)
+	return rv_dictionary
 
 '''
 Converts a row from an operations CSV file and makes it into a TimeSeriesContainer
@@ -54,7 +229,9 @@ def make_ops_tsc(location_name, water_year, start_month, ts_line, data_type=None
 	if currentAlternative:
 		currentAlternative.addComputeMessage("making a time series at %s starting at %s %d..."%(location_name, start_month, i_year))
 		currentAlternative.addComputeMessage("From data line: \"%s\""%(ts_line))
-
+	if DEBUG:
+		print "making a time series at %s starting at %s %d..."%(location_name, start_month, i_year)
+		print "From data line: \"%s\""%(ts_line)
 	param = ""
 
 	if not data_type:
@@ -136,67 +313,46 @@ def make_ops_tsc(location_name, water_year, start_month, ts_line, data_type=None
 	return rv_tsc
 
 '''
-get a value from a time series container at a given time
-	tsc_in -- the time series container
-	jtime -- the time of the value you're looking for. 
-The jtime value has to be in the same units as the times array in the container.
+turn monthly volumes into uniform daily average flows
+  optional key-word argument specifies the number of days represented by a partial month at the
+	beginning of the period the volume has accumulated over
+	start_day_count: integer
+Assumptions:
+	- input time series is either a monthly average of daily flows or a monthly volume in acre-feet
+	- a start_day_count of n indicates that the return value is a time series beginning with the last n
+	days of the first month in the input time series. An input time series beginning in April, with a
+	start-day-count of 14 will result in a daily time series starting at the end of  16 April.
 '''
-def getValueAt(tsc_in, jtime):
-	if jtime < tsc_in.times[0]:
-		# edge case for beginning of first interval
-		if (jtime + tsc_in.interval >= tsc_in.times[0] and
-			not tsc_in.type.upper().startswith("INST")):
-				return tsc_in.values[0]
-		raise ValueError("Time of request is earlier than the first time in the container.")
-	if jtime > tsc_in.times[-1]:
-		raise ValueError("Time of request is later than the last time in the container.")
-	prev_time = tsc_in.times[0]
-	prev_value = tsc_in.values[0]
-	if jtime == prev_time:
-		return prev_value
-	i = 1
-	for i in range(1, tsc_in.numberValues):
-		test_time = tsc_in.times[i]
-		test_value = tsc_in.values[i]
-		if test_time == jtime:
-			return test_value
-		#interpolate if needed
-		if test_time > jtime:
-			ratio = (jtime - prev_time)/(test_time - prev_time)
-			return prev_value + (test_value - prev_value)*ratio
-		prev_time = test_time
-		prev_value = test_value
-
-	return None
-
-'''
-turn monthly volumes into monthly average flows
-'''
-def month_volume_to_flow(tsmath_months, currentAlternative=None):
+def uniform_transform_monthly_to_daily(tsmath_months, start_day_count=None, currentAlternative=None):
 	start_time_in = HecTime(tsmath_months.firstValidDate(), HecTime.MINUTE_INCREMENT)
-
-	#output time series will begin on the first day of the first month in the monthly input ts
-	start_time_out = HecTime()
-	start_time_out.set(start_time_in)
 	end_time_in = HecTime(tsmath_months.lastValidDate(), HecTime.MINUTE_INCREMENT)
-	# print "hourly start time = " + start_time_out.date(4) + ' ' + str(start_time_out.minutesSinceMidnight())
+
+	if not start_day_count:
+		start_day_count = start_time_in.day()
+
+	#output time series will begin start_day_count days before the end of the first month in the monthly input ts
+	start_day_of_month = 1 + get_days_in_month(start_time_in.month(), start_time_in.year()) - start_day_count
+	start_time_out = HecTime()
+	start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), start_day_of_month, 0)
+	print "uniform daily time series start time = " + start_time_out.date(4) + ' ' + str(start_time_out.minutesSinceMidnight())
 
 	# is the input volumes or flows?
 	input_is_acrefeet = True
-	if tsmath_months.getUnits().upper().startswith("CFS"):
+	if tsmath_months.getUnits().upper().startswith("TAF"):
+		tsmath_months = tsmath_months.multiply(1000.0)
+		tsmath_months.setUnits("AC-FT")
+		tsmath_months.setType("PER-CUM")
+	elif tsmath_months.getUnits().upper().startswith("CFS"):
 		input_is_acrefeet = False
 
-	# convert TAF to AF
-	if input_is_acrefeet and tsmath_months.getUnits().upper().startswith("TAF"):
-		tsmath_months = tsmath_months.multiply(1000.0)
-
 	# get the date and time value lists from the TimeSeriesMath objects
-	tsc_months = tsmath_months.getContainer()
+	tsc_months = tsmath_months.getData()
 
 	if currentAlternative:
 		currentAlternative.addComputeMessage("Calculating uniform time series for %s at %s"%(tsc_months.parameter, tsc_months.location))
 		currentAlternative.addComputeMessage("Input time series starting at %s"%(str(start_time_in)))
 		currentAlternative.addComputeMessage("Output time series starting at %s"%(str(start_time_out)))
+
 	elif DEBUG:
 		print "Calculating uniform time series for %s at %s"%(tsc_months.parameter, tsc_months.location)
 		print "Input time series starting at %s"%(str(start_time_in))
@@ -206,67 +362,13 @@ def month_volume_to_flow(tsmath_months, currentAlternative=None):
 	search_time = HecTime()
 	post_time = HecTime()
 
-	tsc_result = tscont()
-	tsc_result.fullName = tsc_months.fullName
-	tsc_result.version = "UNIFORM"
-	tsc_result.units = "CFS"
-	tsc_result.type = "PER-AVER"
-	tsc_result.interval = 43200
-	tsc_result.numberValues =tsmath_months.getData().numberValues
-	values = []
-	times = []
-	i = 0
-	while len(values) < tsc_result.numberValues:
-		post_time.set(tsmath_months.getData().times[i])
-		cfs_conversion = 1.
-		if input_is_acrefeet:
-			cfs_conversion = 0.50417/get_days_in_month(post_time.month(), post_time.year())
-
-		values.append(tsmath_months.getData().values[i]*cfs_conversion)
-		times.append(tsmath_months.getData().times[i])
-		i += 1
-	tsc_result.values = values
-	tsc_result.times = times
-	return tsmath(tsc_result)
-
-'''
-turn monthly volumes into uniform daily average flows
-Assumptions:
-	pattern time and output time series are daily average flows in CFS
-	input time series is either a monthly average of daily flows or a monthly volume in acre-feet
-'''
-def uniform_transform_monthly_to_daily(tsmath_months, currentAlternative=None):
-	start_time_in = HecTime(tsmath_months.firstValidDate(), HecTime.MINUTE_INCREMENT)
-
-	#output time series will begin on the first day of the first month in the monthly input ts
-	start_time_out = HecTime()
-	start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), 1, 1440)
-	#start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), 1, 0)
-	end_time_in = HecTime(tsmath_months.lastValidDate(), HecTime.MINUTE_INCREMENT)
-	print "hourly start time = " + start_time_out.date(4) + ' ' + str(start_time_out.minutesSinceMidnight())
-
-	# is the input volumes or flows?
-	input_is_acrefeet = False
-	if tsmath_months.getUnits().upper().startswith("AC"):
-		input_is_acrefeet = True
-
-	# get the date and time value lists from the TimeSeriesMath objects
-	tsc_months = tsmath_months.getContainer()
-
-	if currentAlternative:
-		currentAlternative.addComputeMessage("Calculating uniform time series for %s at %s"%(tsc_months.parameter, tsc_months.location))
-		currentAlternative.addComputeMessage("Input time series starting at %s"%(str(start_time_in)))
-		currentAlternative.addComputeMessage("Output time series starting at %s"%(str(start_time_out)))
-
-	# create HecTime objects for indexing the pattern and output time series
-	search_time = HecTime()
-	post_time = HecTime()
-
-	tsc_result = tscont()
+	tsc_result = tsmath.generateRegularIntervalTimeSeries(start_time_out.date(8), end_time_in.date(8), "1DAY", "0M", 1.0).getData()
 	path_parts = tsc_months.fullName.split('/')
 	path_parts[5] = "1DAY"
 	tsc_result.fullName = '/'.join(path_parts)
 	tsc_result.version = "UNIFORM"
+	tsc_result.location = tsc_months.location
+
 	if input_is_acrefeet:
 		tsc_result.units = "CFS"
 		tsc_result.type = "PER-AVER"
@@ -274,88 +376,117 @@ def uniform_transform_monthly_to_daily(tsmath_months, currentAlternative=None):
 		tsc_result.units = tsc_months.units
 		tsc_result.type = tsc_months.type
 		tsc_result.parameter = tsc_months.parameter
-	tsc_result.location = tsc_months.location
-	tsc_result.interval = 1440
-	tsc_result.numberValues = 1+ (end_time_in.getMinutes() - start_time_out.getMinutes())/1440
-	values = []
 
-	times = [start_time_out.getMinutes()]
-	while len(values) < tsc_result.numberValues:
-		post_time.setMinutes(times[-1])
+	i = 0
+	for tm in tsc_result.times:
+		post_time.setMinutes(tm)
+		# print "post_time = " + post_time.date(4) + ' ' + str(post_time.minutesSinceMidnight())
+
 		cfs_conversion = 1.
 		if input_is_acrefeet:
-			cfs_conversion = 0.50417/get_days_in_month(post_time.month(), post_time.year())
+			if tm <= tsc_months.times[0]:
+				cfs_conversion = 0.50417/start_day_count
+			else:
+				cfs_conversion = 0.50417/get_days_in_month(post_time.month(), post_time.year())
 
-		search_time.setYearMonthDay(post_time.year(), post_time.month(),
-			get_days_in_month(post_time.month(), post_time.year()), 1440)
+		if tm <= tsc_months.times[0]:
+			tsc_result.values[i] = tsc_months.values[0]*cfs_conversion
+		else:
+			search_time.setYearMonthDay(post_time.year(), post_time.month(),
+				get_days_in_month(post_time.month(), post_time.year()), 1440)
+			tsc_result.values[i] = tsc_months.getValue(search_time)*cfs_conversion
 
-		values.append(getValueAt(tsc_months, search_time.getMinutes())*cfs_conversion)
-		if len(values) >= tsc_result.numberValues:
-			break
-		times.append(times[-1]+1440)
-	tsc_result.values = values
-	tsc_result.times = times
+		i += 1
+
 	return tsmath(tsc_result)
 
 '''
 turn monthly volumes into uniform hourly average flows
+  optional key-word argument specifies the number of days represented by a partial month at the
+	beginning of the period the volume has accumulated over
+	start_day_count: integer
 Assumptions:
-	pattern time and output time series are daily average flows in CFS
-	input time series is either a monthly average of daily flows or a monthly volume in acre-feet
+	- input time series is either a monthly average of daily flows or a monthly volume in acre-feet
+	- a start_day_count of n indicates that the return value is a time series beginning with the last n
+	days of the first month in the input time series. An input time series beginning in April, with a
+	start-day-count of 14 will result in a daily time series starting on 17 April.
 '''
-def uniform_transform_monthly_to_hourly(tsmath_months, currentAlternative=None):
+def uniform_transform_monthly_to_hourly(tsmath_months, start_day_count=None, currentAlternative=None):
 	start_time_in = HecTime(tsmath_months.firstValidDate(), HecTime.MINUTE_INCREMENT)
-
-	#output time series will begin on the first day of the first month in the monthly input ts
-	start_time_out = HecTime()
-	start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), 1, 60)
 	end_time_in = HecTime(tsmath_months.lastValidDate(), HecTime.MINUTE_INCREMENT)
-	# print "hourly start time = " + start_time_out.date(4) + ' ' + str(start_time_out.minutesSinceMidnight())
+
+	if not start_day_count:
+		start_day_count = start_time_in.day()
+
+	#output time series will begin start_day_count days before the end of the first month in the monthly input ts
+	start_day_of_month = 1 + get_days_in_month(start_time_in.month(), start_time_in.year()) - start_day_count
+	start_time_out = HecTime()
+	start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), start_day_of_month, 0)
+
+	print "hourly start time = " + start_time_out.date(4) + ' ' + str(start_time_out.minutesSinceMidnight())
 
 	# is the input volumes or flows?
 	input_is_acrefeet = True
-	if tsmath_months.getUnits().upper().startswith("CFS"):
+	if tsmath_months.getUnits().upper().startswith("TAF"):
+		tsmath_months = tsmath_months.multiply(1000.0)
+		tsmath_months.setUnits("AC-FT")
+		tsmath_months.setType("PER-CUM")
+	elif tsmath_months.getUnits().upper().startswith("CFS"):
 		input_is_acrefeet = False
 
 	# get the date and time value lists from the TimeSeriesMath objects
-	tsc_months = tsmath_months.getContainer()
+	tsc_months = tsmath_months.getData()
 
 	if currentAlternative:
 		currentAlternative.addComputeMessage("Calculating uniform time series for %s at %s"%(tsc_months.parameter, tsc_months.location))
 		currentAlternative.addComputeMessage("Input time series starting at %s"%(str(start_time_in)))
 		currentAlternative.addComputeMessage("Output time series starting at %s"%(str(start_time_out)))
 
+	elif DEBUG:
+		print "Calculating uniform time series for %s at %s"%(tsc_months.parameter, tsc_months.location)
+		print "Input time series starting at %s"%(str(start_time_in))
+		print "Output time series starting at %s"%(str(start_time_out))
+
 	# create HecTime objects for indexing the pattern and output time series
 	search_time = HecTime()
 	post_time = HecTime()
 
-	tsc_result = tscont()
-	tsc_result.fullName = tsc_months.fullName
+	tsc_result = tsmath.generateRegularIntervalTimeSeries(start_time_out.date(8), end_time_in.date(8), "1HOUR", "0M", 1.0).getData()
+	path_parts = tsc_months.fullName.split('/')
+	path_parts[5] = "1HOUR"
+	tsc_result.fullName = '/'.join(path_parts)
 	tsc_result.version = "UNIFORM"
-	tsc_result.units = "CFS"
-	tsc_result.type = "PER-AVER"
-	tsc_result.interval = 60
-	tsc_result.numberValues =1+ (end_time_in.getMinutes() - start_time_out.getMinutes())/60
-	values = []
+	tsc_result.location = tsc_months.location
 
-	times = [start_time_out.getMinutes()]
-	while len(values) < tsc_result.numberValues:
-		post_time.setMinutes(times[-1])
+	if input_is_acrefeet:
+		tsc_result.units = "CFS"
+		tsc_result.type = "PER-AVER"
+	else:
+		tsc_result.units = tsc_months.units
+		tsc_result.type = tsc_months.type
+		tsc_result.parameter = tsc_months.parameter
+
+	i = 0
+	for tm in tsc_result.times:
+		post_time.setMinutes(tm)
 		# print "post_time = " + post_time.date(4) + ' ' + str(post_time.minutesSinceMidnight())
 
 		cfs_conversion = 1.
 		if input_is_acrefeet:
-			cfs_conversion = 0.50417/get_days_in_month(post_time.month(), post_time.year())
+			if tm <= tsc_months.times[0]:
+				cfs_conversion = 0.50417/start_day_count
+			else:
+				cfs_conversion = 0.50417/get_days_in_month(post_time.month(), post_time.year())
 
-		search_time.setYearMonthDay(post_time.year(), post_time.month(),
-			get_days_in_month(post_time.month(), post_time.year()), 1440)
+		if tm <= tsc_months.times[0]:
+			tsc_result.values[i] = tsc_months.values[0]*cfs_conversion
+		else:
+			search_time.setYearMonthDay(post_time.year(), post_time.month(),
+				get_days_in_month(post_time.month(), post_time.year()), 1440)
+			tsc_result.values[i] = tsc_months.getValue(search_time)*cfs_conversion
 
-		values.append(getValueAt(tsc_months, search_time.getMinutes())*cfs_conversion)
-		if len(values) >= tsc_result.numberValues:
-			break
-		times.append(times[-1]+60)
-	tsc_result.values = values
-	tsc_result.times = times
+		i += 1
+
 	return tsmath(tsc_result)
 
 '''
@@ -366,14 +497,18 @@ Assumptions:
 	pattern time and output time series are daily average flows in CFS
 	input time series is either a monthly average of daily flows or a monthly volume in acre-feet
 '''
-def weight_transform_monthly_to_daily(tsmath_months, tsmath_pattern, currentAlternative=None):
+def weight_transform_monthly_to_daily(tsmath_months, tsmath_pattern, start_day_count=None, currentAlternative=None):
 	start_time_in = HecTime(tsmath_months.firstValidDate(), HecTime.MINUTE_INCREMENT)
 	end_time_in = HecTime(tsmath_months.lastValidDate(), HecTime.MINUTE_INCREMENT)
 	start_time_pattern = HecTime(tsmath_pattern.firstValidDate(), HecTime.MINUTE_INCREMENT)
 
-	#output time series will begin on the first day of the first month in the monthly input ts
+	if not start_day_count:
+		start_day_count = start_time_in.day()
+
+	#output time series will begin start_day_count days before the end of the first month in the monthly input ts
+	start_day_of_month = 1 + get_days_in_month(start_time_in.month(), start_time_in.year()) - start_day_count
 	start_time_out = HecTime()
-	start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), 1, 1440)
+	start_time_out.setYearMonthDay(start_time_in.year(), start_time_in.month(), start_day_of_month, 0)
 
 	# is the input volumes or flows?
 	input_is_acrefeet = True
@@ -416,17 +551,42 @@ def weight_transform_monthly_to_daily(tsmath_months, tsmath_pattern, currentAlte
 		key = in_time.year()*100+in_time.month()
 
 		if input_is_acrefeet:
-			scale_lookup[key] = getValueAt(tsc_months, time_int)*0.50417/days_in_month[in_time.month()]/getValueAt(tsc_pattern_ave, search_time.getMinutes())
+			scale_lookup[key] = tsc_months.getValue(in_time)*0.50417/days_in_month[in_time.month()]/tsc_pattern_ave.getValue(search_time)
 		else:
-			scale_lookup[key] = getValueAt(tsc_months, time_int)/getValueAt(tsc_pattern_ave, search_time.getMinutes())
+			scale_lookup[key] = tsc_month.getValue(in_time)/tsc_pattern_ave.getValue(search_time)
 
 		if currentAlternative:
 			currentAlternative.addComputeMessage("scale for %s %d = %f"%(month_TLA[in_time.month()], in_time.year(), scale_lookup[in_time.month()]))
 		elif DEBUG:
 			print "scale for %s %d = %f"%(month_TLA[in_time.month()], in_time.year(), scale_lookup[key])
 
-	tsm_result = tsmath.generateRegularIntervalTimeSeries(start_time_out.date(8), end_time_in.date(8), "1DAY", 1.0)
-	tsc_result = tsm_result.getContainer()
+	# if we're starting mid-month, recalculate acre-feet scale factor for the first month
+	if input_is_acrefeet and start_day_of_month > 1:
+		first_month_key = start_time_in.year()*100 + start_time_in.month()
+		sum_flows = 0.0
+		i = 0
+		search_time.setYearMonthDay(start_time_pattern.year(), start_time_in.month(), start_day_of_month, 1440)
+		first_month = search_time.month()
+		if DEBUG: print "Starting pattern time series at %s"%search_time.date(4)
+		while search_time.month() == first_month:
+			sum_flows += tsc_pattern.getValue(search_time)
+			i += 1
+			print "index = %d"%(i)
+			search_time.addDays(1)
+		scale_lookup[first_month_key] = tsc_months.values[0]*0.50417 / sum_flows
+		if DEBUG: print "{}AF/{}cfs-day = {}".format(tsc_months.values[0], sum_flows, scale_lookup[first_month_key])
+
+	# if we're starting first-of-month, duplicate acre-feet scale factor for the first month to the previous month
+	if input_is_acrefeet and start_day_of_month == 1:
+		key = 0
+		if start_time_in.month() == 1:
+			key = (start_time_in.year() - 1)*100 + 12
+		else:
+			key = start_time_in.year()*100 + start_time_in.month() - 1
+		first_month_key = start_time_in.year()*100 + start_time_in.month()
+		scale_lookup[key] = scale_lookup[first_month_key]
+
+	tsc_result = tsmath.generateRegularIntervalTimeSeries(start_time_out.date(8), end_time_in.date(8), "1DAY", "0M", 1.0).getData()
 	tsc_result.fullName = tsc_months.fullName
 	tsc_result.units = "CFS"
 	tsc_result.type = "PER-AVER"
@@ -436,8 +596,9 @@ def weight_transform_monthly_to_daily(tsmath_months, tsmath_pattern, currentAlte
 		post_time.setMinutes(time_min)
 		search_time.setYearMonthDay(start_time_pattern.year(), post_time.month(), post_time.day(), 1440)
 		scale = scale_lookup[post_time.month()+100*post_time.year()]
-		tsc_result.values[i] = scale * getValueAt(tsc_pattern, search_time.getMinutes())
+		tsc_result.values[i] = scale * tsc_pattern.getValue(search_time)
 		i += 1
+	tsm_result = tsmath(tsc_result)
 	tsm_result.setVersion("WEIGHTED")
 	print "Weight disaggregation of %s complete."%(tsc_result.fullName)
 	return tsm_result
@@ -479,13 +640,14 @@ def split_time_series_monthly(tsmath_in, names_weights, out_param_name):
 
 	time_start = HecTime(tsmath_in.firstValidDate(), HecTime.MINUTE_INCREMENT)
 	time_end = HecTime(tsmath_in.lastValidDate(), HecTime.MINUTE_INCREMENT)
-	weight_math = tsmath.generateRegularIntervalTimeSeries(time_start.date(8), time_end.date(8), "1DAY", 1.0)
+	weight_container = tsmath.generateRegularIntervalTimeSeries(
+		time_start.date(8), time_end.date(8), "1DAY", "0M", 1.0).getData()
 
 	for key in names_weights.keys():
-		weight_container = weight_math.getContainer()
 		for i in range(weight_container.numberValues):
 			time_end.set(weight_container.times[i])
 			weight_container.values[i] = names_weights[key][time_end.month() - 1]/total_weight[time_end.month() - 1]
+		weight_math = tsmath(weight_container)
 		tsmath_product = tsmath_in.multiply(weight_math)
 		tsmath_product.setParameterPart(out_param_name)
 		tsmath_product.setLocation(key)
@@ -497,33 +659,33 @@ Backward moving average
 Because DSSMath doesn't have a function for this...
 '''
 def backwardsMovingAverage(tsmath_in, num_periods):
-    rv_tsc = tsmath_in.getData() # getData() returns a copy of the tsMath's time-series container
-    rv_parts = rv_tsc.fullName.strip('/').split('/')
-    i = 0; j = 0
-    in_vals = tsmath_in.getContainer().values # getContainer() returns access to the time-series container in place
-    if DEBUG:
-        print "Input TSMath for moving average contains %d values."%(tsmath_in.getContainer().numberValues)
-    out_vals =[]
-    for val in in_vals:
-        j += 1
-        k = j - num_periods
-        moving_sum = 0.
-        moving_count = 0.
-        if k < 0: k = 0
-        for addend in in_vals[k:j]:
-            if addend == hec.lang.Const.UNDEFINED_DOUBLE:
-                continue
-            else:
-                moving_sum += addend
-                moving_count += 1.0
-        out_vals.append(moving_sum/moving_count)
-        i += 1
+	rv_tsc = tsmath_in.getData() # getData() returns a copy of the tsMath's time-series container
+	rv_parts = rv_tsc.fullName.strip('/').split('/')
+	i = 0; j = 0
+	in_vals = tsmath_in.getContainer().values # getContainer() returns access to the time-series container in place
+	if DEBUG:
+		print "Input TSMath for moving average contains %d values."%(tsmath_in.getContainer().numberValues)
+	out_vals =[]
+	for val in in_vals:
+		j += 1
+		k = j - num_periods
+		moving_sum = 0.
+		moving_count = 0.
+		if k < 0: k = 0
+		for addend in in_vals[k:j]:
+			if addend == hec.lang.Const.UNDEFINED_DOUBLE:
+				continue
+			else:
+				moving_sum += addend
+				moving_count += 1.0
+		out_vals.append(moving_sum/moving_count)
+		i += 1
 
-    if DEBUG:
-        print "Result TSMath for moving average contains %d values."%(len(out_vals))
-    rv_tsc.values = out_vals
-    rv_tsc.fullName = "//test/flow-avg//" + rv_parts[-2] + "/moving/"
-    return tsmath(rv_tsc)
+	if DEBUG:
+		print "Result TSMath for moving average contains %d values."%(len(out_vals))
+	rv_tsc.values = out_vals
+	rv_tsc.fullName = "//test/flow-avg//" + rv_parts[-2] + "/moving/"
+	return tsmath(rv_tsc)
 
 
 '''
