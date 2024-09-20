@@ -7,18 +7,18 @@
         <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
       </Description>
       <DataLocations>
-        <DataLocation Name="Folsom Lake-Penstock 3 IN" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3 IN/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
-          <DownStreamLocation>
-            <DataLocation Name="Folsom Lake-Penstock 3 IN" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3 IN/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
-              <ModelAlternative Name="RSAmer" Program="ResSim" />
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
         <DataLocation Name="Folsom Lake-Penstock 1 IN" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1 IN/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
           <DownStreamLocation>
             <DataLocation Name="Folsom Lake-Penstock 1 IN" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1 IN/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmer" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
               <ModelAlternative Name="RSAmer" Program="ResSim" />
             </DataLocation>
           </DownStreamLocation>
@@ -34,23 +34,15 @@
         <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
           <DownStreamLocation>
-            <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Temp-Water Temperature//1HOUR/ResSim:2011:ResSim-RSAmer/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Folsom Lake-Penstock 2" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 2/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
               <ModelAlternative Name="RSAmer" Program="ResSim" />
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
-        <DataLocation Name="Folsom Temp" Class="hec2.model.DataLocation" DssPath="//Folsom Temp/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Folsom Lake-Penstock 3 IN" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3 IN/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
           <DownStreamLocation>
-            <DataLocation Name="Folsom Dam" Class="hec2.model.DataLocation" DssPath="//Folsom Dam/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
-              <ModelAlternative Name="RSAmer" Program="ResSim" />
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
-        <DataLocation Name="Folsom Flow" Class="hec2.model.DataLocation" DssPath="//Folsom Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
-          <DownStreamLocation>
-            <DataLocation Name="Folsom Dam" Class="hec2.model.DataLocation" DssPath="//Folsom Dam/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Folsom Lake-Penstock 3 IN" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 3 IN/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
               <ModelAlternative Name="RSAmer" Program="ResSim" />
             </DataLocation>
           </DownStreamLocation>
@@ -63,10 +55,18 @@
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
-        <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="Folsom Flow" Class="hec2.model.DataLocation" DssPath="//Folsom Flow/Flow//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
           <DownStreamLocation>
-            <DataLocation Name="Folsom Lake-Penstock 1" Class="hec2.model.DataLocation" DssPath="//Folsom Lake-Penstock 1/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Folsom Dam" Class="hec2.model.DataLocation" DssPath="//Folsom Dam/Flow//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="RSAmer" Program="ResSim" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Folsom Temp" Class="hec2.model.DataLocation" DssPath="//Folsom Temp/Temp-Water//1HOUR/alt:ap:Scripting-Post-Process_ResSim_Am/" ComputeType="Computed" Model="ResSim-RSAmer" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Post-Process_ResSim_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Folsom Dam" Class="hec2.model.DataLocation" DssPath="//Folsom Dam/Temp-Water Temperature//1HOUR/C:000000|altName:apName:ResSim-RSAmer/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
               <ModelAlternative Name="RSAmer" Program="ResSim" />
             </DataLocation>
           </DownStreamLocation>
