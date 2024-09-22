@@ -125,7 +125,7 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 
 	rv_lines = []
 	met_config_str = ""
-	DSSout = hec.heclib.dss.HecDss.open(met_output_DSS_filename)
+	print "Met output DSS file: %s"%(met_output_DSS_filename)
 	met_config_lines = getConfigLines(position_analysis_config_filename)
 	for line in met_config_lines[1:]:
 		token = line.strip().split(',')
@@ -142,14 +142,22 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 			continue
 		#source_DSS_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), token[0].strip('\\'))
 		source_DSS_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), token[2].strip().strip('\\'))
-		DSSsource = hec.heclib.dss.HecDss.open(source_DSS_file_name)
+		ts_read = hec.heclib.dss.HecTimeSeries()
+		ts_read.setDSSFileName(source_DSS_file_name)
 		if DEBUG: print "Reading %s from DSS file %s."%(token[3].strip(), source_DSS_file_name)
 		source_path_parts = token[3].strip().strip('/').split('/', 5)
 		source_path = '/'
 		for index in (0,1,2,4,5):
 			source_path += (source_path_parts[index] + '/')
 			if index == 2: source_path += '/'
-		tsmath_source = DSSsource.read(source_path)
+		tsc_source = tscont()
+		tsc_source.fullName = source_path
+		status = ts_read.read(tsc_source, False)
+		if status < 0:
+			print "Failed to read meteorologic time series %s \n\tfrom DSS file %s"%(source_path, source_DSS_file_name)
+			ts_read.done()
+			continue
+		tsmath_source = tsmath(tsc_source)
 		time_step_label = token[3].strip().split('/')[5]
 		if DEBUG:  print "\tTime series contains %d values."%(tsmath_source.getContainer().numberValues)
 		if DEBUG:  print "\tShifting time series with shiftInTime(%s)."%("%dMo"%(diff_years*12))
@@ -183,8 +191,11 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 		tsmath_shift.setUnits(tsmath_source.getUnits())
 		tsmath_shift.setPathname(tsmath_source.getContainer().fullName)
 		tsmath_shift.setVersion(met_F_part)
-		DSSout.write(tsmath_shift)
-		DSSsource.done()
+		ts_write = hec.heclib.dss.HecTimeSeries()
+		ts_write.setDSSFileName(met_output_DSS_filename)
+		ts_write.write(tsmath_shift.getData())
+		ts_write.done()
+		ts_read.done()
 
 		#met_loc, met_param = token[1].strip().split('<', 1)
 		met_loc = token[0]
@@ -321,7 +332,6 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	active_locations = ["Folsom"]
 
 	rv_lines = []
-	open_DSS_files = []
 
 	if ops_file_name.endswith(".xls") or ops_file_name.endswith(".xlsx"):
 		try:
@@ -352,7 +362,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 			return None
 		print "Profile date: %s"%profile_date
 
-	folsom_ts_list = []
+	folsom_tsc_list = []
 	folsom_calendar = ops_data["Folsom"][0].split(',')
 	start_index = int(folsom_calendar[0])
 	start_month = folsom_calendar[start_index + 1].strip().upper()
@@ -369,7 +379,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 			pass
 		if DEBUG: print "Start_index = %d\nData_Month = %s"%(start_index, data_month)
 		if DEBUG: print "Passing line to CVP.make_ops_tsc: %s"%(line)
-		folsom_ts_list.append(CVP.make_ops_tsc("FOLSOM", data_year, data_month, line, ops_label=ops_import_F_part))
+		folsom_tsc_list.append(CVP.make_ops_tsc("FOLSOM", data_year, data_month, line, ops_label=ops_import_F_part))
 
 	'''
 	Disabled code for temporal pattern
@@ -377,7 +387,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		1. Remove block comment here
 		2. Find computation that creates tsmath_daily_flow and switch from uniform
 			to weighted disaggregation of inflow volume
-		3. Just above return statement for this function, restore patternDSS.done()
+		3. Just above return statement for this function, restore ts_pattern.done()
 	# We have one temporal flow pattern for the American River inflow to Folsom Lake.
 	# The DSS record for that pattern is called "pattern_path" here. We'll need to be
 	# more specific if we have patterns for more than one hydrograph. See SacTrinity BC
@@ -405,8 +415,8 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		# print "Flow pattern for Folsom in \n\t%s"%(pattern_DSS_file_name)
 		# print "\t" + pattern_path
 
-	patternDSS = hec.heclib.dss.HecDss.open(pattern_DSS_file_name)
-	open_DSS_files.append(patternDSS)
+	ts_pattern = hec.heclib.dss.HecTimeSeries()
+	ts_pattern.setDSSFileName(pattern_DSS_file_name)
 	'''
 
 	DSS_map_lines = getConfigLines(DSS_map_filename)
@@ -427,12 +437,6 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	if not os.path.isabs(met_DSS_file_name):
 		met_DSS_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), met_DSS_file_name)
 
-
-	outDSS = hec.heclib.dss.HecDss.open(BC_output_DSS_filename)
-	open_DSS_files.append(outDSS)
-	temperatureDSS = hec.heclib.dss.HecDss.open(met_DSS_file_name)
-	open_DSS_files.append(temperatureDSS)
-
 	ops_start_date = HecTime()
 	ops_end_date = HecTime()
 	days_in_first_month = None
@@ -441,14 +445,14 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		days_in_first_month = 1 + CVP.get_days_in_month(CVP.month_index(start_month), ops_start_date.year()) - ops_start_date.day()
 	else:
 		ops_start_date.set("01%s%d"%(start_month, target_year), "2400")
-	ops_end_date.set(folsom_ts_list[0].getHecTime(folsom_ts_list[0].numberValues - 1))
+	ops_end_date.set(folsom_tsc_list[0].getHecTime(folsom_tsc_list[0].numberValues - 1))
 
 	########################
 	# Folsom data from CVP spreadsheet
 	########################
 
-	tsm_list = []
-	print "TS Location = %s"%(folsom_ts_list[0].location.upper())
+	tsmath_list = []
+	print "TS Location = %s"%(folsom_tsc_list[0].location.upper())
 	print "  Start date = %s"%(start_time.date(4))
 	print "  End date = %s"%(end_time.date(4))
 	tsmath_folsom_acc_dep = tsmath.generateRegularIntervalTimeSeries(
@@ -462,24 +466,31 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_folsom_acc_dep.setLocation("FOLSOM LAKE")
 	tsmath_folsom_acc_dep.setParameterPart("FLOW-ACC-DEP")
 	tsmath_folsom_acc_dep.setVersion(BC_F_part)
-	for ts in folsom_ts_list:
+	for ts in folsom_tsc_list:
 		print "\tTS Parameter = %s"%(ts.parameter.upper())
 		if ts.parameter.upper() == "INFLOW":
 			tsmath_flow_monthly = tsmath(ts)
-			tsm_list.append(tsmath_flow_monthly)
+			tsmath_list.append(tsmath_flow_monthly)
 			# print "reading pattern from file: " + pattern_DSS_file_name
 			# print "\t" + pattern_path
-			# tsmath_pattern = patternDSS.read(pattern_path)
+			# tsc_pattern = tscont()
+			# tsc_pattern.fullName = pattern_path
+			# status = ts_pattern.read(tsc_pattern, False)
+			# if status < 0:
+				# print "Failed to read meteorologic time series %s \n\tfrom DSS file %s"%(source_path, source_DSS_file_name)
+				# tsread.done()
+				# continue
+			# tsmath_pattern = tsmath(tsc_pattern)
 			# tsmath_daily_flow = CVP.weight_transform_monthly_to_daily(tsmath(ts), tsmath_pattern, start_day_count=days_in_first_month)
 			tsmath_daily_flow = CVP.uniform_transform_monthly_to_daily(tsmath(ts), start_day_count=days_in_first_month)
 			tsmath_daily_flow.setPathname(ts.fullName)
 			tsmath_daily_flow.setTimeInterval("1DAY")
 			tsmath_daily_flow.setParameterPart("FLOW-IN")
 			tsmath_daily_flow.setVersion(BC_F_part)
-			tsm_list.append(tsmath_daily_flow)
+			tsmath_list.append(tsmath_daily_flow)
 		elif ts.parameter.upper() == "EST. EVAP.":
 			tsmath_folsom_evap_monthly = tsmath(ts)
-			tsm_list.append(tsmath_folsom_evap_monthly)
+			tsmath_list.append(tsmath_folsom_evap_monthly)
 			tsmath_folsom_acc_dep = tsmath_folsom_acc_dep.subtract(
 				CVP.uniform_transform_monthly_to_daily(tsmath(ts), start_day_count=days_in_first_month))
 		elif "STORAGE" in ts.parameter.upper():
@@ -488,25 +499,25 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 			tsmath_storage_monthly.setType("INST-CUM")
 			tsm_storage_change = tsmath_storage_monthly.successiveDifferences()
 			tsmath_storage_monthly.setType("INST-VAL")
-			tsm_list.append(tsmath_storage_monthly)
+			tsmath_list.append(tsmath_storage_monthly)
 			tsm_storage_change.setWatershed("")
 			tsm_storage_change.setLocation("FOLSOM LAKE")
 			tsm_storage_change.setParameterPart("STORAGE-CHANGE")
-			tsm_list.append(tsm_storage_change)
+			tsmath_list.append(tsm_storage_change)
 		elif ts.parameter.upper() == "TOTAL RELEASE":
 			tsmath_release_monthly = tsmath(ts)
-			tsm_list.append(tsmath_release_monthly)
+			tsmath_list.append(tsmath_release_monthly)
 			tsmath_release = CVP.uniform_transform_monthly_to_hourly(tsmath(ts), start_day_count=days_in_first_month)
 			tsmath_release.setPathname(ts.fullName)
 			tsmath_release.setTimeInterval("1HOUR")
 			tsmath_release.setParameterPart("FLOW-RELEASE")
 			tsmath_release.setVersion(BC_F_part)
-			tsm_list.append(tsmath_release)
+			tsmath_list.append(tsmath_release)
 		elif ts.parameter.upper() == "ACTUAL NIMBUS RELEASE (TAF)":
 			tsmath_nimbus_monthly = tsmath(ts)
 			tsmath_nimbus_monthly.setWatershed("AMERICAN RIVER")
 			tsmath_nimbus_monthly.setLocation("LAKE NATOMA")
-			tsm_list.append(tsmath_nimbus_monthly)
+			tsmath_list.append(tsmath_nimbus_monthly)
 			tsmath_nimbus = CVP.uniform_transform_monthly_to_daily(tsmath_nimbus_monthly, start_day_count=days_in_first_month)
 			tsmath_nimbus.setPathname(ts.fullName)
 			tsmath_nimbus.setWatershed("AMERICAN RIVER")
@@ -514,38 +525,38 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 			tsmath_nimbus.setParameterPart("FLOW-NIMBUS ACTUAL")
 			tsmath_nimbus.setTimeInterval("1DAY")
 			tsmath_nimbus.setVersion(BC_F_part)
-			tsm_list.append(tsmath_nimbus)
+			tsmath_list.append(tsmath_nimbus)
 		elif ts.parameter.upper() == "FLOW-AMER AFRP":
 			ts.units = "CFS"
 			ts.type = "PER-AVER"
 			tsmath_afrp_monthly = tsmath(ts)
-			tsm_list.append(tsmath_afrp_monthly)
+			tsmath_list.append(tsmath_afrp_monthly)
 			tsmath_afrp = CVP.uniform_transform_monthly_to_daily(tsmath(ts), start_day_count=days_in_first_month)
 			tsmath_afrp.setPathname(ts.fullName)
 			tsmath_afrp.getContainer().parameter = "FLOW-AFRP"
 			tsmath_afrp.setTimeInterval("1DAY")
 			tsmath_afrp.setVersion(BC_F_part)
-			tsm_list.append(tsmath_afrp)
+			tsmath_list.append(tsmath_afrp)
 		elif ts.parameter.upper() == "PUMPING (FP)":
 			tsmath_fp_monthly = tsmath(ts)
-			tsm_list.append(tsmath_fp_monthly)
+			tsmath_list.append(tsmath_fp_monthly)
 			tsmath_fp = CVP.uniform_transform_monthly_to_daily(tsmath(ts), start_day_count=days_in_first_month)
 			tsmath_fp.setPathname(ts.fullName)
 			tsmath_fp.getContainer().parameter = "FLOW-PUMPING"
 			tsmath_fp.setTimeInterval("1DAY")
 			tsmath_fp.setVersion(BC_F_part)
-			tsm_list.append(tsmath_fp)
+			tsmath_list.append(tsmath_fp)
 		elif ts.parameter.upper() == "FS CANAL (FSC)":
 			tsmath_fsc_monthly = tsmath(ts)
-			tsm_list.append(tsmath_fsc_monthly)
+			tsmath_list.append(tsmath_fsc_monthly)
 			tsmath_fsc = CVP.uniform_transform_monthly_to_daily(tsmath(ts), start_day_count=days_in_first_month)
 			tsmath_fsc.setPathname(ts.fullName)
 			tsmath_fsc.getContainer().parameter = "FLOW-FSC"
 			tsmath_fsc.setTimeInterval("1DAY")
 			tsmath_fsc.setVersion(BC_F_part)
-			tsm_list.append(tsmath_fsc)
+			tsmath_list.append(tsmath_fsc)
 		else:
-			tsm_list.append(tsmath(ts))
+			tsmath_list.append(tsmath(ts))
 
 	# Folsom storage changes due to:
 	#	In:
@@ -582,8 +593,8 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 				tsmath_daily_flow.getContainer().getValue(search_time)
 				- tsmath_release_daily.getContainer().getValue(search_time)
 				+ tsmath_folsom_acc_dep.getContainer().getValue(search_time)))
-	tsm_list.append(tsmath_storage_daily)
-	tsm_list.append(tsmath_folsom_acc_dep)
+	tsmath_list.append(tsmath_storage_daily)
+	tsmath_list.append(tsmath_folsom_acc_dep)
 
 	########################
 	# Disaggregate Folsom Tributary In Flows
@@ -596,7 +607,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	names_flows = {}
 	for tsm in CVP.split_time_series_monthly(tsmath_daily_flow, tributary_weights, "FLOW-IN"):
 		tsm.setVersion(BC_F_part)
-		tsm_list.append(tsm)
+		tsmath_list.append(tsm)
 		names_flows[tsm.getContainer().location] = tsm
 
 	# North Fork and Middle Fork coefficients as fraction of total NF flow to Folsom
@@ -605,7 +616,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		"Middle Fork abv NF":(0.60, 0.55, 0.51, 0.48, 0.49, 0.67, 0.85, 0.92, 0.91, 0.78, 0.76, 0.67)}
 	for tsm in CVP.split_time_series_monthly(names_flows["Folsom-NF-in"], NF_tributary_weights, "FLOW-IN"):
 		tsm.setVersion(BC_F_part)
-		tsm_list.append(tsm)
+		tsmath_list.append(tsm)
 		names_flows[tsm.getContainer().location] = tsm
 
 	########################
@@ -614,22 +625,28 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	########################
 
 	tributary_config_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), r"forecast\config\tributary_averages.config")
-	trib_DSS_files = {}
+	# trib_DSS_files = {}
 	for line in getConfigLines(tributary_config_filename):
 		token = line.split(',')
 		dss_file_name = token[-2].strip()
 		if not os.path.isabs(dss_file_name):
 			dss_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), dss_file_name)
-		if not trib_DSS_files.get(dss_file_name):
-			trib_DSS_files[dss_file_name] = hec.heclib.dss.HecDss.open(dss_file_name)
-		tsmath_avg = tsmath(trib_DSS_files[dss_file_name].get(token[-1].strip()))
+		ts_read = hec.heclib.dss.HecTimeSeries()
+		ts_read.setDSSFileName(dss_file_name)
+		tsc_avg = tscont()
+		tsc_avg.fullName = token[-1].strip()
+		status = ts_read.read(tsc_avg, False)
+		if status < 0:
+			print "Failed to read temperature time series %s \n\tfrom DSS file %s"%(tsc_avg.fullName, dss_file_name)
+			ts_read.done()
+			continue
+		tsmath_avg = tsmath(tsc_avg)
 		tsmath_shift = shift_monthly_averages(tsmath_avg, start_time, end_time)
 		shift_path = token[-1].strip().split('/')
 		shift_path[6] = BC_F_part
 		tsmath_shift.getContainer().fullName = '/'.join(shift_path)
-		tsm_list.append(CVP.uniform_transform_monthly_to_daily(tsmath_shift, start_day_count=days_in_first_month))
-	for fname in trib_DSS_files:
-		trib_DSS_files[fname].done()
+		tsmath_list.append(CVP.uniform_transform_monthly_to_daily(tsmath_shift, start_day_count=days_in_first_month))
+		ts_read.done()
 
 
 	########################
@@ -641,7 +658,19 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		tsmath_SF_cms = names_flows["Folsom-SF-in"]
 	else:
 		tsmath_SF_cms = names_flows["Folsom-SF-in"].convertToMetricUnits()
-	tsmath_airtemp = temperatureDSS.read(airtemp_path)
+
+	print "DSS file for Fair Oaks air temperature: " + met_DSS_file_name
+	print "DSS path for Fair Oaks air temperature: : " + airtemp_path
+	ts_read = hec.heclib.dss.HecTimeSeries()
+	ts_read.setDSSFileName(met_DSS_file_name)
+	tsc_airtemp = tscont()
+	tsc_airtemp.fullName = airtemp_path
+	status = ts_read.read(tsc_airtemp, False)
+	if status < 0:
+		print "Failed to read temperature time series %s \n\tfrom DSS file %s"%(airtemp_path, met_DSS_file_name)
+		ts_read.done()
+	tsmath_airtemp = tsmath(tsc_airtemp)
+	ts_read.done()
 	if tsmath_airtemp.isMetric():
 		tsmath_T_air = tsmath_airtemp
 	else:
@@ -673,7 +702,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_SF_WTemp.setLocation("Folsom-SF-in")
 	tsmath_SF_WTemp.setParameterPart("TEMP-WATER")
 	tsmath_SF_WTemp.setVersion(BC_F_part)
-	tsm_list.append(tsmath_SF_WTemp)
+	tsmath_list.append(tsmath_SF_WTemp)
 
 	# North Fork water temperature from regression formula
 	if names_flows["North Fork abv MF"].isMetric():
@@ -707,7 +736,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_NF_WTemp.setLocation("Folsom-NF-in")
 	tsmath_NF_WTemp.setParameterPart("TEMP-WATER")
 	tsmath_NF_WTemp.setVersion(BC_F_part)
-	tsm_list.append(tsmath_NF_WTemp)
+	tsmath_list.append(tsmath_NF_WTemp)
 
 	# South Canal water temperature -- constant by month, no regression coefficients
 	tsmath_SC_WTemp = tsmath.generateRegularIntervalTimeSeries(start_time.dateAndTime(4), end_time.dateAndTime(4), "1DAY", "", 0.0)
@@ -722,7 +751,56 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_SC_WTemp.setLocation("South Canal")
 	tsmath_SC_WTemp.setParameterPart("TEMP-WATER")
 	tsmath_SC_WTemp.setVersion(BC_F_part)
-	tsm_list.append(tsmath_SC_WTemp)
+	tsmath_list.append(tsmath_SC_WTemp)
+
+	########################
+	# Municipal withdrawals for Carmichael (Bajamount WTP) and Sacramento (Faibairn)
+	########################
+
+	flow_pattern_config_lines = getConfigLines(flow_pattern_config_filename)
+	#print "Flow Pattern config file contents:"
+	#for line in flow_pattern_config_lines: print "\t%s"%line
+	for muni_withdrawal_location in ("CARMICHAEL", "SACRAMENTO"):
+		for line in flow_pattern_config_lines:
+			token = line.strip().split(',')
+			if len(token) != 3:
+				print "File %s line \n\t \"%s\"\nis not a valid ID for a flow pattern DSS record."%(flow_pattern_config_filename,line)
+				continue
+			if line.split(',')[0].strip().upper() == muni_withdrawal_location:
+				pattern_DSS_file_name = line.split(',')[1].strip().strip('\\')
+				pattern_path = line.split(',')[2].strip()
+		if len(pattern_DSS_file_name) == 0 or len(pattern_path) == 0:
+			print "Error reading flow pattern configuration file\n\t%s"%(flow_pattern_config_filename)
+			print "%s pattern DSS file or path not found."%(muni_withdrawal_location)
+			return None
+		if not os.path.isabs(pattern_DSS_file_name):
+			pattern_DSS_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), pattern_DSS_file_name)
+			# print "Flow pattern for Folsom in \n\t%s"%(pattern_DSS_file_name)
+			# print "\t" + pattern_path
+
+		ts_muni = hec.heclib.dss.HecTimeSeries()
+		ts_muni.setDSSFileName(pattern_DSS_file_name)
+		print "reading pattern from file: " + pattern_DSS_file_name
+		print "\t" + pattern_path
+		tsc_muni_pattern = tscont()
+		tsc_muni_pattern.fullName = pattern_path
+		status = ts_muni.read(tsc_muni_pattern, False)
+		ts_muni.done()
+		if status < 0:
+			print "Failed to read municipal withdrawal time series %s \n\tfrom DSS file %s"%(source_path, source_DSS_file_name)
+			continue
+		tsc_muni = tsmath.generateRegularIntervalTimeSeries(start_time.dateAndTime(4), end_time.dateAndTime(4), "1DAY", "", 1.0).getData()
+		in_time = HecTime( HecTime.MINUTE_INCREMENT)
+		for i in range(tsc_muni.numberValues):
+			in_time.set(tsc_muni.times[i])
+			tsc_muni.values[i] = tsc_muni_pattern.values[in_time.month()-1]
+			if DEBUG: print "i: %d; patternValue: %f; tsc_value: %f"%(i, tsc_muni_pattern.values[in_time.month()-1],tsc_muni.values[i])
+		tsmath_muni = tsmath(tsc_muni)
+		tsmath_muni.setWatershed("AMERICAN RIVER")
+		tsmath_muni.setLocation(muni_withdrawal_location)
+		tsmath_muni.setParameterPart("FLOW-MUNICIPAL")
+		tsmath_muni.setVersion(BC_F_part)
+		tsmath_list.append(tsmath_muni)
 
 	########################
 	# Zero-Flow Time Series
@@ -738,7 +816,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_zero_flow_day.setLocation("ZERO-BY-DAY")
 	tsmath_zero_flow_day.setParameterPart("FLOW-ZERO")
 	tsmath_zero_flow_day.setVersion(BC_F_part)
-	tsm_list.append(tsmath_zero_flow_day)
+	tsmath_list.append(tsmath_zero_flow_day)
 
 	tsmath_zero_flow_hour = tsmath.generateRegularIntervalTimeSeries(
 		"%s 0000"%(start_time.date(4)),
@@ -750,83 +828,21 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_zero_flow_hour.setLocation("ZERO-BY-HOUR")
 	tsmath_zero_flow_hour.setParameterPart("FLOW-ZERO")
 	tsmath_zero_flow_hour.setVersion(BC_F_part)
-	tsm_list.append(tsmath_zero_flow_hour)
+	tsmath_list.append(tsmath_zero_flow_hour)
 
-	for tsmath_item in tsm_list:
+	for tsmath_item in tsmath_list:
+		ts_write = hec.heclib.dss.HecTimeSeries()
+		ts_write.setDSSFileName(BC_output_DSS_filename)
+		tsc = tsmath_item.getData()
 		rv_lines.append("%s,%s,%s,%s"%(
-			tsmath_item.getContainer().location, tsmath_item.getContainer().parameter,
+			tsc.location, tsc.parameter,
 			Project.getCurrentProject().getRelativePath(BC_output_DSS_filename),
-			tsmath_item.getContainer().fullName))
+			tsc.fullName))
 		print "\t%s"%rv_lines[-1]
-		outDSS.write(tsmath_item)
-
-	for fp in open_DSS_files:
-		fp.done()
+		ts_write.write(tsc)
+		ts_write.done()
 
 	return rv_lines
-
-
-'''
-Imports a CVP ops spreadsheet saved as comma-separated values
-Returns a dictionary with keys that match the list of forecast locations in the second argrument
-Dictionary values are lists of CSV lines that "belong" to the location named in the key
-'''
-def import_CVP_Ops_csv(ops_fname, forecast_locations):
-	current_location = None
-	start_month = None
-	first_date_index = -1
-	location_count = 0
-	ts_count = 0
-	data_lines = []
-	rv_dictionary = {}
-	calendar = ""
-
-	with open(ops_fname) as infile:
-		num_lines = 0; num_data_lines = 0
-		for line in infile:
-			num_lines += 1
-			line_contains_months = False
-			token = line.strip().split(',')
-			# figure out what columns our data start in, what month we're looking at, and ignore blank lines
-			# the sample spreadsheet had an unused summary block starting in column AA, which I'm ignoring
-			num_t = 0; num_val = 0
-			for t in token[:26]:
-				if len(t.strip()) > 0:
-					num_val += 1
-					if not line_contains_months and t.strip().upper() in CVP.month_TLA:
-						line_contains_months = True
-						first_date_index = num_t
-						start_month = t.strip().upper()
-						if DEBUG: print "Calendar line %s: "%(line)
-						if DEBUG: print "Found \"%s\" in column %d"%(t.strip(), num_t + 1)
-						calendar = line
-				num_t += 1
-			if num_val == 0:
-				continue # don't include this line in the result
-
-			if token[0].strip() in forecast_locations and len(calendar) > 0:
-				if location_count > 0:
-					rv_dictionary[current_location] = data_lines
-				data_lines = []
-				current_location = token[0].strip()
-				print "setting current location to %s"%(current_location)
-				data_lines.append("%d,%s"%(first_date_index, calendar.strip()))
-				if len(token[1].strip()) > 1:
-					print("PROFILEDATE: %s"%(token[1]))
-					data_lines.append("PROFILEDATE: %s"%(token[1]))
-				location_count += 1
-				calendar = ""
-				continue
-
-			if not line_contains_months:
-				data_lines.append(line.strip())
-				ts_count += 1
-
-	rv_dictionary[current_location] = data_lines #
-	print "Found %d forecast locations and %d time series in ops file \n\t%s."%(
-		location_count, ts_count, ops_fname)
-	return rv_dictionary
-
 
 def monthFromDateStr(str):
 	month_TLA = ["NM", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
