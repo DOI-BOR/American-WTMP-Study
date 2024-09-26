@@ -798,6 +798,8 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		tsmath_muni = tsmath(tsc_muni)
 		tsmath_muni.setWatershed("AMERICAN RIVER")
 		tsmath_muni.setLocation(muni_withdrawal_location)
+		tsmath_muni.setType("PER-AVER")
+		tsmath_muni.setUnits("cfs")
 		tsmath_muni.setParameterPart("FLOW-MUNICIPAL")
 		tsmath_muni.setVersion(BC_F_part)
 		tsmath_list.append(tsmath_muni)
