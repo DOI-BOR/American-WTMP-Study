@@ -126,9 +126,9 @@
       </Profile>
     </Reservoir>
     <Reservoir Name="Folsom">
-      <Profile Name="2020-04-14">
-        <Output-DSS-File>shared/folsom_profiles-Site_Dam-2020.dss</Output-DSS-File>
-        <DSS-Pathname>//Folsom/DEPTH-TEMP//2020-04-14T12:00:00-08:00//</DSS-Pathname>
+      <Profile Name="2023-04-04">
+        <Output-DSS-File>shared/folsom_profiles-Site_Dam-2023.dss</Output-DSS-File>
+        <DSS-Pathname>//Folsom/DEPTH-TEMP//2023-04-04T11:34:34-08:00//</DSS-Pathname>
       </Profile>
     </Reservoir>
   </InitialConditions>
@@ -167,18 +167,19 @@
     </BcData>
   </BoundaryConditions>
   <EnsembleSets>
+    <Simulation>ResSim NoBypass-17Apr2024</Simulation>
     <Simulation>
-      ResSim NoBypass-17Apr2024
+      ResSim-17Apr2024
       <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
         <Description />
         <BcData>17AprStart-H-2014</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="1" Step="10">
-            <I Range="0-1" Data="25" />
+            <I Range="0-1" Data="40" />
           </intArray>
         </ComputedMembers>
-        <MembersToCompute>25</MembersToCompute>
+        <MembersToCompute>40</MembersToCompute>
       </EnsembleSet>
       <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
         <Description />
@@ -193,6 +194,16 @@
   </EnsembleSets>
   <EnsembleSetIndexing>
     <Simulation Name="ResSim NoBypass-17Apr2024">
+      <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="ResSim-17Apr2024">
       <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
         <CollectionStart>0</CollectionStart>
         <CollectionEnd>499</CollectionEnd>

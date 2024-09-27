@@ -36,5 +36,7 @@ LOWER RIVER OUTLET USEAGE,,forecast/simGroups/17Apr2024/bc.dss,/FOLSOM/LOWER RIV
 Folsom-SF-in,TEMP-WATER,forecast/simGroups/17Apr2024/bc.dss,//Folsom-SF-in/TEMP-WATER//1DAY/17AprStart-H-2014/
 Folsom-NF-in,TEMP-WATER,forecast/simGroups/17Apr2024/bc.dss,//Folsom-NF-in/TEMP-WATER//1DAY/17AprStart-H-2014/
 South Canal,TEMP-WATER,forecast/simGroups/17Apr2024/bc.dss,//South Canal/TEMP-WATER//1DAY/17AprStart-H-2014/
+CARMICHAEL,FLOW-MUNICIPAL,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/CARMICHAEL/FLOW-MUNICIPAL//1DAY/17AprStart-H-2014/
+SACRAMENTO,FLOW-MUNICIPAL,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/SACRAMENTO/FLOW-MUNICIPAL//1DAY/17AprStart-H-2014/
 ZERO-BY-DAY,FLOW-ZERO,forecast/simGroups/17Apr2024/bc.dss,//ZERO-BY-DAY/FLOW-ZERO//1DAY/17AprStart-H-2014/
 ZERO-BY-HOUR,FLOW-ZERO,forecast/simGroups/17Apr2024/bc.dss,//ZERO-BY-HOUR/FLOW-ZERO//1Hour/17AprStart-H-2014/
