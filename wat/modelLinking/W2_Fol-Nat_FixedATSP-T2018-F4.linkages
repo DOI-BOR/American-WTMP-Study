@@ -254,7 +254,7 @@
         <DataLocation Name="Sacramento Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/EA FAIRBAIRN WTP (SACRAMENTO)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
           <DownStreamLocation>
-            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="SACRAMENTO" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/SACRAMENTO/FLOW-MUNICIPAL//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="FLOW-MUNICIPAL" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
@@ -262,7 +262,7 @@
         <DataLocation Name="Carmichael Water Intake" Class="hec2.model.DataLocation" DssPath="/AMERICAN RIVER/BAJAMONT WTP (CARMICHAEL)/FLOW-DIVERSION//1DAY/CARDNO/" ComputeType="Computed" Model="DSS File" Parameter="Input Time Series" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="RSAmerRVO" Program="ResSim" />
           <DownStreamLocation>
-            <DataLocation Name="ZEROS" Class="hec2.model.DssDataLocation" DssPath="//ZEROS/flow//1Day/ZEROS/" ComputeType="Computed" Parameter="flow" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="CARMICHAEL" Class="hec2.model.DssDataLocation" DssPath="/AMERICAN RIVER/CARMICHAEL/FLOW-MUNICIPAL//1Day/AMER_BC_SCRIPT/" ComputeType="Computed" Parameter="FLOW-MUNICIPAL" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
