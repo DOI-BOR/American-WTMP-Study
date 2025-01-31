@@ -54,7 +54,7 @@ Imports a CVP ops spreadsheet saved as comma-separated values
 Returns a dictionary with keys that match the list of forecast locations in the second argrument
 Dictionary values are lists of CSV lines that "belong" to the location named in the key
 '''
-def import_CVP_Ops_csv(ops_fname, forecast_locations):
+def import_CVP_Ops_csv(ops_fname, forecast_locations, active_locations):
 	current_location = None
 	start_month = None
 	first_date_index = -1
@@ -94,9 +94,11 @@ def import_CVP_Ops_csv(ops_fname, forecast_locations):
 				current_location = token[0].strip()
 				print "setting current location to %s"%(current_location)
 				data_lines.append("%d,%s"%(first_date_index, calendar.strip()))
-				if len(token[1].strip()) > 1:
+
+				if current_location in active_locations and len(token[1].strip()) > 1:
 					print("PROFILEDATE: %s"%(token[1]))
 					data_lines.append("PROFILEDATE: %s"%(token[1]))
+					if DEBUG: print "setting profile date to %s at %s"%(token[1], current_location)
 				location_count += 1
 				calendar = ""
 				continue
@@ -132,7 +134,7 @@ This script expects to use version 3.8 of the POI library. Newer versions may ha
 In particular, look out for SSUsermodel.Cell.CELL_TYPE_XXX, which is a constant in v 3.8, and part
 of an enumeration in v 4.X
 '''
-def import_CVP_Ops_xls(ops_fname, forecast_locations, sheet_number=0):
+def import_CVP_Ops_xls(ops_fname, forecast_locations, active_locations, sheet_number=0):
 	current_location = None
 	start_month = None
 	first_date_index = -1
@@ -200,8 +202,9 @@ def import_CVP_Ops_xls(ops_fname, forecast_locations, sheet_number=0):
 			current_location = token[0].strip()
 			if DEBUG: print "setting current location to %s"%(current_location)
 			data_lines.append("%d,%s"%(first_date_index, calendar))
-			if len(token[1].strip()) > 1:
+			if current_location in active_locations and len(token[1].strip()) > 1:
 				data_lines.append("PROFILEDATE: %s"%(token[1]))
+				if DEBUG: print "setting profile date to %s at %s"%(token[1], current_location)
 			location_count += 1
 			calendar = ""
 			continue

@@ -335,13 +335,13 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 
 	if ops_file_name.endswith(".xls") or ops_file_name.endswith(".xlsx"):
 		try:
-			ops_data = CVP.import_CVP_Ops_xls(ops_file_name, forecast_locations)
+			ops_data = CVP.import_CVP_Ops_xls(ops_file_name, forecast_locations, active_locations)
 		except Exception as e:
 			print "Failed to read operations file:%s"%ops_file_name
 			print "\t%s"%str(e)
 			return None
 	else:
-		ops_data = CVP.import_CVP_Ops_csv(ops_file_name, forecast_locations)
+		ops_data = CVP.import_CVP_Ops_csv(ops_file_name, forecast_locations, active_locations)
 
 	profile_date = None
 
