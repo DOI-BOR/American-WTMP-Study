@@ -7,10 +7,6 @@
       <Name>ResSim-T2018</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
-    <Simulation>
-      <Name>W2 Folsom-T2018</Name>
-      <Class>hec2.wat.model.WatSimulation</Class>
-    </Simulation>
   </Simulations>
   <TemperatureTargetSets>
     <TemperatureTargetSet Name="Folsom Iterative Target - ScheduleA" user-defined="false">
@@ -117,99 +113,160 @@
     </Reservoir>
   </InitialConditions>
   <Operations>
-    <OperationsData Name="MAR50-2018">
+    <OperationsData Name="Mar50">
       <Description />
       <OperationsFile>forecast/CVP-ops/MAR50_WY2018v.xlsx</OperationsFile>
     </OperationsData>
+    <OperationsData Name="Mar90">
+      <Description />
+      <OperationsFile>forecast/CVP-ops/MAR90_WY2018v.xlsx</OperationsFile>
+    </OperationsData>
   </Operations>
   <Meteorology>
-    <MeteorologyData Name="H2016-2016">
-      <Description />
-      <MetDataType>Historic</MetDataType>
-      <Year>2016</Year>
-    </MeteorologyData>
-    <MeteorologyData Name="Historic-2014">
+    <MeteorologyData Name="H-2014">
       <Description />
       <MetDataType>Historic</MetDataType>
       <Year>2014</Year>
     </MeteorologyData>
-    <MeteorologyData Name="Historic-2015">
+    <MeteorologyData Name="H-2019">
       <Description />
       <MetDataType>Historic</MetDataType>
-      <Year>2015</Year>
+      <Year>2019</Year>
+    </MeteorologyData>
+    <MeteorologyData Name="H-2018">
+      <Description />
+      <MetDataType>Historic</MetDataType>
+      <Year>2018</Year>
     </MeteorologyData>
   </Meteorology>
   <BoundaryConditions>
-    <BcData Name="MAR50-2018-H2016-2016">
+    <BcData Name="Mar50-H-2014">
       <Description />
       <Output-DSS-File>forecast\simGroups\T2018\bc.dss</Output-DSS-File>
-      <f-part>MAR50-2018-H2016-2016</f-part>
-      <Operations>MAR50-2018</Operations>
-      <Meteorology>H2016-2016</Meteorology>
+      <f-part>Mar50-H-2014</f-part>
+      <Operations>Mar50</Operations>
+      <Meteorology>H-2014</Meteorology>
     </BcData>
-    <BcData Name="MAR50-2018-Historic-2014">
+    <BcData Name="Mar50-H-2019">
       <Description />
       <Output-DSS-File>forecast\simGroups\T2018\bc.dss</Output-DSS-File>
-      <f-part>MAR50-2018-Historic-2014</f-part>
-      <Operations>MAR50-2018</Operations>
-      <Meteorology>Historic-2014</Meteorology>
+      <f-part>Mar50-H-2019</f-part>
+      <Operations>Mar50</Operations>
+      <Meteorology>H-2019</Meteorology>
     </BcData>
-    <BcData Name="MAR50-2018-Historic-2015">
+    <BcData Name="Mar50-H-2018">
       <Description />
       <Output-DSS-File>forecast\simGroups\T2018\bc.dss</Output-DSS-File>
-      <f-part>MAR50-2018-Historic-2015</f-part>
-      <Operations>MAR50-2018</Operations>
-      <Meteorology>Historic-2015</Meteorology>
+      <f-part>Mar50-H-2018</f-part>
+      <Operations>Mar50</Operations>
+      <Meteorology>H-2018</Meteorology>
+    </BcData>
+    <BcData Name="Mar90-H-2014">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018\bc.dss</Output-DSS-File>
+      <f-part>Mar90-H-2014</f-part>
+      <Operations>Mar90</Operations>
+      <Meteorology>H-2014</Meteorology>
+    </BcData>
+    <BcData Name="Mar90-H-2019">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018\bc.dss</Output-DSS-File>
+      <f-part>Mar90-H-2019</f-part>
+      <Operations>Mar90</Operations>
+      <Meteorology>H-2019</Meteorology>
+    </BcData>
+    <BcData Name="Mar90-H-2018">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\T2018\bc.dss</Output-DSS-File>
+      <f-part>Mar90-H-2018</f-part>
+      <Operations>Mar90</Operations>
+      <Meteorology>H-2018</Meteorology>
     </BcData>
   </BoundaryConditions>
   <EnsembleSets>
     <Simulation>
       ResSim-T2018
-      <EnsembleSet Name="MAR50-2018-H2016-2016-Folsom Iterative Target - ScheduleA">
+      <EnsembleSet Name="Mar50-H-2014-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>MAR50-2018-H2016-2016</BcData>
+        <BcData>Mar50-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="5" Step="10">
+            <I Range="0-5" Data="15,50,25,35,42" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>15,25,35,42</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2019-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Mar50-H-2019</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Mar50-H-2018</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="1" Step="10">
-            <I Range="0-1" Data="1" />
+            <I Range="0-1" Data="15" />
           </intArray>
         </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
+        <MembersToCompute>15</MembersToCompute>
       </EnsembleSet>
-    </Simulation>
-    <Simulation>
-      W2 Folsom Forecast Test-T2018
-      <EnsembleSet Name="MAR50-2018-H2016-2016-Folsom Iterative Target - ScheduleA">
+      <EnsembleSet Name="Mar90-H-2014-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>MAR50-2018-H2016-2016</BcData>
+        <BcData>Mar90-H-2014</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
-          <intArray Length="0" Step="10" />
+          <intArray Length="4" Step="10">
+            <I Range="0-4" Data="15,25,35,42" />
+          </intArray>
         </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
+        <MembersToCompute>15,25,35,42</MembersToCompute>
       </EnsembleSet>
-      <EnsembleSet Name="MAR50-2018-Historic-2014-Folsom Iterative Target - ScheduleA">
+      <EnsembleSet Name="Mar90-H-2019-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>MAR50-2018-Historic-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-      <EnsembleSet Name="MAR50-2018-Historic-2015-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>MAR50-2018-Historic-2015</BcData>
+        <BcData>Mar90-H-2019</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="0" Step="10" />
         </ComputedMembers>
         <MembersToCompute />
       </EnsembleSet>
+      <EnsembleSet Name="Mar90-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Mar90-H-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
     </Simulation>
+    <Simulation>W2 Folsom Forecast Test-T2018</Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
     <Simulation Name="ResSim-T2018">
+      <EnsembleSet Name="Mar90-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2500</CollectionStart>
+        <CollectionEnd>2999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar90-H-2019-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3000</CollectionStart>
+        <CollectionEnd>3499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
       <EnsembleSet Name="Mar2018-50-Historic-2015-DummyTarget">
         <CollectionStart>0</CollectionStart>
         <CollectionEnd>499</CollectionEnd>
@@ -217,6 +274,14 @@
       <EnsembleSet Name="MAR50-2018-H2016-2016-Folsom Iterative Target - ScheduleA">
         <CollectionStart>500</CollectionStart>
         <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2019-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar90-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3500</CollectionStart>
+        <CollectionEnd>3999</CollectionEnd>
       </EnsembleSet>
     </Simulation>
     <Simulation Name="W2 Folsom Forecast Test-T2018">

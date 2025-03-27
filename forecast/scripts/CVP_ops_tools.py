@@ -48,6 +48,12 @@ def previous_month(index):
 		return 12
 	else: return index - 1
 
+def is_convertable_to_float(input):
+	try:
+		test_val = float(input)
+		return True
+	except:
+		return False
 
 '''
 Imports a CVP ops spreadsheet saved as comma-separated values
@@ -120,6 +126,18 @@ def monthFromDateStr(str):
 			return token.strip().upper()
 	return None
 
+# Wed Jan 01 00:00:00 PST 2025 
+# or 1/1/2025
+# return as 1-JAN-2025
+def excel_date_str_2_dmy(date_str):
+	if DEBUG: print "Excel date: " + date_str
+	parts = date_str.split()
+	if len(parts) == 6:
+		return parts[2] + '-' + parts[1].upper() + '-' + parts[5]
+	parts = date_str.split('/')
+	if len(parts) == 3:
+		return parts[1] + '-' + month_TLA[int(parts[0])] + '-' + parts[2]
+
 '''
 Imports a CVP ops spreadsheet saved as XLS or XLSX format
 Returns a dictionary with keys that match the list of forecast locations in the second argrument
@@ -159,23 +177,42 @@ def import_CVP_Ops_xls(ops_fname, forecast_locations, active_locations, sheet_nu
 	num_lines = 0; num_data_lines = 0
 	for row in sheet.iterator():
 		num_lines += 1
+		num_cols = 0
 		line_contains_months = False
 		token = []
 		for cell in row.cellIterator():
 			# This business -- Cell.CELL_TYPE_XXX -- has been revised a couple of times
 			# between POI version 3.8 and 4.x. Watch out it doesn't bite us
-			if cell.getCellType() == SSUsermodel.Cell.CELL_TYPE_FORMULA:
+			cellType = cell.getCellType()
+			if cellType == SSUsermodel.Cell.CELL_TYPE_FORMULA:
 				cachedType = cell.getCachedFormulaResultType()
-				# print str(cachedType) + " : " + formatter.formatCellValue(cell)
+				print str(cachedType) + " : " + formatter.formatCellValue(cell)
 				if cachedType == SSUsermodel.Cell.CELL_TYPE_NUMERIC:
 					if SSUsermodel.DateUtil.isCellDateFormatted(cell):
-						token.append(monthFromDateStr(str(cell.getDateCellValue())))
+						# calendar rows have month labels starting in column 2
+						if num_cols > 1:
+							token.append(monthFromDateStr(str(cell.getDateCellValue())))
+						else:
+							token.append(str(cell.getDateCellValue()))
 					else:
 						token.append(str(cell.getNumericCellValue()))
 				if cachedType == SSUsermodel.Cell.CELL_TYPE_STRING:
 					token.append(str(cell.getStringCellValue()))
 			else:
-				token.append(formatter.formatCellValue(cell))
+				if cellType == SSUsermodel.Cell.CELL_TYPE_STRING:
+					token.append(str(cell.getStringCellValue()))
+				elif cellType == SSUsermodel.Cell.CELL_TYPE_NUMERIC:
+					if SSUsermodel.DateUtil.isCellDateFormatted(cell):
+						# calendar rows have month labels starting in column 2
+						if num_cols > 1:
+							token.append(monthFromDateStr(str(cell.getDateCellValue())))
+						else:
+							token.append(str(cell.getDateCellValue()))
+					else:
+						token.append(str(cell.getNumericCellValue()))
+				else:
+					token.append(formatter.formatCellValue(cell))
+			num_cols += 1
 		# figure out what columns our data start in, what month we're looking at, and ignore blank lines
 		num_t = 0; num_val = 0
 		for t in token:
@@ -201,10 +238,11 @@ def import_CVP_Ops_xls(ops_fname, forecast_locations, active_locations, sheet_nu
 				data_lines = []
 			current_location = token[0].strip()
 			if DEBUG: print "setting current location to %s"%(current_location)
+			print "%d,%s"%(first_date_index, calendar)
 			data_lines.append("%d,%s"%(first_date_index, calendar))
 			if current_location in active_locations and len(token[1].strip()) > 1:
-				data_lines.append("PROFILEDATE: %s"%(token[1]))
-				if DEBUG: print "setting profile date to %s at %s"%(token[1], current_location)
+				data_lines.append("PROFILEDATE: %s"%(excel_date_str_2_dmy(token[1])))
+				if DEBUG: print "setting profile date to %s at %s"%(excel_date_str_2_dmy(token[1]), current_location)
 			location_count += 1
 			calendar = ""
 			continue
@@ -225,10 +263,8 @@ Assumes:
 	Volumes in TAF
 	Flows in CFS
 '''
-def make_ops_tsc(location_name, water_year, start_month, ts_line, data_type=None, data_units=None, ops_label=None, currentAlternative=None):
-	i_year = water_year
-	if start_month.upper() in ["OCT", "NOV", "DEC"]:
-		i_year -= 1
+def make_ops_tsc(location_name, start_year, start_month, ts_line, data_type=None, data_units=None, ops_label=None, currentAlternative=None):
+	i_year = start_year
 	if currentAlternative:
 		currentAlternative.addComputeMessage("making a time series at %s starting at %s %d..."%(location_name, start_month, i_year))
 		currentAlternative.addComputeMessage("From data line: \"%s\""%(ts_line))
