@@ -8,7 +8,11 @@
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>W2 Folsom-17Apr2024</Name>
+      <Name>ResSim NoBypass-17Apr2024</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
+    <Simulation>
+      <Name>W2 Fol-Nat FixedATSP-17Apr2024</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
@@ -16,15 +20,11 @@
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>W2 Folsom NoBypass-17Apr2024</Name>
-      <Class>hec2.wat.model.WatSimulation</Class>
-    </Simulation>
-    <Simulation>
       <Name>W2 Folsom FixedATSP NoBypass-17Apr2024</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>ResSim NoBypass-17Apr2024</Name>
+      <Name>W2 Fol-Nat FixedATSP NoBypass-17Apr2024</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
   </Simulations>
@@ -133,7 +133,7 @@
     </Reservoir>
   </InitialConditions>
   <Operations>
-    <OperationsData Name="17AprStart">
+    <OperationsData Name="Apr17">
       <Description />
       <OperationsFile>forecast/CVP-ops/Apr90_WY2024.prof 1.xlsx</OperationsFile>
     </OperationsData>
@@ -149,41 +149,158 @@
       <MetDataType>Historic</MetDataType>
       <Year>2018</Year>
     </MeteorologyData>
+    <MeteorologyData Name="H2-2017">
+      <Description />
+      <MetDataType>Historic</MetDataType>
+      <Year>2017</Year>
+    </MeteorologyData>
   </Meteorology>
   <BoundaryConditions>
-    <BcData Name="17AprStart-H-2014">
+    <BcData Name="Apr17-H-2014">
       <Description />
       <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
-      <f-part>17AprStart-H-2014</f-part>
-      <Operations>17AprStart</Operations>
+      <f-part>Apr17-H-2014</f-part>
+      <Operations>Apr17</Operations>
       <Meteorology>H-2014</Meteorology>
     </BcData>
-    <BcData Name="17AprStart-H-2018">
+    <BcData Name="Apr17-H-2018">
       <Description />
       <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
-      <f-part>17AprStart-H-2018</f-part>
-      <Operations>17AprStart</Operations>
+      <f-part>Apr17-H-2018</f-part>
+      <Operations>Apr17</Operations>
       <Meteorology>H-2018</Meteorology>
+    </BcData>
+    <BcData Name="Apr17-H2-2017">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
+      <f-part>Apr17-H2-2017</f-part>
+      <Operations>Apr17</Operations>
+      <Meteorology>H2-2017</Meteorology>
     </BcData>
   </BoundaryConditions>
   <EnsembleSets>
-    <Simulation>ResSim NoBypass-17Apr2024</Simulation>
     <Simulation>
-      ResSim-17Apr2024
-      <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
+      W2 Folsom FixedATSP NoBypass-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>17AprStart-H-2014</BcData>
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H2-2017</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="1" Step="10">
-            <I Range="0-1" Data="40" />
+            <I Range="0-1" Data="32" />
           </intArray>
         </ComputedMembers>
-        <MembersToCompute>40</MembersToCompute>
+        <MembersToCompute>32</MembersToCompute>
       </EnsembleSet>
-      <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
+    </Simulation>
+    <Simulation>
+      ResSim NoBypass-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>17AprStart-H-2018</BcData>
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H2-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="32" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>32</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>
+      W2 Fol-Nat FixedATSP NoBypass-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H2-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="32" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>32</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>W2 Folsom FixedATSP-17Apr2024</Simulation>
+    <Simulation>
+      W2 Fol-Nat FixedATSP-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="2" Step="10">
+            <I Range="0-2" Data="25,32" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>32</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H2-2017</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="0" Step="10" />
@@ -191,12 +308,120 @@
         <MembersToCompute />
       </EnsembleSet>
     </Simulation>
+    <Simulation>
+      ResSim-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="7" Step="10">
+            <I Range="0-7" Data="5,15,25,32,40,50,70" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>5,15,25,32,40,50,70</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2018</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="7" Step="10">
+            <I Range="0-7" Data="5,15,25,32,40,50,70" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>5,15,25,32,40,50,70</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H2-2017</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="7" Step="10">
+            <I Range="0-7" Data="32,5,15,25,40,50,70" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>5,15,25,32,40,50,70</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
+    <Simulation Name="W2 Folsom FixedATSP NoBypass-17Apr2024">
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
     <Simulation Name="ResSim NoBypass-17Apr2024">
       <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
         <CollectionStart>0</CollectionStart>
         <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Fol-Nat FixedATSP NoBypass-17Apr2024">
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Folsom FixedATSP-17Apr2024">
+      <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Fol-Nat FixedATSP-17Apr2024">
+      <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
       </EnsembleSet>
       <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
         <CollectionStart>500</CollectionStart>
@@ -207,6 +432,18 @@
       <EnsembleSet Name="17AprStart-H-2014-Folsom Iterative Target - ScheduleA">
         <CollectionStart>0</CollectionStart>
         <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1000</CollectionStart>
+        <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H2-2017-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>2000</CollectionStart>
+        <CollectionEnd>2499</CollectionEnd>
       </EnsembleSet>
       <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
         <CollectionStart>500</CollectionStart>

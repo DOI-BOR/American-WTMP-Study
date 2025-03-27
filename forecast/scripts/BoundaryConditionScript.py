@@ -8,7 +8,7 @@ import hec.heclib.dss
 import hec.heclib.util.HecTime as HecTime
 import hec.io.TimeSeriesContainer as tscont
 import hec.hecmath.TimeSeriesMath as tsmath
-from hec.script import MessageBox
+from hec.script import MessageBox, Constants
 
 import usbr.wat.plugins.actionpanel.model.forecast as fc
 sys.path.append(os.path.join(Project.getCurrentProject().getWorkspacePath(), "forecast", "scripts"))
@@ -16,7 +16,7 @@ sys.path.append(os.path.join(Project.getCurrentProject().getWorkspacePath(), "fo
 import CVP_ops_tools as CVP
 reload(CVP)
 
-DEBUG = True
+DEBUG = False
 
 '''Accepts parameters for WTMP forecast runs to form boundary condition data sets.'''
 def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_filename, ops_file_name, DSS_map_filename,
@@ -78,14 +78,9 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 	print "Met data output DSS file: %s"%met_output_DSS_filename
 	print "Location/Path map file: %s"%DSS_map_filename
 
-	if AP_start_time.month() < 10:
-		target_year = AP_start_time.year()
-	else:
-		target_year = AP_end_time.year()
-
 	print "\nPreparing Meteorological Data..."
 
-	met_lines = create_positional_analysis_met_data(target_year, position_analysis_year, AP_start_time, AP_end_time,
+	met_lines = create_positional_analysis_met_data(AP_start_time.year(), position_analysis_year, AP_start_time, AP_end_time,
 		position_analysis_config_filename, met_output_DSS_filename, met_F_part)
 	with open(os.path.join(Project.getCurrentProject().getWorkspacePath(), DSS_map_filename), "w") as mapfile:
 		mapfile.write("location,parameter,dss file,dss path\n")
@@ -95,7 +90,7 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 
 	print("Met process complete.\n\nPreparing hydro and WC boundary conditions...")
 
-	ops_lines = create_ops_BC_data(target_year, ops_file_name, AP_start_time, AP_end_time,
+	ops_lines = create_ops_BC_data(ops_file_name, AP_start_time, AP_end_time,
 		BC_output_DSS_filename, BC_F_part, ops_import_F_part, flow_pattern_config_filename, DSS_map_filename)
 	if not ops_lines:
 		return 0
@@ -259,45 +254,76 @@ def getConfigLines(fileName):
 	config_str = re.sub(r"\n+", "\n", config_str)
 	return  config_str.split('\n')
 
-def american_NF_temp(month, NF_cms, MF_cms, T_air):
+def interpolate_coeffs(year, month, day, coeff_dict):
+	last_month = month - 1
+	next_month = month + 1
+	if last_month == 0: last_month = 12
+	if next_month == 13: next_month = 1
+	last_month_middle = CVP.get_days_in_month(last_month, year)/2
+	month_middle = CVP.get_days_in_month(month, year)/2
+	next_month_middle = CVP.get_days_in_month(next_month, year)/2
+	rv = []
+	for i in range(len(coeff_dict[month])):
+		if day > month_middle:
+			denom = month_middle + next_month_middle
+			num = day - month_middle
+			val_interp = (coeff_dict[month])[i] + ((coeff_dict[next_month])[i]-(coeff_dict[month])[i])*num/denom 
+		else:
+			denom = month_middle + last_month_middle
+			num = day + last_month_middle
+			val_interp = (coeff_dict[last_month])[i] + ((coeff_dict[month])[i]-(coeff_dict[last_month])[i])*num/denom 
+		rv.append(val_interp)
+	return rv
+
+def american_NF_temp(year, month, day, NF_cms, MF_cms, T_air):
 	'''CARDNO/Stantec North Fork American water temperature regression into Folsom
 	returns degrees C'''
 	NF_coeff = {
-		1: [3.774, 1.266, -0.123, 0.209],
-		2: [5.013, 2.088, -2.308, 0.289],
-		3: [7.568, 3.042, -4.644, 0.336],
-		4: [13.929, 1.493, -5.956, 0.278],
-		5: [19.23, -4.149, -2.651, 0.279],
-		6: [22.008, -2.190, -4.320, 0.182],
-		7: [27.481, 0.461, -8.106, 0.071],
-		8: [26.076, -0.056, -7.756, 0.064],
-		9: [19.876, -2.334, -4.285, 0.107],
-		10: [11.463, 0.665, -2.909, 0.355],
-		11: [7.827, 0.685, -1.342, 0.367],
-		12: [3.52, -0.27, 1.59, 0.30]
+		1: [3.77355345,1.266462973,-0.123190654,0.208855328],
+		2: [5.01269425,2.088352067,-2.308137666,0.289497256],
+		3: [7.567546775,3.041537494,-4.644044856,0.336475774],
+		4: [13.92872175,1.492628831,-5.956415444,0.277586609],
+		5: [19.23009253,-4.149129915,-2.651244411,0.278923758],
+		6: [22.00833065,-2.189707188,-4.319810831,0.181642599],
+		7: [27.48138246,0.461104188,-8.105548108,0.071214161],
+		8: [26.07638886,-0.055669605,-7.755782225,0.064216078],
+		9: [19.87566754,-2.333806319,-4.285212562,0.10655613],
+		10: [11.46335394,0.665477033,-2.908680136,0.35502391],
+		11: [7.827069439,0.684950286,-1.34200308,0.367479789],
+		12: [3.518780588,-0.273754836,1.585551206,0.295922482]
 	}
-	coeff = NF_coeff[month]
-	return coeff[0] + coeff[1] * math.log10(NF_cms) + coeff[2] * math.log10(MF_cms) + coeff[3] * T_air
-
-def american_SF_temp(month, SF_cms, T_air):
+	coeff = interpolate_coeffs(year, month, day, NF_coeff)
+	message = "Coefficients %d %d %d: "%(year, month, day)
+	for c in coeff:
+		message += " %f,"%(c)
+	print message
+	rv = coeff[0] + coeff[1] * math.log10(NF_cms) + coeff[2] * math.log10(MF_cms) + coeff[3] * T_air
+	if rv > 100 or rv < -100:
+		return Constants.UNDEFINED
+	return rv
+	
+def american_SF_temp(year, month, day, SF_cms, T_air):
 	'''CARDNO/Stantec South Fork American water temperature regression into Folsom
 	returns degrees C'''
 	SF_coeff = {
-		1: [1.956, 1.374, 0.290],
-		2: [3.894, 0.221, 0.282],
-		3: [8.456, -1.422, 0.224],
-		4: [12.605, -3.050, 0.223],
-		5: [19.374, -5.815, 0.204],
-		6: [22.03, -6.605, 0.216],
-		7: [23.604, -5.623, 0.114],
-		8: [21.761, -5.196, 0.105],
-		9: [17.663, -4.067, 0.155],
-		10: [11.832, -2.665, 0.299],
-		11: [6.521, -0.366, 0.374],
-		12: [3.430, 0.755, 0.358]
+		1: [1.956291062,1.374298257,0.290009169],
+		2: [3.893887348,0.220653927,0.282395021],
+		3: [8.455829345,-1.422109321,0.224161329],
+		4: [12.60480855,-3.050192978,0.222675413],
+		5: [19.37361716,-5.815240399,0.204001471],
+		6: [22.03004985,-6.605451819,0.215552251],
+		7: [23.60375618,-5.62310084,0.113589656],
+		8: [21.76127614,-5.196031305,0.105051348],
+		9: [17.66271131,-4.067412751,0.154994985],
+		10: [11.83159793,-2.665405159,0.299236849],
+		11: [6.520659335,-0.366300723,0.373983078],
+		12: [3.430491736,0.754616666,0.358139071]
 	}
-	coeff = SF_coeff[month]
-	return coeff[0] + coeff[1] * math.log10(SF_cms) + coeff[2] * T_air
+	coeff = interpolate_coeffs(year, month, day, SF_coeff)
+	rv = coeff[0] + coeff[1] * math.log10(SF_cms) + coeff[2] * T_air
+	if rv > 100 or rv < -100:
+		return Constants.UNDEFINED
+	return rv
 
 def american_SC_temp(month):
 	'''CARDNO/Stantec South Canal monthly average inflow temperature into Folsom
@@ -321,7 +347,7 @@ def american_SC_temp(month):
 
 
 '''Processes the contents of the CVP ops spreadsheet in to flow and water temperature BCs'''
-def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_output_DSS_filename,
+def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filename,
 	BC_F_part, ops_import_F_part, flow_pattern_config_filename, DSS_map_filename):
 	print "Processing boundary conditions for American River from ops file:\n\t%s"%(ops_file_name)
 	print "  Forecast time window start: %s"%(start_time.dateAndTime(4))
@@ -355,7 +381,8 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	if profile_date:
 		try:
 			date_parts = profile_date.split('-', 2)
-			profile_date = "%s%s20%s"%(date_parts[0],date_parts[1],date_parts[2])
+			if len(date_parts[2]) < 4: date_parts[2] = "20" + date_parts[2]
+			profile_date = "%s%s%s"%(date_parts[0],date_parts[1],date_parts[2])
 		except Exception as e:
 			print "Failed to read profile date from string:%s"%profile_date
 			print "\t%s"%str(e)
@@ -367,16 +394,26 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	start_index = int(folsom_calendar[0])
 	start_month = folsom_calendar[start_index + 1].strip().upper()
 	if DEBUG: print "\n Folsom start month: %s; Start index: %d"%(start_month, start_index)
+
+	ops_start_date = HecTime()
+	days_in_first_month = None
+	if profile_date:
+		ops_start_date.set(profile_date, "2400")
+		days_in_first_month = 1 + CVP.get_days_in_month(CVP.month_index(start_month), ops_start_date.year()) - ops_start_date.day()
+	else:
+		ops_start_date.set("01%s%d"%(start_month, start_time.year()), "0000")
+		if ops_start_date > start_time:
+			ops_start_date.set("01%s%d"%(start_month, start_time.year()-1), "0000")
+
 	for line in ops_data["Folsom"][1:]:
 		data_month = start_month
-		data_year = target_year
-		try:
-			early_val = float(line.split(',')[start_index - 1].strip())
+		data_year = ops_start_date.year()
+		if len(line.split(',')[0]) ==0:
+			continue
+		if CVP.is_convertable_to_float(line.split(',')[start_index - 1].strip()):
 			data_month = CVP.month_TLA[CVP.previous_month(CVP.month_index(start_month))]
 			if data_month == "DEC":
 				data_year -= 1
-		except:
-			pass
 		if DEBUG: print "Start_index = %d\nData_Month = %s"%(start_index, data_month)
 		if DEBUG: print "Passing line to CVP.make_ops_tsc: %s"%(line)
 		folsom_tsc_list.append(CVP.make_ops_tsc("FOLSOM", data_year, data_month, line, ops_label=ops_import_F_part))
@@ -436,16 +473,6 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		return None
 	if not os.path.isabs(met_DSS_file_name):
 		met_DSS_file_name = os.path.join(Project.getCurrentProject().getWorkspacePath(), met_DSS_file_name)
-
-	ops_start_date = HecTime()
-	ops_end_date = HecTime()
-	days_in_first_month = None
-	if profile_date:
-		ops_start_date.set(profile_date, "2400")
-		days_in_first_month = 1 + CVP.get_days_in_month(CVP.month_index(start_month), ops_start_date.year()) - ops_start_date.day()
-	else:
-		ops_start_date.set("01%s%d"%(start_month, target_year), "2400")
-	ops_end_date.set(folsom_tsc_list[0].getHecTime(folsom_tsc_list[0].numberValues - 1))
 
 	########################
 	# Folsom data from CVP spreadsheet
@@ -653,6 +680,10 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	# Estimate Folsom Tributary Temperatures
 	########################
 
+	std_out_restore = sys.stdout
+	#temperature_logfile = open("J:\\WTMP\\AMR_temp_calc.log", 'w')
+	#sys.stdout = temperature_logfile
+
 	# South Fork water temperature from regression formula
 	if names_flows["Folsom-SF-in"].isMetric():
 		tsmath_SF_cms = names_flows["Folsom-SF-in"]
@@ -675,6 +706,7 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 		tsmath_T_air = tsmath_airtemp
 	else:
 		tsmath_T_air = tsmath_airtemp.convertToMetricUnits()
+	tsmath_T_air_daily = tsmath_T_air.transformTimeSeries("1Day", "0M", "AVE")
 
 	print "South Fork Temp start time = " + start_time.date(4) + ' ' + str(start_time.minutesSinceMidnight())
 	print "South Fork Temp end time = " + end_time.date(4) + ' ' + str(end_time.minutesSinceMidnight())
@@ -682,18 +714,19 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	time_post = HecTime(HecTime.MINUTE_INCREMENT)
 	i = 0
 	SF = tsmath_SF_cms.getContainer()
-	T = tsmath_T_air.getContainer()
+	T = tsmath_T_air_daily.getContainer()
 	for time_step in tsmath_SF_WTemp.getContainer().times:
 		time_post.set(time_step)
 		#print(time_step,SF.times[0],SF.times[-1],T.times[0],T.times[-1])
-		tsmath_SF_WTemp.getContainer().values[i] = american_SF_temp(time_post.month(),
+		tsmath_SF_WTemp.getContainer().values[i] = american_SF_temp(time_post.year(), 
+					time_post.month(), time_post.day(),
 					tsmath_SF_cms.getContainer().getValue(time_post),
-					tsmath_T_air.getContainer().getValue(time_post))
+					tsmath_T_air_daily.getContainer().getValue(time_post))
 		if DEBUG and time_post.day() % 5 == 0:
 			print "DT: %s (%d); SF flow: %.2f; Air Temp: %.2f; SF Water Temp: %.2f"%(
 				time_post.dateAndTime(4), time_post.month(),
 				tsmath_SF_cms.getContainer().getValue(time_post),
-				tsmath_T_air.getContainer().getValue(time_post),
+				tsmath_T_air_daily.getContainer().getValue(time_post),
 				tsmath_SF_WTemp.getContainer().values[i])
 		i += 1
 	tsmath_SF_WTemp.setUnits("Deg C")
@@ -718,16 +751,17 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	i = 0
 	for time_step in tsmath_NF_WTemp.getContainer().times:
 		time_post.set(time_step)
-		tsmath_NF_WTemp.getContainer().values[i] = american_NF_temp(time_post.month(),
+		tsmath_NF_WTemp.getContainer().values[i] = american_NF_temp(time_post.year(), 
+					time_post.month(), time_post.day(),
 					tsmath_NF_cms.getContainer().getValue(time_post),
 					tsmath_MF_cms.getContainer().getValue(time_post),
-					tsmath_T_air.getContainer().getValue(time_post))
+					tsmath_T_air_daily.getContainer().getValue(time_post))
 		if DEBUG and time_post.day() % 5 == 0:
 			print "DT: %s (%d); NF flow: %.2f; MF flow: %.2f; Air Temp: %.2f; NF Water Temp: %.2f"%(
 				time_post.dateAndTime(4), time_post.month(),
 				tsmath_NF_cms.getContainer().getValue(time_post),
 				tsmath_MF_cms.getContainer().getValue(time_post),
-				tsmath_T_air.getContainer().getValue(time_post),
+				tsmath_T_air_daily.getContainer().getValue(time_post),
 				tsmath_SF_WTemp.getContainer().values[i])
 		i += 1
 	tsmath_NF_WTemp.setUnits("Deg C")
@@ -752,6 +786,11 @@ def create_ops_BC_data(target_year, ops_file_name, start_time, end_time, BC_outp
 	tsmath_SC_WTemp.setParameterPart("TEMP-WATER")
 	tsmath_SC_WTemp.setVersion(BC_F_part)
 	tsmath_list.append(tsmath_SC_WTemp)
+
+
+	#sys.stdout = std_out_restore
+	#temperature_logfile.close()
+
 
 	########################
 	# Municipal withdrawals for Carmichael (Bajamount WTP) and Sacramento (Faibairn)

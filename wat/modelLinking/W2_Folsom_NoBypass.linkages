@@ -2,6 +2,109 @@
 <ModelLinking>
   <Name>
     W2 Folsom NoBypass
+    <ModelAlternative Program="Scripting" Name="OutputLink_W2_FBYPASS-DownstreamAmer" File="scripting/OutputLink_W2_FBYPASS-DownstreamAmer.scAlt">
+      <Description>
+        <desc cnt="0" value="Sums W2 outflows into Natoma and flow-weights the outflow temperature." />
+      </Description>
+      <DataLocations>
+        <DataLocation Name="Qwo-105-str1" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str1/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_1//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Flow-QWD_outlet_1" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Two-105-str1" Class="hec2.model.DataLocation" DssPath="//Two-105-str1/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_1//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Temp-TWO_outlet_1" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Qwo-105-str2" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str2/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_2//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Flow-QWD_outlet_2" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Two-105-str2" Class="hec2.model.DataLocation" DssPath="//Two-105-str2/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_2//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Temp-TWO_outlet_2" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Qwo-105-str3" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str3/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_3//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Flow-QWD_outlet_3" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Two-105-str3" Class="hec2.model.DataLocation" DssPath="//Two-105-str3/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_3//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Temp-TWO_outlet_3" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Qwo-105-str4" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str4/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_4//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Flow-QWD_outlet_4" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Two-105-str4" Class="hec2.model.DataLocation" DssPath="//Two-105-str4/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_4//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Temp-TWO_outlet_4" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Qwo-105-str6" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str6/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_6//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Flow-QWD_outlet_6" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Two-105-str6" Class="hec2.model.DataLocation" DssPath="//Two-105-str6/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_6//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Temp-TWO_outlet_6" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Qwo-105-str7" Class="hec2.model.DataLocation" DssPath="//Qwo-105-str7/Flow//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:qwo_105.csv/Seg 105 Withdrawal/Flow-QWD_outlet_7//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Flow-QWD_outlet_7" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="Two-105-str7" Class="hec2.model.DataLocation" DssPath="//Two-105-str7/Temp//1HOUR/alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Model="CeQualW2-W2 Folsom NoBypass" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="Seg 105 Withdrawal" Class="hec2.model.DataLocation" DssPath="/W2:two_105.csv/Seg 105 Withdrawal/Temp-TWO_outlet_7//1HOUR/C:000000|altName:apName:CeQualW2-W2 Folsom NoBypass/" ComputeType="Computed" Parameter="Temp-TWO_outlet_7" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="W2 Folsom NoBypass" Program="CeQualW2" />
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+      </DataLocations>
+    </ModelAlternative>
     <ModelAlternative Program="CeQualW2" Name="W2 Folsom NoBypass" File="CeQual-W2/Folsom/W2 Folsom NoBypass/W2_Folsom_NoBypass.w2Alt">
       <Description />
       <DataLocations>

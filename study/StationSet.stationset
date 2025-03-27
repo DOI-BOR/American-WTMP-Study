@@ -21,9 +21,9 @@
       "type" : "Point",
       "coordinates" : [ 6774708.455378069, 1980234.0060254696 ]
     },
-    "labelPosition" : "EAST",
     "latitude" : 38.5,
-    "longitude" : -121.33
+    "longitude" : -121.33,
+    "labelPosition" : "EAST"
   }, {
     "type" : "Feature",
     "properties" : {
@@ -39,15 +39,17 @@
       "locationId" : "",
       "name" : "Fair Oaks CIMIS",
       "isMetStation" : true,
-      "longitude" : -121.21887
+      "longitude" : -121.21887,
+      "stationIconLongitude" : 6784250.121519861,
+      "stationIconLatitude" : 1999942.2811065593
     },
     "geometry" : {
       "type" : "Point",
       "coordinates" : [ 6784250.121519861, 1999942.2811065593 ]
     },
-    "labelPosition" : "EAST",
     "latitude" : 38.649964,
-    "longitude" : -121.21887
+    "longitude" : -121.21887,
+    "labelPosition" : "EAST"
   }, {
     "type" : "Feature",
     "properties" : {
@@ -64,9 +66,35 @@
       "type" : "Point",
       "coordinates" : [ 6810156.053437341, 2015607.0502349692 ]
     },
-    "labelPosition" : "EAST",
     "latitude" : 0.0,
-    "longitude" : 0.0
+    "longitude" : 0.0,
+    "labelPosition" : "EAST"
+  }, {
+    "type" : "Feature",
+    "properties" : {
+      "elevation" : 0.0,
+      "latitude" : 0.0,
+      "description" : "",
+      "streamStation" : 47168.82683571731,
+      "streamName" : "American River",
+      "nearestMeridian" : 0,
+      "isObservedStation" : true,
+      "labelposition" : "EAST",
+      "stationIconLongitude" : 6733861.430328544,
+      "locationId" : "",
+      "stationIconLatitude" : 1981719.6431960757,
+      "name" : "Watt Ave Observed",
+      "isProfileStation" : false,
+      "isMetStation" : false,
+      "longitude" : 0.0
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 6737488.22058123, 1968895.7122108815 ]
+    },
+    "latitude" : 0.0,
+    "longitude" : 0.0,
+    "labelPosition" : "EAST"
   } ],
   "name" : "StationSet",
   "id" : 0,

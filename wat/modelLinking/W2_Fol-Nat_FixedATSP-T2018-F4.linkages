@@ -104,7 +104,7 @@
         <DataLocation Name="WB 1 Met" Class="hec2.model.DataLocation" DssPath="/W2:met.npt/WB 1 Met/PHI//1HOUR/alt:ap:CeQualW2-WB 1 Met/" ComputeType="Computed" Model="DSS File" Parameter="PHI" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="FAIR OAKS" Class="hec2.model.DssDataLocation" DssPath="/MR AM.-NATOMA LAKE/FAIR OAKS/DIR-WIND-RADIANS//1Hour/251.40.133.1.2/" ComputeType="Computed" Parameter="DIR-WIND-RADIANS" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="Fair Oaks" Class="hec2.model.DssDataLocation" DssPath="/MR Am.-Natoma Lake/Fair Oaks/Dir-Wind//1Hour/251.40.133.1.2/" ComputeType="Computed" Parameter="Dir-Wind" OutOfDate="false" PrevModelIndex="0">
               <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
             </DataLocation>
           </DownStreamLocation>
@@ -1235,6 +1235,12 @@
           </DownStreamLocation>
         </DataLocation>
       </DataLocations>
+    </ModelAlternative>
+    <ModelAlternative Program="Scripting" Name="Scripting_Pass" File="scripting/Scripting_Pass.scAlt">
+      <Description>
+        <desc cnt="0" value="don't do anything" />
+      </Description>
+      <DataLocations />
     </ModelAlternative>
   </Name>
 </ModelLinking>

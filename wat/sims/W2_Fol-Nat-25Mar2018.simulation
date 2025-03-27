@@ -5,21 +5,21 @@
       <Description>
         <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
       </Description>
-      <LastComputeTime Date="12 September 2024, 04:23:18" />
+      <LastComputeTime Date="12 September 2024, 04:23" />
     </ModelAlternative0>
     <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom" File="CeQual-W2/Folsom/W2 Folsom/W2_Folsom.w2Alt">
       <Description />
-      <LastComputeTime Date="12 September 2024, 04:23:27" />
+      <LastComputeTime Date="12 September 2024, 04:23" />
     </ModelAlternative1>
     <ModelAlternative2 Program="Scripting" Name="OutputLink_W2_Folsom-DownstreamAmer" File="scripting/OutputLink_W2_Folsom-DownstreamAmer.scAlt">
       <Description>
         <desc cnt="0" value="Sums W2 outflows into Natoma and flow-weights the outflow temperature." />
       </Description>
-      <LastComputeTime Date="12 September 2024, 04:23:27" />
+      <LastComputeTime Date="12 September 2024, 04:23" />
     </ModelAlternative2>
     <ModelAlternative3 Program="CeQualW2" Name="W2 Natoma Prescribed" File="CeQual-W2/Natoma/W2 Natoma Prescribed/W2_Natoma_Prescribed.w2Alt">
       <Description />
-      <LastComputeTime Date="31 December 1899, 24:00:00" />
+      <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative3>
     <ModelAlternative4 Program="Scripting" Name="Pre-Process_ResSim_Amer" File="scripting/Pre-Process_ResSim_Amer.scAlt">
       <Description>
@@ -31,7 +31,7 @@
       <Description />
       <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative5>
-    <ModelAlternative6 Program="Scripting" Name="Post-Process_W2_Folsom" File="scripting/Post-Process_W2_Folsom.scAlt">
+    <ModelAlternative6 Program="Scripting" Name="Post-Process_W2_Fol-Nat" File="scripting/Post-Process_W2_Fol-Nat.scAlt">
       <Description />
       <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative6>

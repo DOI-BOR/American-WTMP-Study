@@ -564,14 +564,6 @@
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
-        <DataLocation Name="WQ(IC)-Folsom Lake-Sediment_Temperature" Class="hec2.model.DataLocation" DssPath="/Folsom/IC/depth-temp///icPathsMap/" ComputeType="Computed" Model="DSS File" Parameter="Sediment Temperature" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmer" Program="ResSim" />
-          <DownStreamLocation>
-            <DataLocation Name="IC" Class="hec2.model.DssDataLocation" DssPath="/Folsom/IC/depth-temp///icPathsMap/" ComputeType="Computed" Parameter="depth-temp" OutOfDate="false" PrevModelIndex="0">
-              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
-            </DataLocation>
-          </DownStreamLocation>
-        </DataLocation>
       </DataLocations>
     </ModelAlternative>
     <ModelAlternative Program="Scripting" Name="Pre-Process_ResSim_Amer" File="scripting/Pre-Process_ResSim_Amer.scAlt">

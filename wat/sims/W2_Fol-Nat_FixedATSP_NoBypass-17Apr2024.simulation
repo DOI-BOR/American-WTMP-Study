@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatSimulation SimulationName="W2 Fol-Nat FixedATSP NoBypass-17Apr2024" Description="" FPart="W2 Fol-Nat:F2018-04" HasComputed="true" ComputeError="false" Parent="W2 Fol-Nat FixedATSP NoBypass-17Apr2024" LastComputedBy="BenSae4598" LastComputedDate="1742931364917" IsFrmSimulation="false">
+  <ModelAlternatives ModelAlternativeCount="7">
+    <ModelAlternative0 Program="Scripting" Name="Pre-Process_W2_Amer" File="scripting/Pre-Process_W2_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
+      </Description>
+      <LastComputeTime Date="25 March 2025, 18:28:11" />
+    </ModelAlternative0>
+    <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom FixedATSP NoBypass" File="CeQual-W2/Folsom/W2 Folsom FixedATSP NoBypass/W2_Folsom_FixedATSP_NoBypass.w2Alt">
+      <Description />
+      <LastComputeTime Date="25 March 2025, 19:29:49" />
+    </ModelAlternative1>
+    <ModelAlternative2 Program="Scripting" Name="OutputLink_W2_FATSPBYPASS-DownstreamAmer" File="scripting/OutputLink_W2_FATSPBYPASS-DownstreamAmer.scAlt">
+      <Description>
+        <desc cnt="0" value="Sums W2 outflows into Natoma and flow-weights the outflow temperature." />
+      </Description>
+      <LastComputeTime Date="25 March 2025, 19:30:02" />
+    </ModelAlternative2>
+    <ModelAlternative3 Program="CeQualW2" Name="W2 Natoma Prescribed" File="CeQual-W2/Natoma/W2 Natoma Prescribed/W2_Natoma_Prescribed.w2Alt">
+      <Description />
+      <LastComputeTime Date="25 March 2025, 19:33:53" />
+    </ModelAlternative3>
+    <ModelAlternative4 Program="Scripting" Name="Pre-Process_ResSim_Amer" File="scripting/Pre-Process_ResSim_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Perform ResSim-specific transforms on forecast data produced by the WTMP forecast process." />
+      </Description>
+      <LastComputeTime Date="25 March 2025, 19:34:02" />
+    </ModelAlternative4>
+    <ModelAlternative5 Program="ResSim" Name="RSAmerRVO" File="rss/RSAmerRVO.ralt">
+      <Description />
+      <LastComputeTime Date="25 March 2025, 19:36:04" />
+    </ModelAlternative5>
+    <ModelAlternative6 Program="Scripting" Name="Post-Process_W2_Fol-Nat" File="scripting/Post-Process_W2_Fol-Nat.scAlt">
+      <Description />
+      <LastComputeTime Date="25 March 2025, 19:36:04" />
+    </ModelAlternative6>
+  </ModelAlternatives>
+  <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
+</WatSimulation>
+

@@ -8,10 +8,6 @@
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
     <Simulation>
-      <Name>W2 Folsom-25Mar2018</Name>
-      <Class>hec2.wat.model.WatSimulation</Class>
-    </Simulation>
-    <Simulation>
       <Name>W2 Fol-Nat-25Mar2018</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
@@ -121,9 +117,9 @@
     </Reservoir>
   </InitialConditions>
   <Operations>
-    <OperationsData Name="MAR50-20180325">
+    <OperationsData Name="Mar50">
       <Description />
-      <OperationsFile>forecast/CVP-ops/MAR50_WY2018v_alt_start.xlsx</OperationsFile>
+      <OperationsFile>forecast/CVP-ops/MAR50_WY2018v.xlsx</OperationsFile>
     </OperationsData>
   </Operations>
   <Meteorology>
@@ -139,82 +135,38 @@
     </MeteorologyData>
   </Meteorology>
   <BoundaryConditions>
-    <BcData Name="MAR50-20180325-H-2014">
+    <BcData Name="Mar50-H-2014">
       <Description />
       <Output-DSS-File>forecast\simGroups\25Mar2018\bc.dss</Output-DSS-File>
-      <f-part>MAR50-20180325-H-2014</f-part>
-      <Operations>MAR50-20180325</Operations>
+      <f-part>Mar50-H-2014</f-part>
+      <Operations>Mar50</Operations>
       <Meteorology>H-2014</Meteorology>
     </BcData>
-    <BcData Name="MAR50-20180325-H-2018">
+    <BcData Name="Mar50-H-2018">
       <Description />
       <Output-DSS-File>forecast\simGroups\25Mar2018\bc.dss</Output-DSS-File>
-      <f-part>MAR50-20180325-H-2018</f-part>
-      <Operations>MAR50-20180325</Operations>
+      <f-part>Mar50-H-2018</f-part>
+      <Operations>Mar50</Operations>
       <Meteorology>H-2018</Meteorology>
     </BcData>
   </BoundaryConditions>
   <EnsembleSets>
-    <Simulation>
-      W2 Fol-Nat-25Mar2018
-      <EnsembleSet Name="MAR50-20180325-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>MAR50-20180325-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-      <EnsembleSet Name="MAR50-20180325-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>MAR50-20180325-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
-      </EnsembleSet>
-    </Simulation>
-    <Simulation>
-      W2 Folsom-25Mar2018
-      <EnsembleSet Name="MAR50-20180325-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>MAR50-20180325-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="1" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>1</MembersToCompute>
-      </EnsembleSet>
-      <EnsembleSet Name="MAR50-20180325-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>MAR50-20180325-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-    </Simulation>
+    <Simulation>W2 Fol-Nat-25Mar2018</Simulation>
+    <Simulation>W2 Folsom-25Mar2018</Simulation>
     <Simulation>
       ResSim-25Mar2018
-      <EnsembleSet Name="MAR50-20180325-H-2014-Folsom Iterative Target - ScheduleA">
+      <EnsembleSet Name="Mar50-H-2014-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>MAR50-20180325-H-2014</BcData>
+        <BcData>Mar50-H-2014</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="44" />
-          </intArray>
+          <intArray Length="0" Step="10" />
         </ComputedMembers>
-        <MembersToCompute>44</MembersToCompute>
+        <MembersToCompute />
       </EnsembleSet>
-      <EnsembleSet Name="MAR50-20180325-H-2018-Folsom Iterative Target - ScheduleA">
+      <EnsembleSet Name="Mar50-H-2018-Folsom Iterative Target - ScheduleA">
         <Description />
-        <BcData>MAR50-20180325-H-2018</BcData>
+        <BcData>Mar50-H-2018</BcData>
         <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
         <ComputedMembers>
           <intArray Length="0" Step="10" />
@@ -249,6 +201,10 @@
         <CollectionStart>0</CollectionStart>
         <CollectionEnd>499</CollectionEnd>
       </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3500</CollectionStart>
+        <CollectionEnd>3999</CollectionEnd>
+      </EnsembleSet>
       <EnsembleSet Name="MAR50_20180325-H-2018-Folsom Iterative Target - ScheduleA">
         <CollectionStart>1500</CollectionStart>
         <CollectionEnd>1999</CollectionEnd>
@@ -256,6 +212,10 @@
       <EnsembleSet Name="MAR50_20180325-H-2014-Folsom Iterative Target - ScheduleA">
         <CollectionStart>1000</CollectionStart>
         <CollectionEnd>1499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar50-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>3000</CollectionStart>
+        <CollectionEnd>3499</CollectionEnd>
       </EnsembleSet>
       <EnsembleSet Name="MAR50_2018-03-25-H-2018-Folsom Iterative Target - ScheduleA">
         <CollectionStart>500</CollectionStart>

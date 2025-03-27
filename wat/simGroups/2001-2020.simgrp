@@ -4,9 +4,50 @@
   <AnalysisPeriod>2001-2020</AnalysisPeriod>
   <Simulations>
     <Simulation>
-      <Name>FullNet7-2001-2020</Name>
+      <Name>ResSim Prescribed-2001-2020</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+      <PositionAnalysisSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+      </PositionAnalysisSettings>
+    </Simulation>
+    <Simulation>
+      <Name>ResSim River Prescribed-2001-2020</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+      <IterationSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+        <SensitivitySettings>
+          <PreCompute />
+          <PostCompute />
+        </SensitivitySettings>
+      </IterationSettings>
+      <PositionAnalysisSettings>
+        <maxMember>0</maxMember>
+        <MembersToCompute>
+          <intArray Length="0" Step="10" />
+        </MembersToCompute>
+        <ModelAlternativeSettings />
+      </PositionAnalysisSettings>
     </Simulation>
   </Simulations>
+  <ComputeTypes />
 </SimulationGroup>
 

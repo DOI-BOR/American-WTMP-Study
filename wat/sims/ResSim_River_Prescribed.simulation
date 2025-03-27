@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatSimulation SimulationName="ResSim River Prescribed" Description="" FPart="ResSim Pre:2001-2020" HasComputed="false" ComputeError="false" Parent="ResSim River Prescribed" LastComputedBy="BenSae4598" LastComputedDate="1738161449745" IsFrmSimulation="false">
+  <ModelAlternatives ModelAlternativeCount="3">
+    <ModelAlternative0 Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
+      <Description>
+        <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
+      </Description>
+      <LastComputeTime Date="29 January 2025, 14:06" />
+    </ModelAlternative0>
+    <ModelAlternative1 Program="ResSim" Name="RSAmerRVO" File="rss/RSAmerRVO.ralt">
+      <Description />
+      <LastComputeTime Date="29 January 2025, 14:37" />
+    </ModelAlternative1>
+    <ModelAlternative2 Program="Scripting" Name="Scripting_Pass" File="scripting/Scripting_Pass.scAlt">
+      <Description>
+        <desc cnt="0" value="don't do anything" />
+      </Description>
+      <LastComputeTime Date="29 January 2025, 14:37" />
+    </ModelAlternative2>
+  </ModelAlternatives>
+  <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
+</WatSimulation>
+
