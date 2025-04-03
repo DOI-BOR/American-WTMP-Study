@@ -1,7 +1,6 @@
 import os, sys
 import math
 import re
-import datetime
 from com.rma.io import DssFileManagerImpl
 from com.rma.model import Project
 
@@ -256,11 +255,6 @@ def getConfigLines(fileName):
 	return  config_str.split('\n')
 
 def interpolate_coeffs(year, month, day, coeff_dict):
-	indate = datetime.date(year,month,day)
-	offsetdate = datetime.date.fromordinal(indate.toordinal() -1 )
-	day = offsetdate.day
-	month = offsetdate.month
-	year = offsetdate.year
 	last_month = month - 1
 	next_month = month + 1
 	if last_month == 0: last_month = 12
@@ -273,11 +267,11 @@ def interpolate_coeffs(year, month, day, coeff_dict):
 		if day > month_middle:
 			denom = month_middle + next_month_middle
 			num = day - month_middle
-			val_interp = (coeff_dict[month])[i] + ((coeff_dict[next_month])[i]-(coeff_dict[month])[i])*num/denom
+			val_interp = (coeff_dict[month])[i] + ((coeff_dict[next_month])[i]-(coeff_dict[month])[i])*num/denom 
 		else:
 			denom = month_middle + last_month_middle
 			num = day + last_month_middle
-			val_interp = (coeff_dict[last_month])[i] + ((coeff_dict[month])[i]-(coeff_dict[last_month])[i])*num/denom
+			val_interp = (coeff_dict[last_month])[i] + ((coeff_dict[month])[i]-(coeff_dict[last_month])[i])*num/denom 
 		rv.append(val_interp)
 	return rv
 
@@ -299,21 +293,15 @@ def american_NF_temp(year, month, day, NF_cms, MF_cms, T_air):
 		12: [3.518780588,-0.273754836,1.585551206,0.295922482]
 	}
 	coeff = interpolate_coeffs(year, month, day, NF_coeff)
-	# coeff = NF_coeff[month]
+	message = "Coefficients %d %d %d: "%(year, month, day)
+	for c in coeff:
+		message += " %f,"%(c)
+	print message
 	rv = coeff[0] + coeff[1] * math.log10(NF_cms) + coeff[2] * math.log10(MF_cms) + coeff[3] * T_air
-	if DEBUG:
-		# message = "Coefficients %d %d %d: "%(year, month, day)
-		# for c in coeff:
-		# 	message += " %f,"%(c)
-		# print message
-		message2 = "Terms %d %d %d: %f + %f + %f + %f = %f "%(year, month, day, coeff[0], 
-			coeff[1] * math.log10(NF_cms), coeff[2] * math.log10(MF_cms), coeff[3] * T_air, rv)
-		print message2
-
 	if rv > 100 or rv < -100:
 		return Constants.UNDEFINED
 	return rv
-
+	
 def american_SF_temp(year, month, day, SF_cms, T_air):
 	'''CARDNO/Stantec South Fork American water temperature regression into Folsom
 	returns degrees C'''
@@ -332,11 +320,6 @@ def american_SF_temp(year, month, day, SF_cms, T_air):
 		12: [3.430491736,0.754616666,0.358139071]
 	}
 	coeff = interpolate_coeffs(year, month, day, SF_coeff)
-	if DEBUG:
-		message = "Coefficients %d %d %d: "%(year, month, day)
-		for c in coeff:
-			message += " %f,"%(c)
-		print message
 	rv = coeff[0] + coeff[1] * math.log10(SF_cms) + coeff[2] * T_air
 	if rv > 100 or rv < -100:
 		return Constants.UNDEFINED
@@ -485,7 +468,7 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 			met_DSS_file_name = line.split(',')[2].strip().strip('\\')
 			airtemp_path = line.split(',')[3].strip()
 	if len(met_DSS_file_name) == 0 or len(airtemp_path) == 0:
-		print "Error reading Fair Oaks air temperature data configuration from file\n\t%s"%(met_DSS_file_name)
+		print "Error reading Fair Oaks air temperature data configuration from file\n\t%s"%(DSS_map_filename)
 		print "Air temperature DSS file or path not found."
 		return None
 	if not os.path.isabs(met_DSS_file_name):
@@ -646,10 +629,8 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 
 	# North Fork and South Fork coefficients
 	tributary_weights = {
-		"Folsom-NF-in":(0.616122397481848, 0.634490648, 0.655322726, 0.614507479, 0.5324295713, 0.490282586,
-						0.486906093, 0.469756669, 0.495028826, 0.388437959, 0.539534578, 0.609745525),
-		"Folsom-SF-in":(0.383877603, 0.365509352, 0.344677274, 0.385492521, 0.467570429, 0.509717414,
-						0.513093907, 0.530243331, 0.504971174, 0.611562041, 0.460465422, 0.390254475)}
+		"Folsom-NF-in":(0.62, 0.63, 0.66, 0.61, 0.53, 0.49, 0.49, 0.47, 0.50, 0.39, 0.54, 0.61),
+		"Folsom-SF-in":(0.38, 0.37, 0.34, 0.39, 0.47, 0.57, 0.57, 0.53, 0.50, 0.61, 0.46, 0.39)}
 	names_flows = {}
 	for tsm in CVP.split_time_series_monthly(tsmath_daily_flow, tributary_weights, "FLOW-IN"):
 		tsm.setVersion(BC_F_part)
@@ -658,10 +639,8 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 
 	# North Fork and Middle Fork coefficients as fraction of total NF flow to Folsom
 	NF_tributary_weights ={
-		"North Fork abv MF":(0.400374748, 0.451766344 , 0.492703683, 0.517924061, 0.506387691, 0.333514521,
-							0.153097495, 0.08235269, 0.088692849, 0.221268985, 0.235921776, 0.332332904),
-		"Middle Fork abv NF":(0.599625252, 0.548233656, 0.507296317, 0.482075939, 0.493612309, 0.666485479,
-							0.846902505, 0.91764731, 0.911307151, 0.778731015, 0.764078224, 0.667667096)}
+		"North Fork abv MF":(0.40, 0.45, 0.49, 0.52, 0.51, 0.33, 0.15, 0.08, 0.09, 0.22, 0.24, 0.33),
+		"Middle Fork abv NF":(0.60, 0.55, 0.51, 0.48, 0.49, 0.67, 0.85, 0.92, 0.91, 0.78, 0.76, 0.67)}
 	for tsm in CVP.split_time_series_monthly(names_flows["Folsom-NF-in"], NF_tributary_weights, "FLOW-IN"):
 		tsm.setVersion(BC_F_part)
 		tsmath_list.append(tsm)
@@ -702,9 +681,8 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 	########################
 
 	std_out_restore = sys.stdout
-	if DEBUG:
-		temperature_logfile = open(os.path.join(Project.getCurrentProject().getWorkspacePath(), "AMR_temp_calc.log"), 'w')
-		sys.stdout = temperature_logfile
+	#temperature_logfile = open("J:\\WTMP\\AMR_temp_calc.log", 'w')
+	#sys.stdout = temperature_logfile
 
 	# South Fork water temperature from regression formula
 	if names_flows["Folsom-SF-in"].isMetric():
@@ -740,7 +718,7 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 	for time_step in tsmath_SF_WTemp.getContainer().times:
 		time_post.set(time_step)
 		#print(time_step,SF.times[0],SF.times[-1],T.times[0],T.times[-1])
-		tsmath_SF_WTemp.getContainer().values[i] = american_SF_temp(time_post.year(),
+		tsmath_SF_WTemp.getContainer().values[i] = american_SF_temp(time_post.year(), 
 					time_post.month(), time_post.day(),
 					tsmath_SF_cms.getContainer().getValue(time_post),
 					tsmath_T_air_daily.getContainer().getValue(time_post))
@@ -773,7 +751,7 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 	i = 0
 	for time_step in tsmath_NF_WTemp.getContainer().times:
 		time_post.set(time_step)
-		tsmath_NF_WTemp.getContainer().values[i] = american_NF_temp(time_post.year(),
+		tsmath_NF_WTemp.getContainer().values[i] = american_NF_temp(time_post.year(), 
 					time_post.month(), time_post.day(),
 					tsmath_NF_cms.getContainer().getValue(time_post),
 					tsmath_MF_cms.getContainer().getValue(time_post),
@@ -784,7 +762,7 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 				tsmath_NF_cms.getContainer().getValue(time_post),
 				tsmath_MF_cms.getContainer().getValue(time_post),
 				tsmath_T_air_daily.getContainer().getValue(time_post),
-				tsmath_NF_WTemp.getContainer().values[i])
+				tsmath_SF_WTemp.getContainer().values[i])
 		i += 1
 	tsmath_NF_WTemp.setUnits("Deg C")
 	tsmath_NF_WTemp.setType("PER-AVER")
@@ -809,9 +787,9 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 	tsmath_SC_WTemp.setVersion(BC_F_part)
 	tsmath_list.append(tsmath_SC_WTemp)
 
-	if DEBUG:
-		sys.stdout = std_out_restore
-		temperature_logfile.close()
+
+	#sys.stdout = std_out_restore
+	#temperature_logfile.close()
 
 
 	########################
