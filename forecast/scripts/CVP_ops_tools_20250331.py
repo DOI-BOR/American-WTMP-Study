@@ -17,7 +17,7 @@ from org.apache.poi.xssf.usermodel import XSSFWorkbook
 from org.apache.poi.hssf.usermodel import HSSFWorkbook
 from org.apache.poi.ss import usermodel as SSUsermodel
 
-DEBUG = False
+DEBUG = True
 
 month_TLA = ["NM", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 days_in_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
