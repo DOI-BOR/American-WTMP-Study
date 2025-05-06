@@ -1,0 +1,42 @@
+location,parameter,dss file,dss path
+Folsom Dyke 8,Wind Speed,forecast/simGroups/American_March2025/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Speed/Speed-Wind//1Hour/TestOp-H-2021/
+Folsom Dyke 8,Wind Direction,forecast/simGroups/American_March2025/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Direction/Dir-Wind//1Hour/TestOp-H-2021/
+Fair Oaks,Air Temperature,forecast/simGroups/American_March2025/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Air Temp/Temp-Air//1Hour/TestOp-H-2021/
+Fair Oaks,DewPoint Temperature,forecast/simGroups/American_March2025/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Dew Point Temp/Temp-DewPoint//1Hour/TestOp-H-2021/
+Fair Oaks,Wind Speed,forecast/simGroups/American_March2025/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Speed/Speed-Wind//1Hour/TestOp-H-2021/
+Fair Oaks,Wind Direction,forecast/simGroups/American_March2025/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Direction/Dir-Wind//1Hour/TestOp-H-2021/
+Mather AFB,Cloudiness,forecast/simGroups/American_March2025/bc.dss,/AMERICAN/MATHER AFB/CLOUD//1HOUR/TestOp-H-2021/
+Fair Oaks,Shortwave Radiation,forecast/simGroups/American_March2025/bc.dss,/AMERICAN/FAIR OAKS/SHORTWAVE RADIATION//1HOUR/TestOp-H-2021/
+FOLSOM,INFLOW,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/INFLOW//1MON/TestOp-H-2021/
+FOLSOM,FLOW-IN,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FLOW-IN//1DAY/TestOp-H-2021/
+FOLSOM,EST. EVAP.,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/EST. EVAP.//1MON/TestOp-H-2021/
+FOLSOM,TOTAL RELEASE,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/TOTAL RELEASE//1MON/TestOp-H-2021/
+FOLSOM,FLOW-RELEASE,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FLOW-RELEASE//1HOUR/TestOp-H-2021/
+FOLSOM,PUMPING (FP),forecast/simGroups/American_March2025/bc.dss,//FOLSOM/PUMPING (FP)//1MON/TestOp-H-2021/
+FOLSOM,FLOW-PUMPING,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/PUMPING (FP)//1DAY/TestOp-H-2021/
+FOLSOM,FS CANAL (FSC),forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FS CANAL (FSC)//1MON/TestOp-H-2021/
+FOLSOM,FLOW-FSC,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FS CANAL (FSC)//1DAY/TestOp-H-2021/
+FOLSOM,FLOW-NIMBUS MINIMUM (CFS),forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FLOW-NIMBUS MINIMUM (CFS)//1MON/TestOp-H-2021/
+FOLSOM,NIMBUS MINIMUM (TAF),forecast/simGroups/American_March2025/bc.dss,//FOLSOM/NIMBUS MINIMUM (TAF)//1MON/TestOp-H-2021/
+LAKE NATOMA,ACTUAL NIMBUS RELEASE (TAF),forecast/simGroups/American_March2025/bc.dss,/AMERICAN RIVER/LAKE NATOMA/ACTUAL NIMBUS RELEASE (TAF)//1MON/TestOp-H-2021/
+LAKE NATOMA,FLOW-NIMBUS ACTUAL,forecast/simGroups/American_March2025/bc.dss,/AMERICAN RIVER/LAKE NATOMA/FLOW-NIMBUS ACTUAL//1DAY/TestOp-H-2021/
+FOLSOM,STORAGE,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/STORAGE//1MON/TestOp-H-2021/
+FOLSOM LAKE,STORAGE-CHANGE,forecast/simGroups/American_March2025/bc.dss,//FOLSOM LAKE/STORAGE-CHANGE//1MON/TestOp-H-2021/
+FOLSOM,ELEVATION (FEET),forecast/simGroups/American_March2025/bc.dss,//FOLSOM/ELEVATION (FEET)//1MON/TestOp-H-2021/
+FOLSOM,AREA (ACRES),forecast/simGroups/American_March2025/bc.dss,//FOLSOM/AREA (ACRES)//1MON/TestOp-H-2021/
+FOLSOM,FLOW-AMER AFRP,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FLOW-AMER AFRP//1MON/TestOp-H-2021/
+FOLSOM,FLOW-AFRP,forecast/simGroups/American_March2025/bc.dss,//FOLSOM/FLOW-AMER AFRP//1DAY/TestOp-H-2021/
+FOLSOM LAKE,STORAGE-CVP,forecast/simGroups/American_March2025/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/STORAGE-CVP//1DAY/TestOp-H-2021/
+FOLSOM LAKE,FLOW-ACC-DEP,forecast/simGroups/American_March2025/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/FLOW-ACC-DEP//1DAY/TestOp-H-2021/
+Folsom-NF-in,FLOW-IN,forecast/simGroups/American_March2025/bc.dss,//Folsom-NF-in/FLOW-IN//1DAY/TestOp-H-2021/
+Folsom-SF-in,FLOW-IN,forecast/simGroups/American_March2025/bc.dss,//Folsom-SF-in/FLOW-IN//1DAY/TestOp-H-2021/
+North Fork abv MF,FLOW-IN,forecast/simGroups/American_March2025/bc.dss,//North Fork abv MF/FLOW-IN//1DAY/TestOp-H-2021/
+Middle Fork abv NF,FLOW-IN,forecast/simGroups/American_March2025/bc.dss,//Middle Fork abv NF/FLOW-IN//1DAY/TestOp-H-2021/
+LOWER RIVER OUTLET USEAGE,,forecast/simGroups/American_March2025/bc.dss,/FOLSOM/LOWER RIVER OUTLET USEAGE/COUNT//1DAY/TestOp-H-2021/
+Folsom-SF-in,TEMP-WATER,forecast/simGroups/American_March2025/bc.dss,//Folsom-SF-in/TEMP-WATER//1DAY/TestOp-H-2021/
+Folsom-NF-in,TEMP-WATER,forecast/simGroups/American_March2025/bc.dss,//Folsom-NF-in/TEMP-WATER//1DAY/TestOp-H-2021/
+South Canal,TEMP-WATER,forecast/simGroups/American_March2025/bc.dss,//South Canal/TEMP-WATER//1DAY/TestOp-H-2021/
+CARMICHAEL,FLOW-MUNICIPAL,forecast/simGroups/American_March2025/bc.dss,/AMERICAN RIVER/CARMICHAEL/FLOW-MUNICIPAL//1DAY/TestOp-H-2021/
+SACRAMENTO,FLOW-MUNICIPAL,forecast/simGroups/American_March2025/bc.dss,/AMERICAN RIVER/SACRAMENTO/FLOW-MUNICIPAL//1DAY/TestOp-H-2021/
+ZERO-BY-DAY,FLOW-ZERO,forecast/simGroups/American_March2025/bc.dss,//ZERO-BY-DAY/FLOW-ZERO//1DAY/TestOp-H-2021/
+ZERO-BY-HOUR,FLOW-ZERO,forecast/simGroups/American_March2025/bc.dss,//ZERO-BY-HOUR/FLOW-ZERO//1Hour/TestOp-H-2021/

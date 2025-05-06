@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<WatSimulation SimulationName="ResSim Prescribed" Description="" FPart="ResSim Pre:2009" HasComputed="true" ComputeError="false" Parent="ResSim Prescribed" LastComputedBy="benjamin" LastComputedDate="1698902231820" IsFrmSimulation="false">
+<WatSimulation SimulationName="ResSim Prescribed" Description="" FPart="ResSim Pre:2009" HasComputed="true" ComputeError="false" Parent="ResSim Prescribed" LastComputedBy="BenSae4598" LastComputedDate="1746554313400" IsFrmSimulation="false">
   <ModelAlternatives ModelAlternativeCount="3">
     <ModelAlternative0 Program="Scripting" Name="Pre-Process_ResSim_AmerPO" File="scripting/Pre-Process_ResSim_AmerPO.scAlt">
       <Description>
         <desc cnt="0" value="Pre-processes input data for ResSim Prescribed simulations for the WTMP American study" />
       </Description>
-      <LastComputeTime Date="2 November 2023, 05:15" />
+      <LastComputeTime Date="6 May 2025, 17:58:33" />
     </ModelAlternative0>
     <ModelAlternative1 Program="ResSim" Name="RSAmerPO" File="rss/RSAmerPO.ralt">
       <Description />
@@ -13,7 +13,7 @@
     </ModelAlternative1>
     <ModelAlternative2 Program="Scripting" Name="Post-Process_ResSim_AmerPO" File="scripting/Post-Process_ResSim_AmerPO.scAlt">
       <Description>
-        <desc cnt="0" value="Copy of Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
+        <desc cnt="0" value="Perform post-simulation data manipulation for ResSim American simulations (Perscribed and Forecast)" />
       </Description>
       <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative2>
