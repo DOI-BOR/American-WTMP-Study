@@ -1,0 +1,6 @@
+WatAlternative
+Name=W2 Folsom NRV
+Description=Simulations containing Folsom W2 model, plus a following ResSim model with Natoma and the downstream American River.
+AlignmentName=Stream Alignment
+ConditionId=8
+NextNodeIndex=0

@@ -1,0 +1,42 @@
+location,parameter,dss file,dss path
+Folsom Dyke 8,Wind Speed,forecast/simGroups/17Apr2024/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Speed/Speed-Wind//1Hour/Apr17-Htest-2020/
+Folsom Dyke 8,Wind Direction,forecast/simGroups/17Apr2024/bc.dss,/MR Am.-Folsom Lake/Dyke 8 (FLD)-Wind Direction/Dir-Wind//1Hour/Apr17-Htest-2020/
+Fair Oaks,Air Temperature,forecast/simGroups/17Apr2024/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Air Temp/Temp-Air//1Hour/Apr17-Htest-2020/
+Fair Oaks,DewPoint Temperature,forecast/simGroups/17Apr2024/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Dew Point Temp/Temp-DewPoint//1Hour/Apr17-Htest-2020/
+Fair Oaks,Wind Speed,forecast/simGroups/17Apr2024/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Speed/Speed-Wind//1Hour/Apr17-Htest-2020/
+Fair Oaks,Wind Direction,forecast/simGroups/17Apr2024/bc.dss,/MR Am.-Natoma Lake/Fair Oaks-Wind Direction/Dir-Wind//1Hour/Apr17-Htest-2020/
+Mather AFB,Cloudiness,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN/MATHER AFB/CLOUD//1HOUR/Apr17-Htest-2020/
+Fair Oaks,Shortwave Radiation,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN/FAIR OAKS/SHORTWAVE RADIATION//1HOUR/Apr17-Htest-2020/
+FOLSOM,INFLOW,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/INFLOW//1MON/Apr17-Htest-2020/
+FOLSOM,FLOW-IN,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FLOW-IN//1DAY/Apr17-Htest-2020/
+FOLSOM,EST. EVAP.,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/EST. EVAP.//1MON/Apr17-Htest-2020/
+FOLSOM,TOTAL RELEASE,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/TOTAL RELEASE//1MON/Apr17-Htest-2020/
+FOLSOM,FLOW-RELEASE,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FLOW-RELEASE//1HOUR/Apr17-Htest-2020/
+FOLSOM,PUMPING (FP),forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/PUMPING (FP)//1MON/Apr17-Htest-2020/
+FOLSOM,FLOW-PUMPING,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/PUMPING (FP)//1DAY/Apr17-Htest-2020/
+FOLSOM,FS CANAL (FSC),forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FS CANAL (FSC)//1MON/Apr17-Htest-2020/
+FOLSOM,FLOW-FSC,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FS CANAL (FSC)//1DAY/Apr17-Htest-2020/
+FOLSOM,FLOW-NIMBUS MINIMUM (CFS),forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FLOW-NIMBUS MINIMUM (CFS)//1MON/Apr17-Htest-2020/
+FOLSOM,NIMBUS MINIMUM (TAF),forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/NIMBUS MINIMUM (TAF)//1MON/Apr17-Htest-2020/
+LAKE NATOMA,ACTUAL NIMBUS RELEASE (TAF),forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/LAKE NATOMA/ACTUAL NIMBUS RELEASE (TAF)//1MON/Apr17-Htest-2020/
+LAKE NATOMA,FLOW-NIMBUS ACTUAL,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/LAKE NATOMA/FLOW-NIMBUS ACTUAL//1DAY/Apr17-Htest-2020/
+FOLSOM,STORAGE,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/STORAGE//1MON/Apr17-Htest-2020/
+FOLSOM LAKE,STORAGE-CHANGE,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM LAKE/STORAGE-CHANGE//1MON/Apr17-Htest-2020/
+FOLSOM,ELEVATION (FEET),forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/ELEVATION (FEET)//1MON/Apr17-Htest-2020/
+FOLSOM,AREA (ACRES),forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/AREA (ACRES)//1MON/Apr17-Htest-2020/
+FOLSOM,FLOW-AMER AFRP,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FLOW-AMER AFRP//1MON/Apr17-Htest-2020/
+FOLSOM,FLOW-AFRP,forecast/simGroups/17Apr2024/bc.dss,//FOLSOM/FLOW-AMER AFRP//1DAY/Apr17-Htest-2020/
+FOLSOM LAKE,STORAGE-CVP,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/STORAGE-CVP//1DAY/Apr17-Htest-2020/
+FOLSOM LAKE,FLOW-ACC-DEP,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/FOLSOM LAKE/FLOW-ACC-DEP//1DAY/Apr17-Htest-2020/
+Folsom-NF-in,FLOW-IN,forecast/simGroups/17Apr2024/bc.dss,//Folsom-NF-in/FLOW-IN//1DAY/Apr17-Htest-2020/
+Folsom-SF-in,FLOW-IN,forecast/simGroups/17Apr2024/bc.dss,//Folsom-SF-in/FLOW-IN//1DAY/Apr17-Htest-2020/
+North Fork abv MF,FLOW-IN,forecast/simGroups/17Apr2024/bc.dss,//North Fork abv MF/FLOW-IN//1DAY/Apr17-Htest-2020/
+Middle Fork abv NF,FLOW-IN,forecast/simGroups/17Apr2024/bc.dss,//Middle Fork abv NF/FLOW-IN//1DAY/Apr17-Htest-2020/
+LOWER RIVER OUTLET USEAGE,,forecast/simGroups/17Apr2024/bc.dss,/FOLSOM/LOWER RIVER OUTLET USEAGE/COUNT//1DAY/Apr17-Htest-2020/
+Folsom-SF-in,TEMP-WATER,forecast/simGroups/17Apr2024/bc.dss,//Folsom-SF-in/TEMP-WATER//1DAY/Apr17-Htest-2020/
+Folsom-NF-in,TEMP-WATER,forecast/simGroups/17Apr2024/bc.dss,//Folsom-NF-in/TEMP-WATER//1DAY/Apr17-Htest-2020/
+South Canal,TEMP-WATER,forecast/simGroups/17Apr2024/bc.dss,//South Canal/TEMP-WATER//1DAY/Apr17-Htest-2020/
+CARMICHAEL,FLOW-MUNICIPAL,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/CARMICHAEL/FLOW-MUNICIPAL//1DAY/Apr17-Htest-2020/
+SACRAMENTO,FLOW-MUNICIPAL,forecast/simGroups/17Apr2024/bc.dss,/AMERICAN RIVER/SACRAMENTO/FLOW-MUNICIPAL//1DAY/Apr17-Htest-2020/
+ZERO-BY-DAY,FLOW-ZERO,forecast/simGroups/17Apr2024/bc.dss,//ZERO-BY-DAY/FLOW-ZERO//1DAY/Apr17-Htest-2020/
+ZERO-BY-HOUR,FLOW-ZERO,forecast/simGroups/17Apr2024/bc.dss,//ZERO-BY-HOUR/FLOW-ZERO//1Hour/Apr17-Htest-2020/

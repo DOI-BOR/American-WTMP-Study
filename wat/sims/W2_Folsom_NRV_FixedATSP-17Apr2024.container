@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimulationContainer SimulationContainerName="W2 Folsom NRV FixedATSP-17Apr2024" Description="" AnalysisPeriod="17Apr24_fcst" Alternative="W2 Folsom NRV" ProgramOrder="W2Folsom_NRVResSim" WarmupTimeSteps="0" SimulationCount="1">
+  <Simulation0 SimulationName="W2 Folsom NRV FixedATSP-17Apr2024" />
+</SimulationContainer>
+
