@@ -122,58 +122,12 @@
       <OperationsFile>forecast/CVP-ops/MAR50_WY2018v.xlsx</OperationsFile>
     </OperationsData>
   </Operations>
-  <Meteorology>
-    <MeteorologyData Name="H-2014">
-      <Description />
-      <MetDataType>Historic</MetDataType>
-      <Year>2014</Year>
-    </MeteorologyData>
-    <MeteorologyData Name="H-2018">
-      <Description />
-      <MetDataType>Historic</MetDataType>
-      <Year>2018</Year>
-    </MeteorologyData>
-  </Meteorology>
-  <BoundaryConditions>
-    <BcData Name="Mar50-H-2014">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\25Mar2018\bc.dss</Output-DSS-File>
-      <f-part>Mar50-H-2014</f-part>
-      <Operations>Mar50</Operations>
-      <Meteorology>H-2014</Meteorology>
-    </BcData>
-    <BcData Name="Mar50-H-2018">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\25Mar2018\bc.dss</Output-DSS-File>
-      <f-part>Mar50-H-2018</f-part>
-      <Operations>Mar50</Operations>
-      <Meteorology>H-2018</Meteorology>
-    </BcData>
-  </BoundaryConditions>
+  <Meteorology />
+  <BoundaryConditions />
   <EnsembleSets>
     <Simulation>W2 Fol-Nat-25Mar2018</Simulation>
     <Simulation>W2 Folsom-25Mar2018</Simulation>
-    <Simulation>
-      ResSim-25Mar2018
-      <EnsembleSet Name="Mar50-H-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar50-H-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-      <EnsembleSet Name="Mar50-H-2018-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Mar50-H-2018</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-    </Simulation>
+    <Simulation>ResSim-25Mar2018</Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
     <Simulation Name="W2 Fol-Nat-25Mar2018">

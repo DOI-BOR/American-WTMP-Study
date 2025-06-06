@@ -43,8 +43,6 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 	# met_output_DSS_filename (str) Name of separate DSS file for met time series records. Assumed relative to study directory. Defaults to BC_output_DSS_filename
 	# flow_pattern_config_filename (str) Name of file holding list of pattern time series for flow disaggreagtion. Assumed relative to study directory. Defaults to forecast/config/flow_pattern.config
 
-	position_analysis_config_filename = r"forecast\config\met_editor.config"
-
 	if not os.path.isabs(BC_output_DSS_filename):
 		BC_output_DSS_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), BC_output_DSS_filename)
 	if not os.path.isabs(ops_file_name):
@@ -158,9 +156,11 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 		if DEBUG:  print "\tTime series contains %d values."%(tsmath_source.getContainer().numberValues)
 		if DEBUG:  print "\tShifting time series with shiftInTime(%s)."%("%dMo"%(diff_years*12))
 		# tsmath_shift = tsmath_source.shiftInTime("%dYrar"%(diff_years))
+		padded_end_time = HecTime()
+		padded_end_time.set(end_time.value() + 1440)
 		tsmath_shift = tsmath.generateRegularIntervalTimeSeries(
 			"%s 0000"%(start_time.date(4)),
-			"%s 2400"%(end_time.date(4)),
+			"%s 2400"%(padded_end_time.date(4)),
 			time_step_label, "0M", 1.0)
 		time_seek = HecTime(tsmath_shift.firstValidDate(), HecTime.MINUTE_INCREMENT)
 		time_seek.setYearMonthDay(time_seek.year() - diff_years, time_seek.month(), time_seek.day(), time_seek.minutesSinceMidnight())

@@ -810,6 +810,12 @@
         </DataLocation>
       </DataLocations>
     </ModelAlternative>
+    <ModelAlternative Program="Scripting" Name="Pre-Process_W2_Amer" File="scripting/Pre-Process_W2_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
+      </Description>
+      <DataLocations />
+    </ModelAlternative>
   </Name>
 </ModelLinking>
 
