@@ -126,80 +126,12 @@
       <OperationsFile>forecast/CVP-ops/Apr90_WY2024.prof 1.xlsx</OperationsFile>
     </OperationsData>
   </Operations>
-  <Meteorology>
-    <MeteorologyData Name="M-2011">
-      <Description />
-      <MetDataType>Historic</MetDataType>
-      <Year>2011</Year>
-    </MeteorologyData>
-    <MeteorologyData Name="M-2014">
-      <Description />
-      <MetDataType>Historic</MetDataType>
-      <Year>2014</Year>
-    </MeteorologyData>
-  </Meteorology>
-  <BoundaryConditions>
-    <BcData Name="Apr17-M-2011">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\FTestShort\bc.dss</Output-DSS-File>
-      <f-part>Apr17-M-2011</f-part>
-      <Operations>Apr17</Operations>
-      <Meteorology>M-2011</Meteorology>
-    </BcData>
-    <BcData Name="Apr17-M-2014">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\FTestShort\bc.dss</Output-DSS-File>
-      <f-part>Apr17-M-2014</f-part>
-      <Operations>Apr17</Operations>
-      <Meteorology>M-2014</Meteorology>
-    </BcData>
-  </BoundaryConditions>
+  <Meteorology />
+  <BoundaryConditions />
   <EnsembleSets>
-    <Simulation>
-      W2 Fol-Nat FixedATSP-FTestShort
-      <EnsembleSet Name="Apr17-M-2011-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Apr17-M-2011</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="1" Step="10">
-            <I Range="0-1" Data="30" />
-          </intArray>
-        </ComputedMembers>
-        <MembersToCompute>30</MembersToCompute>
-      </EnsembleSet>
-      <EnsembleSet Name="Apr17-M-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Apr17-M-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-    </Simulation>
+    <Simulation>W2 Fol-Nat FixedATSP-FTestShort</Simulation>
     <Simulation>W2 Folsom FixedATSP-FTestShort</Simulation>
-    <Simulation>
-      ResSim-FTestShort
-      <EnsembleSet Name="Apr17-M-2011-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Apr17-M-2011</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-      <EnsembleSet Name="Apr17-M-2014-Folsom Iterative Target - ScheduleA">
-        <Description />
-        <BcData>Apr17-M-2014</BcData>
-        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
-        <ComputedMembers>
-          <intArray Length="0" Step="10" />
-        </ComputedMembers>
-        <MembersToCompute />
-      </EnsembleSet>
-    </Simulation>
+    <Simulation>ResSim-FTestShort</Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
     <Simulation Name="W2 Fol-Nat FixedATSP-FTestShort">
