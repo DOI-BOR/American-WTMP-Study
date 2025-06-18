@@ -17,7 +17,7 @@ sys.path.append(os.path.join(Project.getCurrentProject().getWorkspacePath(), "fo
 import CVP_ops_tools as CVP
 reload(CVP)
 
-DEBUG = True
+DEBUG = False
 
 '''Accepts parameters for WTMP forecast runs to form boundary condition data sets.'''
 def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_filename, ops_file_name, DSS_map_filename,
@@ -140,14 +140,10 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 		ts_read.setDSSFileName(source_DSS_file_name)
 		if DEBUG: print "Reading %s from DSS file %s."%(token[3].strip(), source_DSS_file_name)
 		source_path_parts = token[3].strip().strip('/').split('/', 5)
-		dest_path_parts = token[6].strip().strip('/').split('/', 5)
-		source_path = dest_path = '/'
+		source_path = '/'
 		for index in (0,1,2,4,5):
 			source_path += (source_path_parts[index] + '/')
-			dest_path += (dest_path_parts[index] + '/')
-			if index == 2:
-				source_path += '/'
-				dest_path += '/'
+			if index == 2: source_path += '/'
 		tsc_source = tscont()
 		tsc_source.fullName = source_path
 		status = ts_read.read(tsc_source, False)
@@ -189,11 +185,10 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 			return ['']
 		tsmath_shift.setType(tsmath_source.getType())
 		tsmath_shift.setUnits(tsmath_source.getUnits())
-		tsmath_shift.setPathname(dest_path)
+		tsmath_shift.setPathname(tsmath_source.getContainer().fullName)
 		tsmath_shift.setVersion(met_F_part)
 		ts_write = hec.heclib.dss.HecTimeSeries()
 		ts_write.setDSSFileName(met_output_DSS_filename)
-		if DEBUG: print "Writing %s to DSS file %s."%(shift_container.fullName, met_output_DSS_filename)
 		ts_write.write(tsmath_shift.getData())
 		ts_write.done()
 		ts_read.done()
