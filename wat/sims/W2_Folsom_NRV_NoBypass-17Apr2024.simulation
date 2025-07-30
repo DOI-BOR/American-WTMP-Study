@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WatSimulation SimulationName="W2 Folsom NRV NoBypass-17Apr2024" Description="" FPart="W2 Folsom :F2018-03" HasComputed="true" ComputeError="false" Parent="W2 Folsom NRV NoBypass-17Apr2024" LastComputedBy="BenSae4598" LastComputedDate="1751502846020" IsFrmSimulation="false">
+  <ModelAlternatives ModelAlternativeCount="5">
+    <ModelAlternative0 Program="Scripting" Name="Pre-Process_W2_Amer" File="scripting/Pre-Process_W2_Amer.scAlt">
+      <Description>
+        <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
+      </Description>
+      <LastComputeTime Date="2 July 2025, 15:36" />
+    </ModelAlternative0>
+    <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom NoBypass" File="CeQual-W2/Folsom/W2 Folsom NoBypass/W2_Folsom_NoBypass.w2Alt">
+      <Description />
+      <LastComputeTime Date="2 July 2025, 22:39" />
+    </ModelAlternative1>
+    <ModelAlternative2 Program="Scripting" Name="OutputLink_W2_FBYPASS-DownstreamAmer" File="scripting/OutputLink_W2_FBYPASS-DownstreamAmer.scAlt">
+      <Description>
+        <desc cnt="0" value="Sums W2 outflows into Natoma and flow-weights the outflow temperature." />
+      </Description>
+      <LastComputeTime Date="31 December 1899, 24:00" />
+    </ModelAlternative2>
+    <ModelAlternative3 Program="ResSim" Name="RSAmerNRV" File="rss/RSAmerNRV.ralt">
+      <Description />
+      <LastComputeTime Date="3 July 2025, 00:34" />
+    </ModelAlternative3>
+    <ModelAlternative4 Program="Scripting" Name="Post-Process_W2_Fol-Nat" File="scripting/Post-Process_W2_Fol-Nat.scAlt">
+      <Description />
+      <LastComputeTime Date="3 July 2025, 00:34" />
+    </ModelAlternative4>
+  </ModelAlternatives>
+  <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />
+</WatSimulation>
+
