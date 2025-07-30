@@ -110,10 +110,10 @@
     <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/C:000000|alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
     </DataLocation>
-    <DataLocation Name="W2_Folsom_Schedule_Temp" Class="hec2.model.DataLocation" DssPath="//W2_Folsom_Schedule_Temp/Temp-Water-Target//1HOUR/C:000000|alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water-Target" OutOfDate="false" PrevModelIndex="0">
+    <DataLocation Name="W2_FOLSOM_SCHEDULE_TEMP_FINAL" Class="hec2.model.DataLocation" DssPath="//W2_FOLSOM_SCHEDULE_TEMP_FINAL/Temp-Water-Target//1HOUR/C:000000|alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water-Target" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
     </DataLocation>
-    <DataLocation Name="W2_Folsom_Schedule" Class="hec2.model.DataLocation" DssPath="//W2_Folsom_Schedule/Count//1HOUR/C:000000|alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Count" OutOfDate="false" PrevModelIndex="0">
+    <DataLocation Name="W2_FOLSOM_SCHEDULE_FINAL" Class="hec2.model.DataLocation" DssPath="//W2_FOLSOM_SCHEDULE_FINAL/Count//1HOUR/C:000000|alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Count" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
     </DataLocation>
     <DataLocation Name="W2_Folsom_Downstream_Temp" Class="hec2.model.DataLocation" DssPath="//W2_Folsom_Downstream_Temp/Temp-Water//1HOUR/C:000000|alt:ap:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">

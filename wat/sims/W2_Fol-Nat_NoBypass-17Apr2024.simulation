@@ -5,21 +5,21 @@
       <Description>
         <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
       </Description>
-      <LastComputeTime Date="30 May 2025, 03:01:55" />
+      <LastComputeTime Date="1 July 2025, 22:18:31" />
     </ModelAlternative0>
     <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom NoBypass" File="CeQual-W2/Folsom/W2 Folsom NoBypass/W2_Folsom_NoBypass.w2Alt">
       <Description />
-      <LastComputeTime Date="31 December 1899, 24:00:00" />
+      <LastComputeTime Date="2 July 2025, 05:13:10" />
     </ModelAlternative1>
     <ModelAlternative2 Program="Scripting" Name="OutputLink_W2_FBYPASS-DownstreamAmer" File="scripting/OutputLink_W2_FBYPASS-DownstreamAmer.scAlt">
       <Description>
         <desc cnt="0" value="Sums W2 outflows into Natoma and flow-weights the outflow temperature." />
       </Description>
-      <LastComputeTime Date="29 May 2025, 06:48" />
+      <LastComputeTime Date="2 July 2025, 05:13:21" />
     </ModelAlternative2>
     <ModelAlternative3 Program="CeQualW2" Name="W2 Natoma Prescribed" File="CeQual-W2/Natoma/W2 Natoma Prescribed/W2_Natoma_Prescribed.w2Alt">
       <Description />
-      <LastComputeTime Date="29 May 2025, 14:42" />
+      <LastComputeTime Date="31 December 1899, 24:00:00" />
     </ModelAlternative3>
     <ModelAlternative4 Program="Scripting" Name="Pre-Process_ResSim_Amer" File="scripting/Pre-Process_ResSim_Amer.scAlt">
       <Description>

@@ -35,6 +35,10 @@
       <Name>W2 Fol-Nat NoBypass-17Apr2024</Name>
       <Class>hec2.wat.model.WatSimulation</Class>
     </Simulation>
+    <Simulation>
+      <Name>W2 Folsom NRV NoBypass-17Apr2024</Name>
+      <Class>hec2.wat.model.WatSimulation</Class>
+    </Simulation>
   </Simulations>
   <TemperatureTargetSets>
     <TemperatureTargetSet Name="Folsom Iterative Target - ScheduleA" user-defined="false">
@@ -45,84 +49,84 @@
         <Description />
       </River-Location>
       <dss-pathnames>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000001|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000002|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000003|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000004|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000005|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000006|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000007|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000008|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000009|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000010|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000011|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000012|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000013|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000014|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000015|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000016|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000017|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000018|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000019|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000020|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000021|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000022|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000023|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000024|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000025|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000026|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000027|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000028|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000029|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000030|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000031|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000032|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000033|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000034|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000035|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000036|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000037|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000038|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000039|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000040|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000041|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000042|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000043|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000044|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000045|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000046|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000047|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000048|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000049|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000050|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000051|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000052|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000053|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000054|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000055|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000056|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000057|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000058|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000059|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000060|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000061|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000062|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000063|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000064|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000065|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000066|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000067|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000068|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000069|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000070|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000071|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000072|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000073|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000074|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000075|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000076|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000077|ScheduleA/</dss-pathname>
-        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Month/C:000078|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000001|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000002|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000003|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000004|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000005|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000006|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000007|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000008|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000009|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000010|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000011|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000012|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000013|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000014|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000015|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000016|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000017|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000018|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000019|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000020|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000021|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000022|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000023|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000024|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000025|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000026|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000027|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000028|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000029|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000030|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000031|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000032|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000033|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000034|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000035|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000036|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000037|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000038|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000039|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000040|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000041|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000042|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000043|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000044|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000045|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000046|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000047|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000048|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000049|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000050|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000051|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000052|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000053|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000054|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000055|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000056|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000057|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000058|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000059|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000060|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000061|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000062|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000063|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000064|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000065|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000066|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000067|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000068|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000069|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000070|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000071|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000072|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000073|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000074|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000075|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000076|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000077|ScheduleA/</dss-pathname>
+        <dss-pathname>/WTMP_American/Folsom Iterative Target/TEMP-WATER//1Hour/C:000078|ScheduleA/</dss-pathname>
       </dss-pathnames>
     </TemperatureTargetSet>
   </TemperatureTargetSets>
@@ -160,22 +164,7 @@
       <Year>2020</Year>
     </MeteorologyData>
   </Meteorology>
-  <BoundaryConditions>
-    <BcData Name="Apr17-H-2014">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
-      <f-part>Apr17-H-2014</f-part>
-      <Operations>Apr17</Operations>
-      <Meteorology>H-2014</Meteorology>
-    </BcData>
-    <BcData Name="Apr17-H-2020">
-      <Description />
-      <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
-      <f-part>Apr17-H-2020</f-part>
-      <Operations>Apr17</Operations>
-      <Meteorology>H-2020</Meteorology>
-    </BcData>
-  </BoundaryConditions>
+  <BoundaryConditions />
   <EnsembleSets>
     <Simulation>W2 Folsom FixedATSP NoBypass-17Apr2024</Simulation>
     <Simulation>W2 Fol-Nat NoBypass-17Apr2024</Simulation>
@@ -183,6 +172,7 @@
     <Simulation>W2 Fol-Nat FixedATSP NoBypass-17Apr2024</Simulation>
     <Simulation>W2 Folsom NRV FixedATSP-17Apr2024</Simulation>
     <Simulation>W2 Folsom FixedATSP-17Apr2024</Simulation>
+    <Simulation>W2 Folsom NRV NoBypass-17Apr2024</Simulation>
     <Simulation>W2 Fol-Nat FixedATSP-17Apr2024</Simulation>
     <Simulation>ResSim-17Apr2024</Simulation>
   </EnsembleSets>
@@ -279,6 +269,16 @@
         <CollectionEnd>499</CollectionEnd>
       </EnsembleSet>
       <EnsembleSet Name="17AprStart-H-2018-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>500</CollectionStart>
+        <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation Name="W2 Folsom NRV NoBypass-17Apr2024">
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>0</CollectionStart>
+        <CollectionEnd>499</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2020-Folsom Iterative Target - ScheduleA">
         <CollectionStart>500</CollectionStart>
         <CollectionEnd>999</CollectionEnd>
       </EnsembleSet>
