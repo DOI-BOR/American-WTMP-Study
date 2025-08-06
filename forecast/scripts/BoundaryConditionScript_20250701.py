@@ -207,46 +207,6 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 
 	return rv_lines
 
-
-def shift_daily_averages(source_tsm, AP_start_time, AP_end_time):
-	
-	# copy start and end time so manipulations in this scope don't affect others
-	shifted_start_time = HecTime()
-	shifted_start_time.set(AP_start_time)
-	shifted_end_time = HecTime()
-	shifted_end_time.set(AP_end_time)
-
-	# generate a time series that spans the target time; initialize appropriately
-	rv_tsmath = tsmath.generateRegularIntervalTimeSeries(shifted_start_time.date(8), shifted_end_time.date(8), "1DAY", 1.0)
-	rv_tsmath.setUnits(source_tsm.getUnits())
-	rv_tsmath.setType(source_tsm.getType())
-	rv_tsmath.setLocation(source_tsm.getContainer().location)
-	rv_tsmath.setParameterPart(source_tsm.getContainer().parameter)
-
-	# find the starting day in the source time series()
-	seek_index = 0
-	seek_time = HecTime()
-	seek_time.set(source_tsm.getContainer().times[seek_index])
-	print('seek_index:',seek_index,seek_time.dayOfYear(),shifted_start_time.dayOfYear())
-	while seek_time.dayOfYear() != shifted_start_time.dayOfYear():  # caution, this assumes that a full year, or more is availabe in the source_tesm
-		print('seek_index:',seek_index,seek_time.dayOfYear(),shifted_start_time.dayOfYear())
-		seek_index += 1
-		seek_time.set(source_tsm.getContainer().times[seek_index])
-
-	# copy values from the source to the destination
-	dest_index = 0
-	while dest_index < rv_tsmath.getContainer().numberValues:
-		rv_tsmath.getContainer().values[dest_index] = source_tsm.getContainer().values[seek_index]
-		dest_index += 1
-		seek_index += 1
-		# wrap around to the beginning of the source when you hit the end
-		# note that this presumes that the source data set spans whole years
-		if seek_index >= source_tsm.getContainer().numberValues: seek_index = 0
-
-	#return the time-series math object
-	return rv_tsmath
-
-
 def shift_monthly_averages(source_tsm, AP_start_time, AP_end_time):
 	# source_tsm -- time series math of monthly average values
 	# AP_start_time, AP_end_time -- HecTime objects
@@ -734,24 +694,13 @@ def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filena
 			ts_read.done()
 			continue
 		tsmath_avg = tsmath(tsc_avg)
+		tsmath_shift = shift_monthly_averages(tsmath_avg, start_time, end_time)
 		shift_path = token[-1].strip().split('/')
-		if shift_path[5] == '1MON':
-			tsmath_shift = shift_monthly_averages(tsmath_avg, start_time, end_time)
-			shift_path[6] = BC_F_part
-			tsmath_shift.getContainer().fullName = '/'.join(shift_path)
-			tsmath_list.append(CVP.uniform_transform_monthly_to_daily(tsmath_shift, start_day_count=days_in_first_month))
-			ts_read.done()
-		elif shift_path[5] == '1DAY':
-			tsmath_shift = shift_daily_averages(tsmath_avg, start_time, end_time)
-			shift_path[6] = BC_F_part
-			tsmath_shift.getContainer().fullName = '/'.join(shift_path)
-			tsmath_list.append(tsmath_shift)
-			ts_read.done()
-		else:
-			print "Failed to read temperature time series %s \n\tfrom DSS file %s"%(tsc_avg.fullName, dss_file_name)
-			print "Only '1MON' and '1DAY' average records can be remapped."
-			ts_read.done()
-			continue
+		shift_path[6] = BC_F_part
+		tsmath_shift.getContainer().fullName = '/'.join(shift_path)
+		tsmath_list.append(CVP.uniform_transform_monthly_to_daily(tsmath_shift, start_day_count=days_in_first_month))
+		ts_read.done()
+
 
 	########################
 	# Estimate Folsom Tributary Temperatures
