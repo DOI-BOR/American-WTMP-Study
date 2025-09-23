@@ -137,12 +137,6 @@
         <DSS-Pathname>//Natoma/DEPTH-TEMP//2003-04-20//</DSS-Pathname>
       </Profile>
     </Reservoir>
-    <Reservoir Name="Folsom">
-      <Profile Name="2023-04-04">
-        <Output-DSS-File>shared/folsom_profiles-Site_Dam-2023.dss</Output-DSS-File>
-        <DSS-Pathname>//Folsom/DEPTH-TEMP//2023-04-04T11:34:34-08:00//</DSS-Pathname>
-      </Profile>
-    </Reservoir>
   </InitialConditions>
   <Operations>
     <OperationsData Name="Apr17">
