@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<WatSimulation SimulationName="W2 Folsom FixedATSP NoBypass-17Apr2024" Description="" FPart="W2 Folsom:F2018-03" HasComputed="true" ComputeError="false" Parent="W2 Folsom FixedATSP NoBypass-17Apr2024" LastComputedBy="BenSae4598" LastComputedDate="1742605540103" IsFrmSimulation="false">
+<WatSimulation SimulationName="W2 Folsom FixedATSP NoBypass-17Apr2024" Description="" FPart="W2 Folsom:F2018-03" HasComputed="false" ComputeError="true" Parent="W2 Folsom FixedATSP NoBypass-17Apr2024" LastComputedBy="BenSae4598" LastComputedDate="1742605540103" IsFrmSimulation="false">
   <ModelAlternatives ModelAlternativeCount="3">
     <ModelAlternative0 Program="Scripting" Name="Pre-Process_W2_Amer" File="scripting/Pre-Process_W2_Amer.scAlt">
       <Description>
         <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
       </Description>
-      <LastComputeTime Date="22 March 2025, 00:15:17" />
+      <LastComputeTime Date="27 September 2025, 19:10:56" />
     </ModelAlternative0>
     <ModelAlternative1 Program="CeQualW2" Name="W2 Folsom FixedATSP NoBypass" File="CeQual-W2/Folsom/W2 Folsom FixedATSP NoBypass/W2_Folsom_FixedATSP_NoBypass.w2Alt">
       <Description />
-      <LastComputeTime Date="22 March 2025, 01:05:28" />
+      <LastComputeTime Date="27 September 2025, 19:11:20" />
     </ModelAlternative1>
     <ModelAlternative2 Program="Scripting" Name="OutputLink_W2_FATSPBYPASS-DownstreamAmer" File="scripting/OutputLink_W2_FATSPBYPASS-DownstreamAmer.scAlt">
       <Description>
         <desc cnt="0" value="Sums W2 outflows into Natoma and flow-weights the outflow temperature." />
       </Description>
-      <LastComputeTime Date="22 March 2025, 01:05:40" />
+      <LastComputeTime Date="31 December 1899, 24:00:00" />
     </ModelAlternative2>
   </ModelAlternatives>
   <TimeWindowManager Class="hec2.plugin.timewindow.TimeWindowManagerImpl" />

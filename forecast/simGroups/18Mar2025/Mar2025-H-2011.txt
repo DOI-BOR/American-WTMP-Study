@@ -32,7 +32,7 @@ Folsom-NF-in,FLOW-IN,forecast/simGroups/18Mar2025/bc.dss,//Folsom-NF-in/FLOW-IN/
 Folsom-SF-in,FLOW-IN,forecast/simGroups/18Mar2025/bc.dss,//Folsom-SF-in/FLOW-IN//1DAY/Mar2025-H-2011/
 North Fork abv MF,FLOW-IN,forecast/simGroups/18Mar2025/bc.dss,//North Fork abv MF/FLOW-IN//1DAY/Mar2025-H-2011/
 Middle Fork abv NF,FLOW-IN,forecast/simGroups/18Mar2025/bc.dss,//Middle Fork abv NF/FLOW-IN//1DAY/Mar2025-H-2011/
-LOWER RIVER OUTLET USEAGE,,forecast/simGroups/18Mar2025/bc.dss,/FOLSOM/LOWER RIVER OUTLET USEAGE/COUNT//1DAY/Mar2025-H-2011/
+LOWER RIVER OUTLET USEAGE,COUNT,forecast/simGroups/18Mar2025/bc.dss,/FOLSOM/LOWER RIVER OUTLET USEAGE/COUNT//1DAY/Mar2025-H-2011/
 Folsom-SF-in,TEMP-WATER,forecast/simGroups/18Mar2025/bc.dss,//Folsom-SF-in/TEMP-WATER//1DAY/Mar2025-H-2011/
 Folsom-NF-in,TEMP-WATER,forecast/simGroups/18Mar2025/bc.dss,//Folsom-NF-in/TEMP-WATER//1DAY/Mar2025-H-2011/
 South Canal,TEMP-WATER,forecast/simGroups/18Mar2025/bc.dss,//South Canal/TEMP-WATER//1DAY/Mar2025-H-2011/

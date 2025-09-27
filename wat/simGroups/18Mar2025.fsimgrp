@@ -120,7 +120,7 @@
     <Reservoir Name="Folsom">
       <Profile Name="2025-03-18">
         <Output-DSS-File>shared/folsom_profiles-Site_Dam-2025.dss</Output-DSS-File>
-        <DSS-Pathname>//Folsom/DEPTH-TEMP//2025-03-18//</DSS-Pathname>
+        <DSS-Pathname>//Folsom/DEPTH-TEMP//2025-03-18T11:34:50-08:00//</DSS-Pathname>
       </Profile>
     </Reservoir>
   </InitialConditions>
@@ -150,10 +150,58 @@
       <Year>2020</Year>
     </MeteorologyData>
   </Meteorology>
-  <BoundaryConditions />
+  <BoundaryConditions>
+    <BcData Name="Mar2025-H-2011">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\18Mar2025\bc.dss</Output-DSS-File>
+      <f-part>Mar2025-H-2011</f-part>
+      <Operations>Mar2025</Operations>
+      <Meteorology>H-2011</Meteorology>
+    </BcData>
+    <BcData Name="Mar2025-H-2014">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\18Mar2025\bc.dss</Output-DSS-File>
+      <f-part>Mar2025-H-2014</f-part>
+      <Operations>Mar2025</Operations>
+      <Meteorology>H-2014</Meteorology>
+    </BcData>
+    <BcData Name="Mar2025-H-2020">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\18Mar2025\bc.dss</Output-DSS-File>
+      <f-part>Mar2025-H-2020</f-part>
+      <Operations>Mar2025</Operations>
+      <Meteorology>H-2020</Meteorology>
+    </BcData>
+  </BoundaryConditions>
   <EnsembleSets>
-    <Simulation>ResSim-18Mar2025</Simulation>
-    <Simulation>W2 Folsom NRV FixedATSP-18Mar2025</Simulation>
+    <Simulation>
+      ResSim-18Mar2025
+      <EnsembleSet Name="Mar2025-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Mar2025-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="30" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>30</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>
+      W2 Folsom NRV FixedATSP-18Mar2025
+      <EnsembleSet Name="Mar2025-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Mar2025-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="30" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>30</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
     <Simulation>W2 Fol-Nat FixedATSP-18Mar2025</Simulation>
     <Simulation>W2 Folsom NRV NoBypass-18Mar2025</Simulation>
   </EnsembleSets>
@@ -188,6 +236,10 @@
       <EnsembleSet Name="FMar2025-H-2021-Folsom Iterative Target - ScheduleA">
         <CollectionStart>500</CollectionStart>
         <CollectionEnd>999</CollectionEnd>
+      </EnsembleSet>
+      <EnsembleSet Name="Mar2025-H-2014-Folsom Iterative Target - ScheduleA">
+        <CollectionStart>1500</CollectionStart>
+        <CollectionEnd>1999</CollectionEnd>
       </EnsembleSet>
       <EnsembleSet Name="FMar2025-L3MTO-2019-Folsom Iterative Target - ScheduleA">
         <CollectionStart>1000</CollectionStart>
