@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SimulationContainer SimulationContainerName="W2 Folsom FixedATSP-FTestShort" Description="" AnalysisPeriod="Apr24-F2" Alternative="W2 Folsom" ProgramOrder="W2 Folsom Only" WarmupTimeSteps="0" SimulationCount="1">
-  <Simulation0 SimulationName="W2 Folsom FixedATSP-FTestShort" />
-</SimulationContainer>
-
