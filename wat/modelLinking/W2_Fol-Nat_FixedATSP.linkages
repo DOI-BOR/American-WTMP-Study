@@ -822,7 +822,32 @@
       <Description>
         <desc cnt="0" value="Data preprocessing script for W2 American forecast simulations" />
       </Description>
-      <DataLocations />
+      <DataLocations>
+        <DataLocation Name="init_elev_shutter_1" Class="hec2.model.DataLocation" DssPath="//init_elev_shutter_1/Elev//1HOUR/alt:ap:Scripting-Pre-Process_W2_Amer/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Pre-Process_W2_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="init_elev_shutter_2" Class="hec2.model.DataLocation" DssPath="//init_elev_shutter_2/Elev//1HOUR/alt:ap:Scripting-Pre-Process_W2_Amer/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Pre-Process_W2_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+        <DataLocation Name="init_elev_shutter_3" Class="hec2.model.DataLocation" DssPath="//init_elev_shutter_3/Elev//1HOUR/alt:ap:Scripting-Pre-Process_W2_Amer/" ComputeType="Computed" Model="DSS File" Parameter="Elev" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="Pre-Process_W2_Amer" Program="Scripting" />
+          <DownStreamLocation>
+            <DataLocation Name="ELEV-INITIAL-GATE" Class="hec2.model.DssDataLocation" DssPath="//ELEV-INITIAL-GATE/elev//1Day/FULL-HEIGHT/" ComputeType="Computed" Parameter="elev" OutOfDate="false" PrevModelIndex="0">
+              <DssFile>shared/WTMP_American_Forecast.dss</DssFile>
+            </DataLocation>
+          </DownStreamLocation>
+        </DataLocation>
+      </DataLocations>
     </ModelAlternative>
     <ModelAlternative Program="ResSim" Name="RsAmerRiv" File="rss/RsAmerRiv.ralt">
       <Description />

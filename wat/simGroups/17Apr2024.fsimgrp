@@ -137,6 +137,12 @@
         <DSS-Pathname>//Natoma/DEPTH-TEMP//2003-04-20//</DSS-Pathname>
       </Profile>
     </Reservoir>
+    <Reservoir Name="Folsom">
+      <Profile Name="2024-04-02">
+        <Output-DSS-File>shared/folsom_profiles-Site_Dam-2024.dss</Output-DSS-File>
+        <DSS-Pathname>//Folsom/DEPTH-TEMP//2024-04-02T11:43:52-08:00//</DSS-Pathname>
+      </Profile>
+    </Reservoir>
   </InitialConditions>
   <Operations>
     <OperationsData Name="Apr17">
@@ -158,17 +164,145 @@
       <Year>2020</Year>
     </MeteorologyData>
   </Meteorology>
-  <BoundaryConditions />
+  <BoundaryConditions>
+    <BcData Name="Apr17-H-2014">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
+      <f-part>Apr17-H-2014</f-part>
+      <Operations>Apr17</Operations>
+      <Meteorology>H-2014</Meteorology>
+    </BcData>
+    <BcData Name="Apr17-H-2020">
+      <Description />
+      <Output-DSS-File>forecast\simGroups\17Apr2024\bc.dss</Output-DSS-File>
+      <f-part>Apr17-H-2020</f-part>
+      <Operations>Apr17</Operations>
+      <Meteorology>H-2020</Meteorology>
+    </BcData>
+  </BoundaryConditions>
   <EnsembleSets>
-    <Simulation>W2 Folsom FixedATSP NoBypass-17Apr2024</Simulation>
+    <Simulation>
+      W2 Folsom FixedATSP NoBypass-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute>30</MembersToCompute>
+      </EnsembleSet>
+    </Simulation>
     <Simulation>W2 Fol-Nat NoBypass-17Apr2024</Simulation>
-    <Simulation>ResSim NoBypass-17Apr2024</Simulation>
+    <Simulation>
+      ResSim NoBypass-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+    </Simulation>
     <Simulation>W2 Fol-Nat FixedATSP NoBypass-17Apr2024</Simulation>
-    <Simulation>W2 Folsom NRV FixedATSP-17Apr2024</Simulation>
+    <Simulation>
+      W2 Folsom NRV FixedATSP-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+    </Simulation>
     <Simulation>W2 Folsom FixedATSP-17Apr2024</Simulation>
-    <Simulation>W2 Folsom NRV NoBypass-17Apr2024</Simulation>
-    <Simulation>W2 Fol-Nat FixedATSP-17Apr2024</Simulation>
-    <Simulation>ResSim-17Apr2024</Simulation>
+    <Simulation>
+      W2 Folsom NRV NoBypass-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute>30</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>
+      W2 Fol-Nat FixedATSP-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+    </Simulation>
+    <Simulation>
+      ResSim-17Apr2024
+      <EnsembleSet Name="Apr17-H-2014-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2014</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="1" Step="10">
+            <I Range="0-1" Data="30" />
+          </intArray>
+        </ComputedMembers>
+        <MembersToCompute>30</MembersToCompute>
+      </EnsembleSet>
+      <EnsembleSet Name="Apr17-H-2020-Folsom Iterative Target - ScheduleA">
+        <Description />
+        <BcData>Apr17-H-2020</BcData>
+        <TemperatureTargetSet>Folsom Iterative Target - ScheduleA</TemperatureTargetSet>
+        <ComputedMembers>
+          <intArray Length="0" Step="10" />
+        </ComputedMembers>
+        <MembersToCompute />
+      </EnsembleSet>
+    </Simulation>
   </EnsembleSets>
   <EnsembleSetIndexing>
     <Simulation Name="W2 Folsom FixedATSP NoBypass-17Apr2024">
