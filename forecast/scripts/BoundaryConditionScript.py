@@ -76,30 +76,78 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 	print "Boundary Condition output DSS file: %s"%BC_output_DSS_filename
 	print "Met data output DSS file: %s"%met_output_DSS_filename
 	print "Location/Path map file: %s"%DSS_map_filename
+	
+	### Prepare the operations data ###
+	print("\nPreparing Operations Data...")
+	
+	# Read the operations file
+	ops_dict = read_ops_bc_data(ops_file_name)
+	
+	# Extract the profile date from the operations
+	profile_date = get_profile_date(ops_dict)
+	
+	### Handle date inconsistencies ###
+	# It is currently possible to have an analysis window start date that's different from the profile and operations date specified in the operations sheet.
+	# When this happens, the boundary condition information will incorrectly utilize the analysis window time rather than the profile/ops time. The results put
+	# into the dss files will appear to be correct with the start date, but they are not calculated correctly for those dates. Forcing the boundary condition 
+	# start date to use the profile date keeps everything aligned when calculating the time series. If the profile date and the analysis window dates are not 
+	# the same, an error is thrown to force users to adjust the setup.
+	
+	# Convert the string to a date object
+	profile_date_obj = datetime.datetime.strptime(profile_date, "%d%b%Y").date()
+	ap_start_time_obj = datetime.datetime.strptime(AP_start_time.date(), '%d %B %Y').date()
+	
+	print('profile date', profile_date_obj)
+	print('start time', ap_start_time_obj)
+	if profile_date_obj < ap_start_time_obj:
+		# Profile date is before the analysis date. Log to the console and throw an error.
+		print('Starting operations date is before the analysis window date. This is an invalid configuration. Please adjust the analysis window start date ' + \
+			  'to be ' + profile_date_obj.strftime('%m/%d/%Y'))
+			  
+		raise ValueError, "The profile date is before the analysis window date. Update the analysis window date to " + profile_date_obj.strftime('%m/%d/%Y')
+		
+	elif profile_date_obj > ap_start_time_obj:
+		print('Starting operations date is after the analysis window date. This is an invalid configuration. Please adjust the analysis window start date ' + \
+			  'to be ' + profile_date_obj.strftime('%m/%d/%Y'))
+			  
+		raise ValueError, "The profile date is after the analysis window date. Update the analysis window date to " + profile_date_obj.strftime('%m/%d/%Y')
 
-	print "\nPreparing Meteorological Data..."
+	### Prepare the meteorlogic data ###
+	print("\nPreparing Meteorological Data...")
 
+	# Create the meteorlogic time series
 	met_lines = create_positional_analysis_met_data(AP_start_time.year(), position_analysis_year, AP_start_time, AP_end_time,
 		position_analysis_config_filename, met_output_DSS_filename, met_F_part)
+	
+	# Write the DSS path information to the path mapping file
 	with open(os.path.join(Project.getCurrentProject().getWorkspacePath(), DSS_map_filename), "w") as mapfile:
 		mapfile.write("location,parameter,dss file,dss path\n")
 		for line in met_lines:
 			mapfile.write(line + '\n')
 			if DEBUG: print(line)
 
-	print("Met process complete.\n\nPreparing hydro and WC boundary conditions...")
+	print("Met process complete.\n")
+	
+	### Prepare the boundary condition data ###
+	print("\nPreparing hydro and WC boundary conditions...")
 
-	ops_lines = create_ops_BC_data(ops_file_name, AP_start_time, AP_end_time,
+	# Create the boundary condition timeseries
+	ops_lines = create_ops_BC_data(ops_dict, profile_date, AP_start_time, AP_end_time,
 		BC_output_DSS_filename, BC_F_part, ops_import_F_part, flow_pattern_config_filename, DSS_map_filename)
+	
+	# Return a placeholder value if the boundary condition generation failed
 	if not ops_lines:
 		return 0
 
+	# Write the DSS path information to the path mapping file
 	with open(os.path.join(Project.getCurrentProject().getWorkspacePath(), DSS_map_filename), "a") as mapfile:
 		for line in ops_lines:
 			mapfile.write(line)
 			mapfile.write('\n')
+	
 	print "\nBoundary condition report written to: %s\n"%(DSS_map_filename)
 
+	### Return the total number of generated time series ###
 	return len(met_lines) + len(ops_lines)
 
 
@@ -406,50 +454,121 @@ def american_SC_temp(month):
 		12: 48.53
 	}
 	return (SC_ave_temp[month] -32.0)*5.0/9.0
+    
+def read_ops_bc_data(ops_file_name):
+	"""
+	This function manages reading of the forecast operations file. It takes in the path to the file and attempts to detect the file format. If the format ends with
+	an Excel extension, the spreadsheet parser is utilizes. Otherwise the file type is assumed to be a comma separated file. The resulting object is return to the 
+	calling function without modification.
+	
+	Parameters
+	----------
+	ops_file_name: str
+		Path to the operations file being used for the analysis
+		
+	Returns
+	-------
+	ops_data: dict
+		Contains the contents of operations spreadsheet for later use
+	
+	"""
 
+	# Define the locations that are in the sheet
+	forecast_locations = ["Trinity/Clair Engle", "Whiskeytown", "Shasta", "Oroville", "Folsom", "New Melones", " SAN LUIS/O'NEILL", "DELTA"]
+	
+	# Define the active location
+	active_locations = ["Folsom"]
+
+	# Attempt to read the operations file, otherwise return none to signify missing data
+	try:
+		if ops_file_name.endswith(".xls") or ops_file_name.endswith(".xlsx"):
+			# Read the spreadsheet
+			ops_data = CVP.import_CVP_Ops_xls(ops_file_name, forecast_locations, active_locations)
+		
+		else:
+			# Assume that the forecast is in CSV format and parse the data
+			ops_data = CVP.import_CVP_Ops_csv(ops_file_name, forecast_locations, active_locations)
+	
+	except Exception as e:
+		# Catch all exceptions. Read failed. Log and return None to indicate a failure
+		print "Failed to read operations file:%s"%ops_file_name
+		print "\t%s"%str(e)
+		ops_data = None
+
+	# Return to the calling function
+	return ops_data
+	
+	
+def get_profile_date(ops_data):
+	"""
+	This function extracts the profile date from the operations dictionary. It deletes it once it's found, which requires the profile date that's returned from
+	this function to be disseminated throughout the rest of the code as an input argument.
+	
+	Parameters
+	----------
+	ops_data: dict
+		Contains the contents of operations spreadsheet
+	
+	Returns
+	-------
+	profile_date: str
+		Date of the profile from the operations spreadsheet in the internal system format monthdayyear as numbers without spaces
+	
+	"""
+	
+	# Set a placeholder for the profile date.
+	profile_date = None
+
+	# Parse the ops sheet to find the profile date value. Loop over the dictionary to find the key
+	for key in ops_data.keys():
+		# Print additional information if in debug mode
+		if DEBUG:
+			print "ops_data key: %s"%(key)
+		
+		# Attempt to find the profile date
+		if ops_data[key][1].strip().upper().startswith("PROFILEDATE"):
+			# Profile date has been found. Split it out for later use.
+			profile_date = ops_data[key][1].split(':')[1].strip()
+			
+			# Delete the key from the dictionary
+			del ops_data[key][1]
+
+	# If a valid profile date has been found, parse it from the input string into a standard date string
+	if profile_date:
+		# Attempt to convert the string
+		try:
+			# Attempt to parse, splitting on a dash
+			date_parts = profile_date.split('-', 2)
+			
+			# Check that the format of th
+			if len(date_parts[2]) < 4: 
+				date_parts[2] = "20" + date_parts[2]
+			
+			# Convert the string into a standard date format, monthdayyear
+			profile_date = "%s%s%s"%(date_parts[0],date_parts[1],date_parts[2])
+		
+		except Exception as e:
+			# Catch all exceptions. The parse failed, meaning the string was li
+			print "Failed to read profile date from string:%s"%profile_date
+			print "\t%s"%str(e)
+			
+			# Set the profile date as none to signify a parse failure
+			return None
+		
+		print "Profile date: %s"%profile_date
+		
+	# Return to the calling function
+	return profile_date
+	
+	
 
 '''Processes the contents of the CVP ops spreadsheet in to flow and water temperature BCs'''
-def create_ops_BC_data(ops_file_name, start_time, end_time, BC_output_DSS_filename,
+def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_DSS_filename,
 	BC_F_part, ops_import_F_part, flow_pattern_config_filename, DSS_map_filename):
-	print "Processing boundary conditions for American River from ops file:\n\t%s"%(ops_file_name)
 	print "  Forecast time window start: %s"%(start_time.dateAndTime(4))
 	print "  Forecast time window end: %s"%(end_time.dateAndTime(4))
 
-
-	forecast_locations = ["Trinity/Clair Engle", "Whiskeytown", "Shasta", "Oroville", "Folsom", "New Melones", " SAN LUIS/O'NEILL", "DELTA"]
-	active_locations = ["Folsom"]
-
 	rv_lines = []
-
-	if ops_file_name.endswith(".xls") or ops_file_name.endswith(".xlsx"):
-		try:
-			ops_data = CVP.import_CVP_Ops_xls(ops_file_name, forecast_locations, active_locations)
-		except Exception as e:
-			print "Failed to read operations file:%s"%ops_file_name
-			print "\t%s"%str(e)
-			return None
-	else:
-		ops_data = CVP.import_CVP_Ops_csv(ops_file_name, forecast_locations, active_locations)
-
-	profile_date = None
-
-	for key in ops_data.keys():
-		if DEBUG:
-			print "ops_data key: %s"%(key)
-		if ops_data[key][1].strip().upper().startswith("PROFILEDATE"):
-			profile_date = ops_data[key][1].split(':')[1].strip()
-			del ops_data[key][1]
-
-	if profile_date:
-		try:
-			date_parts = profile_date.split('-', 2)
-			if len(date_parts[2]) < 4: date_parts[2] = "20" + date_parts[2]
-			profile_date = "%s%s%s"%(date_parts[0],date_parts[1],date_parts[2])
-		except Exception as e:
-			print "Failed to read profile date from string:%s"%profile_date
-			print "\t%s"%str(e)
-			return None
-		print "Profile date: %s"%profile_date
 
 	folsom_tsc_list = []
 	folsom_calendar = ops_data["Folsom"][0].split(',')
