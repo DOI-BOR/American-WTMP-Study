@@ -598,6 +598,7 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 		if DEBUG: print "Start_index = %d\nData_Month = %s"%(start_index, data_month)
 		if DEBUG: print "Passing line to CVP.make_ops_tsc: %s"%(line)
 		folsom_tsc_list.append(CVP.make_ops_tsc("FOLSOM", data_year, data_month, line, ops_label=ops_import_F_part))
+    
 
 	'''
 	Disabled code for temporal pattern
@@ -835,7 +836,6 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	# Get flows and temperatures for downstream tributaries, and other seasonal stuff
 	# from monthly average data sets
 	########################
-
 	tributary_config_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), r"forecast\config\tributary_averages.config")
 	# trib_DSS_files = {}
 	for line in getConfigLines(tributary_config_filename):
@@ -875,11 +875,10 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	########################
 	# Estimate Folsom Tributary Temperatures
 	########################
-
 	std_out_restore = sys.stdout
 	if DEBUG:
+		print('Entering wonderland', os.path.join(Project.getCurrentProject().getWorkspacePath(), "AMR_temp_calc.log"))
 		temperature_logfile = open(os.path.join(Project.getCurrentProject().getWorkspacePath(), "AMR_temp_calc.log"), 'w')
-		sys.stdout = temperature_logfile
 
 	# South Fork water temperature from regression formula
 	if names_flows["Folsom-SF-in"].isMetric():
@@ -907,6 +906,7 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 
 	print "South Fork Temp start time = " + start_time.date(4) + ' ' + str(start_time.minutesSinceMidnight())
 	print "South Fork Temp end time = " + end_time.date(4) + ' ' + str(end_time.minutesSinceMidnight())
+    
 	tsmath_SF_WTemp = tsmath.generateRegularIntervalTimeSeries(start_time.dateAndTime(4), end_time.dateAndTime(4), "1DAY", "", 0.0)
 	time_post = HecTime(HecTime.MINUTE_INCREMENT)
 	i = 0
@@ -914,7 +914,6 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	T = tsmath_T_air_daily.getContainer()
 	for time_step in tsmath_SF_WTemp.getContainer().times:
 		time_post.set(time_step)
-		#print(time_step,SF.times[0],SF.times[-1],T.times[0],T.times[-1])
 		tsmath_SF_WTemp.getContainer().values[i] = american_SF_temp(time_post.year(),
 					time_post.month(), time_post.day(),
 					tsmath_SF_cms.getContainer().getValue(time_post),
@@ -926,6 +925,7 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 				tsmath_T_air_daily.getContainer().getValue(time_post),
 				tsmath_SF_WTemp.getContainer().values[i])
 		i += 1
+        
 	tsmath_SF_WTemp.setUnits("Deg C")
 	tsmath_SF_WTemp.setType("PER-AVER")
 	tsmath_SF_WTemp.setTimeInterval("1DAY")
@@ -961,6 +961,7 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 				tsmath_T_air_daily.getContainer().getValue(time_post),
 				tsmath_NF_WTemp.getContainer().values[i])
 		i += 1
+        
 	tsmath_NF_WTemp.setUnits("Deg C")
 	tsmath_NF_WTemp.setType("PER-AVER")
 	tsmath_NF_WTemp.setTimeInterval("1DAY")
@@ -985,7 +986,6 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	tsmath_list.append(tsmath_SC_WTemp)
 
 	if DEBUG:
-		sys.stdout = std_out_restore
 		temperature_logfile.close()
 
 
