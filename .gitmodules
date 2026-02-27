@@ -1,21 +1,21 @@
 [submodule "shared"]
 	path = shared
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/shared.git
+	url = ../American-WTMP-5Q.git
 [submodule "rss"]
 	path = rss
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/rss.git
+	url = ../American-WTMP-RSS.git
 [submodule "reports"]
 	path = reports
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/reports.git
+	url = ../WTMP-American-Reports.git
 [submodule "ras"]
 	path = ras
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/ras.git
+	url = ../American-WTMP-RAS.git
 [submodule "cequal-w2"]
 	path = cequal-w2
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/cequal-w2.git
+	url = ../American-WTMP-CEQUAL-W2.git
 [submodule "5q"]
 	path = 5q
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/5q.git
+	url = ../American-WTMP-5Q.git
 [submodule "scripts"]
 	path = scripts
-	url = https://gitlab.rmanet.app/RMA/usbr-water-quality/wat-studies/wtmp-demo-studies/WTMP_American/scripts.git
+	url = ../American-WTMP-Scripts.git
