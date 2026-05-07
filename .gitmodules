@@ -1,12 +1,12 @@
 [submodule "shared"]
 	path = shared
-	url = git@github.com:DOI-BOR/American-WTMP-5Q.git
+	url = git@github.com:DOI-BOR/American-WTMP-Shared.git
 [submodule "rss"]
 	path = rss
 	url = git@github.com:DOI-BOR/American-WTMP-RSS.git
 [submodule "reports"]
 	path = reports
-	url = git@github.com:DOI-BOR/WTMP-American-Reports.git
+	url = git@github.com:DOI-BOR/American-WTMP-Reports.git
 [submodule "ras"]
 	path = ras
 	url = git@github.com:DOI-BOR/American-WTMP-RAS.git
