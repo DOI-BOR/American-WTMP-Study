@@ -599,11 +599,11 @@
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>
-        <DataLocation Name="WQ-Folsom Dam - Natoma balance flows" Class="hec2.model.DataLocation" Description="" DssPath="/MR Am.-Folsom Lake/FOL-Penstock WTemp 1/Temp-Water//1Hour/250.3.50.1.1/" ComputeType="Computed" Model="Scripting-OutputLink_W2_Folsom-DownstreamAmer" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+        <DataLocation Name="WQ-Folsom Dam - Natoma balance flows" Class="hec2.model.DataLocation" Description="" DssPath="/MR Am.-Folsom Lake/FOL-Penstock WTemp 1/Temp-Water//1Hour/250.3.50.1.1/" ComputeType="Computed" Model="Scripting-OutputLink_W2_FATSPBYPASS-DownstreamAmer" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="RSAmerNRV" Program="ResSim" />
           <DownStreamLocation>
-            <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_Folsom-D/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
-              <ModelAlternative Name="OutputLink_W2_Folsom-DownstreamAmer" Program="Scripting" />
+            <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_FATSPBYP/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
+              <ModelAlternative Name="OutputLink_W2_FATSPBYPASS-DownstreamAmer" Program="Scripting" />
             </DataLocation>
           </DownStreamLocation>
         </DataLocation>

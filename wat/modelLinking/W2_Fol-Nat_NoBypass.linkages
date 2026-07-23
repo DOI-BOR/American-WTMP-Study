@@ -53,7 +53,7 @@
         <DataLocation Name="Branch 1 Inflow" Class="hec2.model.DataLocation" DssPath="/W2:tin_br1.npt/Branch 1 Inflow/Temp-TIN//1HOUR/alt:ap:CeQualW2-Branch 1 Inflow/" ComputeType="Computed" Model="Scripting-OutputLink_W2_FBYPASS-DownstreamAmer" Parameter="Temp-TIN" OutOfDate="false" PrevModelIndex="0">
           <ModelAlternative Name="W2 Natoma Prescribed" Program="CeQualW2" />
           <DownStreamLocation>
-            <DataLocation Name="W2_Natoma_InflowQ" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowQ/Flow//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_FBYPASS-/" ComputeType="Computed" Parameter="Flow" OutOfDate="false" PrevModelIndex="0">
+            <DataLocation Name="W2_Natoma_InflowT" Class="hec2.model.DataLocation" DssPath="//W2_Natoma_InflowT/Temp-Water//1HOUR/C:000000|altName:apName:Scripting-OutputLink_W2_FBYPASS-/" ComputeType="Computed" Parameter="Temp-Water" OutOfDate="false" PrevModelIndex="0">
               <ModelAlternative Name="OutputLink_W2_FBYPASS-DownstreamAmer" Program="Scripting" />
             </DataLocation>
           </DownStreamLocation>
