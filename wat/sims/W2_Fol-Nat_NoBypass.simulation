@@ -27,7 +27,7 @@
       </Description>
       <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative4>
-    <ModelAlternative5 Program="ResSim" Name="RSAmerRVO" File="rss/RSAmerRVO.ralt">
+    <ModelAlternative5 Program="ResSim" Name="AmrRvF" File="rss/AmrRvF.ralt">
       <Description />
       <LastComputeTime Date="31 December 1899, 24:00" />
     </ModelAlternative5>

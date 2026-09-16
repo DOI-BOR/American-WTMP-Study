@@ -12,27 +12,27 @@
         </DataLocation>
       </DownStreamLocation>
     </DataLocation>
-    <DataLocation Name="Watt_ResSim_T" Class="hec2.model.DataLocation" DssPath="//Watt_ResSim_T/Temp///alt:ap:Scripting-Post-Process_W2_Fol-Na/" ComputeType="Computed" Model="ResSim-RSAmerNRV" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+    <DataLocation Name="Watt_ResSim_T" Class="hec2.model.DataLocation" DssPath="//Watt_ResSim_T/Temp///alt:ap:Scripting-Post-Process_W2_Fol-Na/" ComputeType="Computed" Model="ResSim-AmrNFF" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="Post-Process_W2_Fol-Nat" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="Watt Ave Bridge" Class="hec2.model.DataLocation" DssPath="//Watt Ave Bridge/Temp-Water Temperature//1Hour/W2 Folsom :F2018-03:ResSim-RSAmerNRV/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerNRV" Program="ResSim" />
+        <DataLocation Name="Watt Ave Bridge" Class="hec2.model.DataLocation" DssPath="//Watt Ave Bridge/Temp-Water Temperature//1Hour/W2 Folsom :F2018-03:ResSim-AmrNFF/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="AmrNFF" Program="ResSim" />
         </DataLocation>
       </DownStreamLocation>
     </DataLocation>
-    <DataLocation Name="Hazel_ResSim_T" Class="hec2.model.DataLocation" DssPath="//Hazel_ResSim_T/Temp///alt:ap:Scripting-Post-Process_W2_Fol-Na/" ComputeType="Computed" Model="ResSim-RSAmerNRV" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+    <DataLocation Name="Hazel_ResSim_T" Class="hec2.model.DataLocation" DssPath="//Hazel_ResSim_T/Temp///alt:ap:Scripting-Post-Process_W2_Fol-Na/" ComputeType="Computed" Model="ResSim-AmrNFF" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="Post-Process_W2_Fol-Nat" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="AFO" Class="hec2.model.DataLocation" DssPath="//AFO/Temp-Water Temperature//1Hour/W2 Folsom :F2018-03:ResSim-RSAmerNRV/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerNRV" Program="ResSim" />
+        <DataLocation Name="AFO" Class="hec2.model.DataLocation" DssPath="//AFO/Temp-Water Temperature//1Hour/W2 Folsom :F2018-03:ResSim-AmrNFF/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="AmrNFF" Program="ResSim" />
         </DataLocation>
       </DownStreamLocation>
     </DataLocation>
-    <DataLocation Name="W_Pond_ResSim_T" Class="hec2.model.DataLocation" DssPath="//W_Pond_ResSim_T/Temp///alt:ap:Scripting-Post-Process_W2_Fol-Na/" ComputeType="Computed" Model="ResSim-RSAmerNRV" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
+    <DataLocation Name="W_Pond_ResSim_T" Class="hec2.model.DataLocation" DssPath="//W_Pond_ResSim_T/Temp///alt:ap:Scripting-Post-Process_W2_Fol-Na/" ComputeType="Computed" Model="ResSim-AmrNFF" Parameter="Temp" OutOfDate="false" PrevModelIndex="0">
       <ModelAlternative Name="Post-Process_W2_Fol-Nat" Program="Scripting" />
       <DownStreamLocation>
-        <DataLocation Name="William Pond Park" Class="hec2.model.DataLocation" DssPath="//William Pond Park/Temp-Water Temperature//1Hour/W2 Folsom :F2018-03:ResSim-RSAmerNRV/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
-          <ModelAlternative Name="RSAmerNRV" Program="ResSim" />
+        <DataLocation Name="William Pond Park" Class="hec2.model.DataLocation" DssPath="//William Pond Park/Temp-Water Temperature//1Hour/W2 Folsom :F2018-03:ResSim-AmrNFF/" ComputeType="Computed" Parameter="Water Temperature" OutOfDate="false" PrevModelIndex="0">
+          <ModelAlternative Name="AmrNFF" Program="ResSim" />
         </DataLocation>
       </DownStreamLocation>
     </DataLocation>
