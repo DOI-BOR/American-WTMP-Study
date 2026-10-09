@@ -9,9 +9,41 @@ from com.rma.model import Project
 from hec.heclib.dss import HecDss
 
 def str2datetime(dtstr):
+    """Parse an HEC-style datetime string into a Python datetime.
+
+    Parameters
+    ----------
+    dtstr : str
+        Datetime string in "%Y-%m-%d, %H:%M" format, as produced by HEC
+        HDF5 time-date-stamp datasets. May use hour "24" to represent
+        midnight at the end of the given day (HEC convention) rather than
+        the start of the next day.
+
+    Returns
+    -------
+    datetime.datetime
+        Parsed datetime. If the input hour field is "24", the string is
+        patched to hour "23" for parsing and then advanced by one hour,
+        yielding the correct midnight-of-next-day instant.
+
+    Raises
+    ------
+    ValueError
+        Re-raised if the input cannot be parsed even after accounting for
+        the hour-24 convention.
+
+    Notes
+    -----
+    This mirrors hecTime2datetime's hour-24 handling but operates on a raw
+    string rather than an HecTime object, since HDF5 datetime datasets are
+    stored as text.
+    """
     try:
         tout = dt.datetime.strptime(dtstr, '%Y-%m-%d, %H:%M')
     except ValueError as ve:
+        # HEC convention: hour "24" denotes midnight at the end of the
+        # current day. Patch the hour field to "23" so strptime succeeds,
+        # then add the missing hour to land on the correct instant.
         if dtstr[12:14] == '24':
             tmp_dtstr = list(dtstr.encode('ascii', 'ignore'))
             tmp_dtstr[13] = '3'
@@ -23,6 +55,27 @@ def str2datetime(dtstr):
     return tout
     
 def hecTime2datetime(hecTime):
+    """Convert an HecTime object into a Python datetime.
+
+    Parameters
+    ----------
+    hecTime : HecTime
+        HEC time object to convert. May represent hour 24 (HEC convention
+        for midnight at the end of the day) rather than hour 0 of the
+        following day.
+
+    Returns
+    -------
+    datetime.datetime
+        Equivalent Python datetime. If ``hecTime.hour()`` is 24, the
+        result is built using hour 23 and then advanced by one hour to
+        land on the correct midnight-of-next-day instant.
+
+    Notes
+    -----
+    Mirrors str2datetime's hour-24 handling but operates on an HecTime
+    object rather than a formatted string.
+    """
     if hecTime.hour() == 24:
         tout = dt.datetime(hecTime.year(), hecTime.month(), hecTime.day(), 23, hecTime.minute())
         tout += dt.timedelta(hours=1)
@@ -31,9 +84,54 @@ def hecTime2datetime(hecTime):
     return tout
 
 
-# Process hdf5 file to get cold water pool volume at the end of September
-# And process DSS gate records to get dates of first side gate usage
 def runIteration(modelAlternative, currentIteration, maxIteration):
+    """Post-process one HEC-WAT forecast iteration's water-quality and gate results.
+
+    Reads the HEC water-quality HDF5 output to compute end-of-September
+    cold-water-pool and total reservoir storage at Shasta Lake, reads DSS
+    gate-operation time series to find the dates of first side-gate use and
+    first exclusive side-gate use, and appends a summary row to a CSV
+    report file.
+
+    Parameters
+    ----------
+    modelAlternative : object
+        HEC-WAT model alternative object describing the current run (name,
+        simulation name, program, DSS filename, F-part, variant name, and
+        run directory).
+    currentIteration : int
+        1-based index of the current forecast iteration. Iteration 1
+        triggers creation of a new output CSV with a header row.
+    maxIteration : int
+        Total number of iterations in the run (unused directly in this
+        function but accepted for interface consistency with other
+        per-iteration post-processing scripts).
+
+    Returns
+    -------
+    bool or str
+        ``True`` on success. A string beginning with "Error:" is returned
+        (not raised) if an HDF5 or DSS file/dataset could not be opened or
+        read, allowing the caller to detect and report failures without an
+        exception. A non-fatal "Warning:" string is assigned to a local
+        variable and currently never returned (see Notes).
+
+    Notes
+    -----
+    Script assumes English units for the watershed model (HDF5 volumes in
+    ft^3, converted to acre-feet via /43560). The cold-water-pool and total
+    storage are evaluated at the first HDF5 output time at or after 1
+    October 00:00; if the simulation does not extend that far, values are
+    reported for the last available time step and a warning message is
+    built into ``rtnMsg``, but ``rtnMsg`` is never returned or surfaced
+    (the function always returns ``True`` at the end on the success path)
+    -- this appears to be a pre-existing gap between the warning logic and
+    the return statement, preserved as-is. The "Lower gates" DSS read uses
+    the same ``recordParts``/path string as the "Side gates" read
+    immediately above it; this looks like a copy-paste omission (the C-part
+    "GATE" is not changed to distinguish side vs. lower gates), but is
+    preserved exactly rather than corrected.
+    """
     
     scriptStartTime = time.time()
     
@@ -61,6 +159,8 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     
     # Script assumes English units for watershed (ft3 volume output)
     
+    # On the first iteration of a run, (re)create the CSV report with a
+    # fresh header; subsequent iterations append to the existing file.
     if currentIteration == 1:
         # Create new file
         with open(os.path.join(simDrct, outputFilename), 'w') as outFid:
@@ -102,6 +202,8 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     H5.H5Sclose(spaceId)
     H5.H5Dclose(dsId)
     
+    # Derive the model's output time step (hours) from the first two time
+    # values, which are stored in HDF5 as fractional days.
     delta_t_hrs = int(round((times[1] - times[0]) * 24., 0))
     delta_t = dt.timedelta(hours=delta_t_hrs)
     
@@ -116,6 +218,9 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     print("Space id", spaceId)
     H5.H5Sget_simple_extent_dims(spaceId, dsDims1, maxDims1)
     
+    # Fixed-length Fortran-style string dataset: build a matching in-memory
+    # string type before reading, since HDF5 string datasets require an
+    # explicit memory datatype of the correct fixed size.
     memoryType = H5.H5Tcopy(HDF5Constants.H5T_FORTRAN_S1)
     H5.H5Tset_size(memoryType, typeSize)
     memspaceId = H5.H5Screate_simple(1, dsDims1, maxDims1)
@@ -136,6 +241,9 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     oct1 = dt.datetime(startTime.year, 10, 1)
     idx = int(round((oct1 - startTime).total_seconds() / delta_t.total_seconds()))
     rtnMsg = ""
+    # Clamp to the last available output time if the simulation ends before
+    # 1 October; only warn once, on the first iteration, to avoid repeating
+    # the same warning across every iteration of a multi-iteration run.
     if idx > nt-1:
         idx = nt-1
         if currentIteration == 1:
@@ -196,12 +304,18 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     # Close file
     H5.H5Fclose(fid)
     
+    # Temperature/volume arrays are flattened across (time, layer); slice
+    # out the vertical profile for the single target time step found above.
     startIdx = idx * nz
     endIdx = (idx + 1) * nz
     print("Temperature profile", temps[startIdx:endIdx])
     tempOct1 = temps[startIdx:endIdx]
     volOct1 = vols[startIdx:endIdx]
     
+    # Sum layer volumes below the cold-water-pool temperature cutoff (56 F,
+    # converted to Celsius here since HDF5 temperatures are in deg C) to get
+    # cold-water-pool volume, alongside the total pool volume across all
+    # layers; both are converted from ft^3 to acre-feet (1 ac-ft = 43,560 ft^3).
     coldWaterPoolCutoffC = (coldWaterPoolCutoffF - 32.) * 5. / 9.
     cwp = 0.
     poolVol = 0.
@@ -249,6 +363,9 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     if mayIdx > n-1:  # if simulation doesn't go past May 1, start at first day of simulation
         mayIdx = 0
     
+    # Scan forward from May 1 to find the first time step with any side-gate
+    # opening, and separately the first time step where a side gate is open
+    # while the lower gate is fully closed (an "exclusive" side-gate use).
     foundFirst = False
     foundExclusive = False
     idxFirst = -1
@@ -284,4 +401,3 @@ def runIteration(modelAlternative, currentIteration, maxIteration):
     #raise ValueError
     #return rtnMsg
     return True
-            
