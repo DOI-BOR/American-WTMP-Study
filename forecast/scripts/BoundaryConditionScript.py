@@ -19,7 +19,6 @@ reload(CVP)
 
 DEBUG = True
 
-'''Accepts parameters for WTMP forecast runs to form boundary condition data sets.'''
 def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_filename, ops_file_name, DSS_map_filename,
 		position_analysis_year=None,
 		position_analysis_config_filename=None,
@@ -27,22 +26,68 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 		met_output_DSS_filename=None,
 		flow_pattern_config_filename=None,
 		ops_import_F_part=None):
+	"""Build meteorological, hydrologic, and water-temperature boundary data sets.
 
-	# Postitional (required) args:
-	# AP_start_time (HecTime) start of the simulation group run time
-	# AP_end_time (HecTime) end of the simulation group run time
-	# BC_F_part (str) DSS F part for output time series records
-	# BC_output_DSS_filename (str) Name of DSS file for output time series records. Assumed relative to study directory
-	# ops_file_name (str) Name of CVP ops data spreadsheet file
-	# DSS_map_filename (str) Name of file where list of output locactions and DSS records will be written.  Assumed relative to study directory
+	Parameters
+	----------
+	AP_start_time : HecTime
+		Start of the simulation-group run period.
+	AP_end_time : HecTime
+		End of the simulation-group run period.
+	BC_F_part : str
+		DSS F-part assigned to generated boundary-condition records.
+	BC_output_DSS_filename : str
+		DSS file receiving generated boundary-condition time series. Assumed
+		relative to the study directory if not already absolute.
+	ops_file_name : str
+		CVP operations spreadsheet or CSV file used as operational input.
+		Assumed relative to the study directory if not already absolute.
+	DSS_map_filename : str
+		File receiving the location, parameter, DSS file, and pathname map.
+		Assumed relative to the study directory if not already absolute.
+	position_analysis_year : int, optional
+		Historical source year used for meteorological positional analysis.
+		Positional-analysis arguments remain necessary until another method
+		for generating met data is implemented.
+	position_analysis_config_filename : str, optional
+		Configuration describing source meteorological DSS records. Assumed
+		relative to the study directory. Defaults to
+		forecast/config/historical_met.config.
+	met_F_part : str, optional
+		DSS F-part for meteorological records; defaults to ``BC_F_part``.
+	met_output_DSS_filename : str, optional
+		Separate meteorological DSS output file, if required. Assumed
+		relative to the study directory. Defaults to ``BC_output_DSS_filename``.
+	flow_pattern_config_filename : str, optional
+		Configuration describing flow-pattern records used for disaggregation.
+		Assumed relative to the study directory. Defaults to
+		forecast/config/flow_pattern.config.
+	ops_import_F_part : str, optional
+		Label applied to records imported from the operations input file.
 
-	# Key-word (optional) args (kwargs):
-	# position_analysis_year (int) Source year for met data position analysis (positional analysis args are needed until there are other methods for making met data)
-	# position_analysis_config_filename (str) Name of file holding list of source time series for position analysis. Assumed relative to study directory. Defaults to forecast/config/historical_met.config
-	# met_F_part (str) DSS F part for met data specifically. Defaults to BC_F_part
-	# met_output_DSS_filename (str) Name of separate DSS file for met time series records. Assumed relative to study directory. Defaults to BC_output_DSS_filename
-	# flow_pattern_config_filename (str) Name of file holding list of pattern time series for flow disaggreagtion. Assumed relative to study directory. Defaults to forecast/config/flow_pattern.config
+	Returns
+	-------
+	int
+		Number of meteorological and operational map records generated, or 0
+		when operational boundary-condition generation fails.
 
+	Raises
+	------
+	ValueError
+		If the operations-spreadsheet profile date does not match the
+		analysis-window start date.
+
+	Notes
+	-----
+	Relative paths are resolved against the current project workspace. The
+	routine writes DSS records and a location/path mapping file as side
+	effects. This function enforces that the operations-spreadsheet profile
+	date matches the analysis-window start date; a mismatch raises
+	ValueError rather than silently using an inconsistent date.
+	"""
+
+	# Resolve project-relative files and establish defaults for optional DSS
+	# metadata and configuration inputs.
 	if not os.path.isabs(BC_output_DSS_filename):
 		BC_output_DSS_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), BC_output_DSS_filename)
 	if not os.path.isabs(ops_file_name):
@@ -66,6 +111,7 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 	if not os.path.isabs(DSS_map_filename):
 		DSS_map_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), DSS_map_filename)
 
+	# Report the principal processing inputs and output destinations.
 	print "\n########"
 	print "\tGenerating Boundary Conditions for American River models"
 	print "########\n"
@@ -151,14 +197,41 @@ def build_BC_data_sets(AP_start_time, AP_end_time, BC_F_part, BC_output_DSS_file
 	return len(met_lines) + len(ops_lines)
 
 
-'''
-Simple time-shifter for met positional ananlysis data
-
-This function doesn't contain any location-specific data or configuration. All necessary
-location and DSS file/path combinations are provided in a position analysis configuration file.
-'''
 def create_positional_analysis_met_data(target_year, source_year, start_time, end_time,
 position_analysis_config_filename, met_output_DSS_filename, met_F_part):
+	"""Shift historical meteorological data into a target analysis year.
+
+	This is a simple time-shifter for meteorological positional-analysis data.
+	Location-specific information and DSS file/path combinations are supplied
+	through the positional-analysis configuration file rather than being
+	hard-coded in this function.
+
+	Parameters
+	----------
+	target_year : int
+		Year to which the meteorological sequence is shifted.
+	source_year : int
+		Historical year supplying the meteorological sequence.
+	start_time : HecTime
+		Start of the target analysis period.
+	end_time : HecTime
+		End of the target analysis period.
+	position_analysis_config_filename : str
+		Configuration describing source and destination DSS records.
+	met_output_DSS_filename : str
+		DSS file receiving the shifted meteorological records.
+	met_F_part : str
+		DSS F-part assigned to shifted records.
+
+	Returns
+	-------
+	list of str
+		CSV-formatted mapping records for the generated meteorological series.
+
+	Notes
+	-----
+	The source and generated series are assumed to have compatible time steps.
+	"""
 	print "Calculating positional met data..."
 	print "Historical Met File: %s"%(fc.ForecastConfigFiles.getHistoricalMetFile())
 	print "Position Analysis Met File: %s"%position_analysis_config_filename
@@ -169,6 +242,9 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 	met_config_str = ""
 	print "Met output DSS file: %s"%(met_output_DSS_filename)
 	met_config_lines = getConfigLines(position_analysis_config_filename)
+
+	# Process each configured meteorological source/destination mapping after
+	# the configuration header.
 	for line in met_config_lines[1:]:
 		token = line.strip().split(',')
 		dest_count = 0
@@ -178,6 +254,9 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 			print "File %s line \n\t \"%s\"\nis not a valid ID for a position analysis DSS record."%(position_analysis_config_filename,line)
 			print "Can't read an integer value from \"%s\"."%(token[4])
 			continue
+
+		# Validate the expected number of fields given the configured
+		# destination count before indexing further into the line.
 		target_line_length = 5 + 2*dest_count
 		if len(token) != target_line_length:
 			print "File %s line \n\t \"%s\"\nis not a valid ID for a position analysis DSS record."%(position_analysis_config_filename,line)
@@ -187,6 +266,9 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 		ts_read = hec.heclib.dss.HecTimeSeries()
 		ts_read.setDSSFileName(source_DSS_file_name)
 		if DEBUG: print "Reading %s from DSS file %s."%(token[3].strip(), source_DSS_file_name)
+
+		# Reconstruct source and destination DSS paths, intentionally leaving
+		# the D-part (index 3) blank between the doubled separators.
 		source_path_parts = token[3].strip().strip('/').split('/', 5)
 		dest_path_parts = token[6].strip().strip('/').split('/', 5)
 		source_path = dest_path = '/'
@@ -196,6 +278,8 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 			if index == 2:
 				source_path += '/'
 				dest_path += '/'
+
+		# Read the historical source series identified by the reconstructed path.
 		tsc_source = tscont()
 		tsc_source.fullName = source_path
 		status = ts_read.read(tsc_source, False)
@@ -208,6 +292,9 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 		if DEBUG:  print "\tTime series contains %d values."%(tsmath_source.getContainer().numberValues)
 		if DEBUG:  print "\tShifting time series with shiftInTime(%s)."%("%dMo"%(diff_years*12))
 		# tsmath_shift = tsmath_source.shiftInTime("%dYrar"%(diff_years))
+
+		# Build the target time grid with one day of end padding, then locate
+		# the corresponding start position back in the historical source year.
 		padded_end_time = HecTime()
 		padded_end_time.set(end_time.value() + 1440)
 		tsmath_shift = tsmath.generateRegularIntervalTimeSeries(
@@ -216,12 +303,18 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 			time_step_label, "0M", 1.0)
 		time_seek = HecTime(tsmath_shift.firstValidDate(), HecTime.MINUTE_INCREMENT)
 		time_seek.setYearMonthDay(time_seek.year() - diff_years, time_seek.month(), time_seek.day(), time_seek.minutesSinceMidnight())
+
+		# Abort this positional-analysis operation if the requested shifted
+		# period begins before the available historical record.
 		if time_seek.getMinutes() < tsmath_source.firstValidDate():
 			print "Met position time shift out of range at source start..."
 			return ['']
 		source_container = tsmath_source.getContainer()
 		shift_container = tsmath_shift.getContainer()
 		start_index = 0
+
+		# Find the first historical value corresponding to the shifted target
+		# start time.
 		for i in range(source_container.numberValues):
 			if source_container.times[i] >= time_seek.getMinutes():
 				start_index = i
@@ -232,9 +325,15 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 		# if this works, it's only because the source and shift TSCs have the same time step.
 		for i in range(shift_container.numberValues):
 			shift_container.values[i] = source_container.values[start_index + i]
+
+		# Verify that the generated container retains the expected number of
+		# values after copying the historical sequence.
 		if len(shift_container.values) != shift_container.numberValues:
 			print "You doofus!\nlen(values)=%d\nnumberValues=%d\n"%(len(shift_container.values), shift_container.numberValues)
 			return ['']
+
+		# Preserve source units/type and assign the destination DSS pathname
+		# metadata before writing the shifted record.
 		tsmath_shift.setType(tsmath_source.getType())
 		tsmath_shift.setUnits(tsmath_source.getUnits())
 		tsmath_shift.setPathname(dest_path)
@@ -257,6 +356,30 @@ position_analysis_config_filename, met_output_DSS_filename, met_F_part):
 
 
 def shift_daily_averages(source_tsm, AP_start_time, AP_end_time):
+	"""Repeat a daily-average source pattern over the requested analysis period.
+
+	Aligns the source pattern to the target period by matching day-of-year.
+
+	Parameters
+	----------
+	source_tsm : TimeSeriesMath
+		Source daily-average time series used as the repeating pattern.
+	AP_start_time : HecTime
+		Start of the requested analysis period.
+	AP_end_time : HecTime
+		End of the requested analysis period.
+
+	Returns
+	-------
+	TimeSeriesMath
+		Daily time series spanning the requested period.
+
+	Notes
+	-----
+	The source data are assumed to span at least one full year so that the
+	day-of-year seek below is guaranteed to find a match, and so indexing can
+	wrap from the end of the source sequence back to its beginning.
+	"""
 	
 	# copy start and end time so manipulations in this scope don't affect others
 	shifted_start_time = HecTime()
@@ -296,8 +419,27 @@ def shift_daily_averages(source_tsm, AP_start_time, AP_end_time):
 
 
 def shift_monthly_averages(source_tsm, AP_start_time, AP_end_time):
-	# source_tsm -- time series math of monthly average values
-	# AP_start_time, AP_end_time -- HecTime objects
+	"""Repeat a monthly-average source pattern over the requested analysis period.
+
+	Parameters
+	----------
+	source_tsm : TimeSeriesMath
+		Source monthly-average time series used as the repeating pattern.
+	AP_start_time : HecTime
+		Start of the requested analysis period.
+	AP_end_time : HecTime
+		End of the requested analysis period.
+
+	Returns
+	-------
+	TimeSeriesMath
+		Monthly time series spanning the requested period.
+
+	Notes
+	-----
+	The source data are expected to span complete years so indexing can wrap
+	from the end of the source sequence back to its beginning.
+	"""
 
 	# copy start and end time so manipulations in this scope don't affect others
 	shifted_start_time = HecTime()
@@ -339,6 +481,18 @@ def shift_monthly_averages(source_tsm, AP_start_time, AP_end_time):
 	return rv_tsmath
 
 def getConfigLines(fileName):
+	"""Read a configuration file and strip supported comment syntax.
+
+	Parameters
+	----------
+	fileName : str
+		Path to the configuration file.
+
+	Returns
+	-------
+	list of str
+		Non-comment configuration content split into individual lines.
+	"""
 	commentRE = re.compile(r"<!--.*?-->", re.S)
 	hashCommentRE = re.compile(r"#.*")
 	with open(fileName) as infile:
@@ -349,6 +503,35 @@ def getConfigLines(fileName):
 	return  config_str.split('\n')
 
 def interpolate_coeffs(year, month, day, coeff_dict):
+	"""Interpolate monthly regression coefficients to a specific day.
+
+	Uses linear interpolation between mid-month reference points.
+
+	Parameters
+	----------
+	year : int
+		Calendar year of the target date.
+	month : int
+		Calendar month (1-12) of the target date.
+	day : int
+		Calendar day of the target date.
+	coeff_dict : dict of int -> list of float
+		Regression coefficients keyed by month number (1-12).
+
+	Returns
+	-------
+	list of float
+		Coefficients linearly interpolated between the two neighboring
+		mid-month reference points that bracket the (shifted) target day.
+
+	Notes
+	-----
+	The input date is shifted back by one day before interpolation (see the
+	offsetdate calculation), so the returned coefficients correspond to the
+	day prior to the (year, month, day) supplied by the caller. This appears
+	to be an intentional one-day lag convention rather than an off-by-one
+	defect, but it is preserved exactly rather than corrected.
+	"""
 	indate = datetime.date(year,month,day)
 	offsetdate = datetime.date.fromordinal(indate.toordinal() -1 )
 	day = offsetdate.day
@@ -363,6 +546,9 @@ def interpolate_coeffs(year, month, day, coeff_dict):
 	next_month_middle = CVP.get_days_in_month(next_month, year)/2
 	rv = []
 	for i in range(len(coeff_dict[month])):
+		# Interpolate forward toward next month's midpoint coefficient after
+		# the current month's midpoint, otherwise interpolate backward from
+		# last month's midpoint coefficient.
 		if day > month_middle:
 			denom = month_middle + next_month_middle
 			num = day - month_middle
@@ -375,8 +561,33 @@ def interpolate_coeffs(year, month, day, coeff_dict):
 	return rv
 
 def american_NF_temp(year, month, day, NF_cms, MF_cms, T_air):
-	'''CARDNO/Stantec North Fork American water temperature regression into Folsom
-	returns degrees C'''
+	"""Estimate North Fork American River water temperature upstream of Folsom.
+
+	CARDNO/Stantec regression. Coefficients are interpolated by day-of-year
+	using interpolate_coeffs before being applied to the log-flow and
+	air-temperature terms below.
+
+	Parameters
+	----------
+	year : int
+		Calendar year associated with the flow and air-temperature inputs.
+	month : int
+		Calendar month (1-12) associated with the inputs.
+	day : int
+		Calendar day associated with the inputs.
+	NF_cms : float
+		North Fork flow, cubic meters per second.
+	MF_cms : float
+		Middle Fork flow, cubic meters per second.
+	T_air : float
+		Air temperature, degrees C.
+
+	Returns
+	-------
+	float
+		Estimated water temperature, degrees C, or Constants.UNDEFINED when
+		the regression result falls outside a plausible +/-100 degC range.
+	"""
 	NF_coeff = {
 		1: [3.77355345,1.266462973,-0.123190654,0.208855328],
 		2: [5.01269425,2.088352067,-2.308137666,0.289497256],
@@ -403,13 +614,37 @@ def american_NF_temp(year, month, day, NF_cms, MF_cms, T_air):
 			coeff[1] * math.log10(NF_cms), coeff[2] * math.log10(MF_cms), coeff[3] * T_air, rv)
 		print message2
 
+	# Treat clearly non-physical regression outputs as undefined rather than
+	# propagating them downstream.
 	if rv > 100 or rv < -100:
 		return Constants.UNDEFINED
 	return rv
 
 def american_SF_temp(year, month, day, SF_cms, T_air):
-	'''CARDNO/Stantec South Fork American water temperature regression into Folsom
-	returns degrees C'''
+	"""Estimate South Fork American River water temperature upstream of Folsom.
+
+	CARDNO/Stantec regression, structurally identical in approach to
+	american_NF_temp but without a Middle Fork flow term.
+
+	Parameters
+	----------
+	year : int
+		Calendar year associated with the flow and air-temperature inputs.
+	month : int
+		Calendar month (1-12) associated with the inputs.
+	day : int
+		Calendar day associated with the inputs.
+	SF_cms : float
+		South Fork flow, cubic meters per second.
+	T_air : float
+		Air temperature, degrees C.
+
+	Returns
+	-------
+	float
+		Estimated water temperature, degrees C, or Constants.UNDEFINED when
+		the regression result falls outside a plausible +/-100 degC range.
+	"""
 	SF_coeff = {
 		1: [1.956291062,1.374298257,0.290009169],
 		2: [3.893887348,0.220653927,0.282395021],
@@ -431,14 +666,30 @@ def american_SF_temp(year, month, day, SF_cms, T_air):
 			message += " %f,"%(c)
 		print message
 	rv = coeff[0] + coeff[1] * math.log10(SF_cms) + coeff[2] * T_air
+
+	# Treat clearly non-physical regression outputs as undefined rather than
+	# propagating them downstream.
 	if rv > 100 or rv < -100:
 		return Constants.UNDEFINED
 	return rv
 
 def american_SC_temp(month):
-	'''CARDNO/Stantec South Canal monthly average inflow temperature into Folsom
-	returns degrees C
-	'''
+	"""Look up the South Canal monthly average inflow temperature into Folsom.
+
+	CARDNO/Stantec monthly-average estimate; this is a fixed climatological
+	value by month rather than a flow/air-temperature regression.
+
+	Parameters
+	----------
+	month : int
+		Calendar month (1-12).
+
+	Returns
+	-------
+	float
+		Estimated water temperature, degrees C, converted from the hard-coded
+		Fahrenheit table below.
+	"""
 	SC_ave_temp = {
 		1: 46.02,
 		2: 46.48,
@@ -456,21 +707,23 @@ def american_SC_temp(month):
 	return (SC_ave_temp[month] -32.0)*5.0/9.0
     
 def read_ops_bc_data(ops_file_name):
-	"""
-	This function manages reading of the forecast operations file. It takes in the path to the file and attempts to detect the file format. If the format ends with
-	an Excel extension, the spreadsheet parser is utilizes. Otherwise the file type is assumed to be a comma separated file. The resulting object is return to the 
-	calling function without modification.
-	
+	"""Read and parse the forecast operations file.
+
+	Detects the file format from its extension; if the extension indicates
+	Excel, the spreadsheet parser is used, otherwise the file is assumed to
+	be comma-separated. The resulting object is returned to the calling
+	function without modification.
+
 	Parameters
 	----------
-	ops_file_name: str
-		Path to the operations file being used for the analysis
-		
+	ops_file_name : str
+		Path to the operations file being used for the analysis.
+
 	Returns
 	-------
-	ops_data: dict
-		Contains the contents of operations spreadsheet for later use
-	
+	dict
+		Contents of the operations spreadsheet for later use, or ``None``
+		if the file could not be read.
 	"""
 
 	# Define the locations that are in the sheet
@@ -500,20 +753,24 @@ def read_ops_bc_data(ops_file_name):
 	
 	
 def get_profile_date(ops_data):
-	"""
-	This function extracts the profile date from the operations dictionary. It deletes it once it's found, which requires the profile date that's returned from
-	this function to be disseminated throughout the rest of the code as an input argument.
-	
+	"""Extract the profile date from the operations dictionary.
+
+	The profile-date metadata row is deleted from ``ops_data`` once found, so
+	the profile date returned here must be passed explicitly to downstream
+	functions that need it.
+
 	Parameters
 	----------
-	ops_data: dict
-		Contains the contents of operations spreadsheet
-	
+	ops_data : dict
+		Contents of the operations spreadsheet, as returned by
+		read_ops_bc_data. Modified in place to remove the profile-date row.
+
 	Returns
 	-------
-	profile_date: str
-		Date of the profile from the operations spreadsheet in the internal system format monthdayyear as numbers without spaces
-	
+	str or None
+		Date of the profile from the operations spreadsheet in the internal
+		system format monthdayyear as numbers without spaces, or ``None`` if
+		no profile date was found or it could not be parsed.
 	"""
 	
 	# Set a placeholder for the profile date.
@@ -562,20 +819,70 @@ def get_profile_date(ops_data):
 	
 	
 
-'''Processes the contents of the CVP ops spreadsheet in to flow and water temperature BCs'''
 def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_DSS_filename,
 	BC_F_part, ops_import_F_part, flow_pattern_config_filename, DSS_map_filename):
+	"""Process the CVP operations spreadsheet into Folsom-area boundary conditions.
+
+	Disaggregates monthly Folsom operations data to daily/hourly flow,
+	constructs a Folsom reservoir water balance, splits Folsom inflow into
+	North/South Fork (and further into North Fork/Middle Fork) tributary
+	flows, estimates tributary water temperatures via regression, generates
+	municipal withdrawal time series from monthly patterns, and writes the
+	resulting time series to DSS.
+
+	Parameters
+	----------
+	ops_data : dict
+		Parsed operations-spreadsheet contents, keyed by location, with the
+		profile-date metadata row already removed by get_profile_date.
+	profile_date : str or None
+		Operations-sheet profile date in compact monthdayyear form, or None.
+	start_time : HecTime
+		Start of the forecast time window.
+	end_time : HecTime
+		End of the forecast time window.
+	BC_output_DSS_filename : str
+		DSS file receiving generated boundary-condition records.
+	BC_F_part : str
+		DSS F-part assigned to generated records.
+	ops_import_F_part : str
+		Version label associated with imported operations data.
+	flow_pattern_config_filename : str
+		Configuration identifying flow-pattern DSS records for municipal
+		withdrawal disaggregation.
+	DSS_map_filename : str
+		Location/path map containing meteorological DSS references.
+
+	Returns
+	-------
+	list of str or None
+		CSV-formatted map records for generated DSS time series, or ``None``
+		when required configuration cannot be resolved.
+
+	Notes
+	-----
+	Unlike the Sacramento/Trinity boundary-condition script, this version
+	reads ops_data/profile_date directly as arguments rather than re-reading
+	the ops file itself, and the per-reservoir pattern-based (weighted)
+	disaggregation block for Folsom inflow is present in source but disabled
+	(see the block comment preserved below); uniform disaggregation is used
+	in its place.
+	"""
 	print "  Forecast time window start: %s"%(start_time.dateAndTime(4))
 	print "  Forecast time window end: %s"%(end_time.dateAndTime(4))
 
 	rv_lines = []
 
+	# Read the Folsom calendar metadata that establishes the starting column
+	# and month for monthly values in the operations spreadsheet.
 	folsom_tsc_list = []
 	folsom_calendar = ops_data["Folsom"][0].split(',')
 	start_index = int(folsom_calendar[0])
 	start_month = folsom_calendar[start_index + 1].strip().upper()
 	if DEBUG: print "\n Folsom start month: %s; Start index: %d"%(start_month, start_index)
 
+	# Establish the operations start date and, when a profile date is
+	# present, the number of days represented by the partial first month.
 	ops_start_date = HecTime()
 	days_in_first_month = None
 	if profile_date:
@@ -586,6 +893,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 		if ops_start_date > start_time:
 			ops_start_date.set("01%s%d"%(start_month, start_time.year()-1), "0000")
 
+	# Convert each Folsom spreadsheet row into a monthly TimeSeriesContainer,
+	# adjusting the starting month when a numeric value precedes the nominal
+	# calendar start column.
 	for line in ops_data["Folsom"][1:]:
 		data_month = start_month
 		data_year = ops_start_date.year()
@@ -642,6 +952,8 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	#print "DSS map config file contents:"
 	#for line in DSS_map_lines: print "\t%s"%line
 
+	# Locate the Fair Oaks air-temperature record previously written to the
+	# DSS map; it drives the Folsom tributary temperature regressions below.
 	met_DSS_file_name = ""
 	airtemp_path = ""
 	for line in DSS_map_lines:
@@ -660,6 +972,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	# Folsom data from CVP spreadsheet
 	########################
 
+	# Initialize the daily accumulated-depletion series used to account for
+	# Folsom evaporation (and any other net loss) within the reservoir
+	# water balance below.
 	tsmath_list = []
 	print "TS Location = %s"%(folsom_tsc_list[0].location.upper())
 	print "  Start date = %s"%(start_time.date(4))
@@ -675,6 +990,11 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	tsmath_folsom_acc_dep.setLocation("FOLSOM LAKE")
 	tsmath_folsom_acc_dep.setParameterPart("FLOW-ACC-DEP")
 	tsmath_folsom_acc_dep.setVersion(BC_F_part)
+
+	# Interpret each imported Folsom series according to its parameter label
+	# and construct the corresponding boundary-condition and water-balance
+	# components. Uniform (not pattern-weighted) disaggregation is used
+	# throughout, consistent with the disabled weighted-pattern block above.
 	for ts in folsom_tsc_list:
 		print "\tTS Parameter = %s"%(ts.parameter.upper())
 		if ts.parameter.upper() == "INFLOW":
@@ -698,11 +1018,17 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 			tsmath_daily_flow.setVersion(BC_F_part)
 			tsmath_list.append(tsmath_daily_flow)
 		elif ts.parameter.upper() == "EST. EVAP.":
+			# Evaporation is subtracted from the daily accumulated-depletion
+			# term but, unlike the Sac/Trinity script, is not separately
+			# subtracted from a monthly volume-balance series here.
 			tsmath_folsom_evap_monthly = tsmath(ts)
 			tsmath_list.append(tsmath_folsom_evap_monthly)
 			tsmath_folsom_acc_dep = tsmath_folsom_acc_dep.subtract(
 				CVP.uniform_transform_monthly_to_daily(tsmath(ts), start_day_count=days_in_first_month))
 		elif "STORAGE" in ts.parameter.upper():
+			# Convert monthly storage to instantaneous storage and derive
+			# successive storage changes used by the daily storage
+			# integration below.
 			tsmath_storage_monthly =  tsmath(ts)
 			tsmath_storage_monthly.setParameterPart("STORAGE")
 			tsmath_storage_monthly.setType("INST-CUM")
@@ -714,6 +1040,8 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 			tsm_storage_change.setParameterPart("STORAGE-CHANGE")
 			tsmath_list.append(tsm_storage_change)
 		elif ts.parameter.upper() == "TOTAL RELEASE":
+			# Convert total monthly Folsom release to an hourly release-flow
+			# boundary condition while retaining the monthly volume record.
 			tsmath_release_monthly = tsmath(ts)
 			tsmath_list.append(tsmath_release_monthly)
 			tsmath_release = CVP.uniform_transform_monthly_to_hourly(tsmath(ts), start_day_count=days_in_first_month)
@@ -723,6 +1051,8 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 			tsmath_release.setVersion(BC_F_part)
 			tsmath_list.append(tsmath_release)
 		elif ts.parameter.upper() == "ACTUAL NIMBUS RELEASE (TAF)":
+			# Nimbus releases are downstream of Folsom at Lake Natoma;
+			# relocate the watershed/location metadata accordingly.
 			tsmath_nimbus_monthly = tsmath(ts)
 			tsmath_nimbus_monthly.setWatershed("AMERICAN RIVER")
 			tsmath_nimbus_monthly.setLocation("LAKE NATOMA")
@@ -736,6 +1066,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 			tsmath_nimbus.setVersion(BC_F_part)
 			tsmath_list.append(tsmath_nimbus)
 		elif ts.parameter.upper() == "FLOW-AMER AFRP":
+			# Explicitly set units/type before wrapping in TimeSeriesMath,
+			# since the source parameter name does not follow the standard
+			# convention otherwise used to infer them.
 			ts.units = "CFS"
 			ts.type = "PER-AVER"
 			tsmath_afrp_monthly = tsmath(ts)
@@ -774,6 +1107,12 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	#		Folsom dam releases: tsmath_release_daily
 	#		Net evaporation, leakage, other: tsmath_acc_dep
 
+	# Construct a daily Folsom storage trajectory, using monthly storage
+	# values as fixed checkpoints and the daily water balance between those
+	# checkpoints. Note: unlike the storage-change series created above,
+	# this reservoir balance uses tsmath_release_monthly (total release)
+	# rather than a dedicated net-balance series, since Folsom has no
+	# separate monthly volume-balance accumulator in this script.
 	tsmath_storage_daily = tsmath.generateRegularIntervalTimeSeries(
 		"%s 0000"%(ops_start_date.date(4)),
 		"%s 2400"%(end_time.date(4)),
@@ -791,6 +1130,10 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 
 	j = 1
 	search_time = HecTime()
+
+	# At each monthly checkpoint, reset to the imported storage value;
+	# otherwise integrate the daily inflow, release, and accumulated-
+	# depletion balance (1.98347 converts CFS-days to acre-feet).
 	for i in range(1, len(tsmath_storage_daily.getContainer().values)):
 		if tsmath_storage_daily.getContainer().times[i] >= tsmath_storage_monthly.getContainer().times[j]:
 			tsmath_storage_daily.getContainer().values[i] = tsmath_storage_monthly.getContainer().values[j]
@@ -809,7 +1152,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	# Disaggregate Folsom Tributary In Flows
 	########################
 
-	# North Fork and South Fork coefficients
+	# Split total Folsom inflow into North Fork and South Fork fractions by
+	# month, then retain each generated series by location name for use in
+	# the temperature regressions below.
 	tributary_weights = {
 		"Folsom-NF-in":(0.616122397481848, 0.634490648, 0.655322726, 0.614507479, 0.5324295713, 0.490282586,
 						0.486906093, 0.469756669, 0.495028826, 0.388437959, 0.539534578, 0.609745525),
@@ -821,7 +1166,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 		tsmath_list.append(tsm)
 		names_flows[tsm.getContainer().location] = tsm
 
-	# North Fork and Middle Fork coefficients as fraction of total NF flow to Folsom
+	# Further split North Fork flow into its North Fork (above Middle Fork
+	# confluence) and Middle Fork (above North Fork confluence) components,
+	# expressed as monthly fractions of total North Fork flow to Folsom.
 	NF_tributary_weights ={
 		"North Fork abv MF":(0.400374748, 0.451766344 , 0.492703683, 0.517924061, 0.506387691, 0.333514521,
 							0.153097495, 0.08235269, 0.088692849, 0.221268985, 0.235921776, 0.332332904),
@@ -836,6 +1183,10 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	# Get flows and temperatures for downstream tributaries, and other seasonal stuff
 	# from monthly average data sets
 	########################
+
+	# Read each configured tributary-average record, detect whether it is
+	# stored at a monthly or daily time step from its DSS pathname E-part,
+	# and shift the repeating seasonal pattern onto the forecast period.
 	tributary_config_filename = os.path.join(Project.getCurrentProject().getWorkspacePath(), r"forecast\config\tributary_averages.config")
 	# trib_DSS_files = {}
 	for line in getConfigLines(tributary_config_filename):
@@ -855,12 +1206,16 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 		tsmath_avg = tsmath(tsc_avg)
 		shift_path = token[-1].strip().split('/')
 		if shift_path[5] == '1MON':
+			# Monthly-average source: shift to the forecast period, then
+			# disaggregate uniformly to daily values.
 			tsmath_shift = shift_monthly_averages(tsmath_avg, start_time, end_time)
 			shift_path[6] = BC_F_part
 			tsmath_shift.getContainer().fullName = '/'.join(shift_path)
 			tsmath_list.append(CVP.uniform_transform_monthly_to_daily(tsmath_shift, start_day_count=days_in_first_month))
 			ts_read.done()
 		elif shift_path[5] == '1DAY':
+			# Daily-average source: shift directly by day-of-year without
+			# further disaggregation.
 			tsmath_shift = shift_daily_averages(tsmath_avg, start_time, end_time)
 			shift_path[6] = BC_F_part
 			tsmath_shift.getContainer().fullName = '/'.join(shift_path)
@@ -881,11 +1236,16 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 		temperature_logfile = open(os.path.join(Project.getCurrentProject().getWorkspacePath(), "AMR_temp_calc.log"), 'w')
 
 	# South Fork water temperature from regression formula
+
+	# Ensure South Fork flow is in metric units (m^3/s) as required by the
+	# american_SF_temp regression.
 	if names_flows["Folsom-SF-in"].isMetric():
 		tsmath_SF_cms = names_flows["Folsom-SF-in"]
 	else:
 		tsmath_SF_cms = names_flows["Folsom-SF-in"].convertToMetricUnits()
 
+	# Read the Fair Oaks air-temperature series and convert it to metric
+	# units and a daily average, both required by the regression functions.
 	print "DSS file for Fair Oaks air temperature: " + met_DSS_file_name
 	print "DSS path for Fair Oaks air temperature: : " + airtemp_path
 	ts_read = hec.heclib.dss.HecTimeSeries()
@@ -907,6 +1267,7 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	print "South Fork Temp start time = " + start_time.date(4) + ' ' + str(start_time.minutesSinceMidnight())
 	print "South Fork Temp end time = " + end_time.date(4) + ' ' + str(end_time.minutesSinceMidnight())
     
+	# Evaluate the South Fork regression day-by-day over the forecast period.
 	tsmath_SF_WTemp = tsmath.generateRegularIntervalTimeSeries(start_time.dateAndTime(4), end_time.dateAndTime(4), "1DAY", "", 0.0)
 	time_post = HecTime(HecTime.MINUTE_INCREMENT)
 	i = 0
@@ -935,6 +1296,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	tsmath_list.append(tsmath_SF_WTemp)
 
 	# North Fork water temperature from regression formula
+
+	# Ensure North Fork and Middle Fork flows are in metric units as
+	# required by the american_NF_temp regression.
 	if names_flows["North Fork abv MF"].isMetric():
 		tsmath_NF_cms = names_flows["North Fork abv MF"]
 	else:
@@ -944,6 +1308,7 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	else:
 		tsmath_MF_cms = names_flows["Middle Fork abv NF"].convertToMetricUnits()
 
+	# Evaluate the North Fork regression day-by-day over the forecast period.
 	tsmath_NF_WTemp = tsmath.generateRegularIntervalTimeSeries(start_time.dateAndTime(4), end_time.dateAndTime(4), "1DAY", "", 0.0)
 	i = 0
 	for time_step in tsmath_NF_WTemp.getContainer().times:
@@ -993,6 +1358,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	# Municipal withdrawals for Carmichael (Bajamount WTP) and Sacramento (Faibairn)
 	########################
 
+	# For each municipal withdrawal location, locate its configured pattern
+	# DSS file/path, read the pattern (12 monthly values), and build a daily
+	# flow series by repeating each month's pattern value across its days.
 	flow_pattern_config_lines = getConfigLines(flow_pattern_config_filename)
 	#print "Flow Pattern config file contents:"
 	#for line in flow_pattern_config_lines: print "\t%s"%line
@@ -1025,6 +1393,9 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 		if status < 0:
 			print "Failed to read municipal withdrawal time series %s \n\tfrom DSS file %s"%(source_path, source_DSS_file_name)
 			continue
+
+		# Build a daily time series and assign each day the pattern value
+		# for its calendar month (pattern index = month number - 1).
 		tsc_muni = tsmath.generateRegularIntervalTimeSeries(start_time.dateAndTime(4), end_time.dateAndTime(4), "1DAY", "", 1.0).getData()
 		in_time = HecTime( HecTime.MINUTE_INCREMENT)
 		for i in range(tsc_muni.numberValues):
@@ -1044,6 +1415,8 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	# Zero-Flow Time Series
 	########################
 
+	# Create daily and hourly zero-flow series for boundary locations that
+	# require a valid DSS flow record even when no flow is prescribed.
 	tsmath_zero_flow_day = tsmath.generateRegularIntervalTimeSeries(
 		"%s 0000"%(start_time.date(4)),
 		"%s 2400"%(end_time.date(4)),
@@ -1068,6 +1441,8 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	tsmath_zero_flow_hour.setVersion(BC_F_part)
 	tsmath_list.append(tsmath_zero_flow_hour)
 
+	# Write every generated TimeSeriesMath record to the boundary-condition
+	# DSS file and construct the corresponding location/path map entry.
 	for tsmath_item in tsmath_list:
 		ts_write = hec.heclib.dss.HecTimeSeries()
 		ts_write.setDSSFileName(BC_output_DSS_filename)
@@ -1083,9 +1458,22 @@ def create_ops_BC_data(ops_data, profile_date, start_time, end_time, BC_output_D
 	return rv_lines
 
 def monthFromDateStr(str):
+	"""Extract a three-letter month abbreviation from a date-like string.
+
+	Parameters
+	----------
+	str : str
+		Whitespace-separated string expected to contain a recognizable
+		three-letter month abbreviation token.
+
+	Returns
+	-------
+	str or None
+		The matching month abbreviation in upper case, or ``None`` if no
+		token in the string matches a recognized abbreviation.
+	"""
 	month_TLA = ["NM", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 	for token in str.split():
 		if token.strip().upper() in month_TLA:
 			return token.strip().upper()
 	return None
-
